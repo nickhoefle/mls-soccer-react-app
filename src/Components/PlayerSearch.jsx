@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { API_KEY } from '../api-key';
 
 const PlayerSearch = ({ handleSubmit }) => {
     const [playerName, setPlayerName] = useState('');
