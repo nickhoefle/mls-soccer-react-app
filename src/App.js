@@ -8,6 +8,7 @@ import TeamLogoStrip from './Components/TeamLogoStrip';
 import LiveSchedule from './Components/LiveSchedule';
 import PlayerStatGraph from './Components/PlayerStatGraph';
 import TeamPage from './Components/TeamPage';
+import TeamPlayers from './Components/TeamPlayers';
 
 function App() {
   const [player, setPlayer] = useState(null);
@@ -44,8 +45,9 @@ function App() {
               </div>
             </div>
         </Route>
-        <Route path="/team">
-          <TeamPage />
+        <Route path="/team/:teamId">
+          <TeamLogoStrip />
+          <TeamPlayers />
         </Route>
       </Switch>
     </Router>
