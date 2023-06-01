@@ -6,16 +6,21 @@ import PlayerStatGraph from './Components/PlayerStatGraph';
 
 function App() {
   const [player, setPlayer] = useState(null);
+  const [team, setTeam] = useState(null);
 
   function handleSubmit(player) {
     setPlayer(player);
+  }
+
+  function handleTeamSelect(team) {
+    setTeam(team);
   }
 
   return (
     <Router>
       <Switch>
         <Route exact path="/">
-          <TeamLogoStrip />
+          <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
           <div className="bg-black p-6 content-center">
             <h1 className="text-white text-center text-4xl">MLStats by Nick</h1>
           </div>
@@ -30,7 +35,8 @@ function App() {
           </div>
         </Route>
         <Route path="/team/:teamId">
-          <TeamLogoStrip />
+          <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
+          {team && <h1 className='text-white text-center pt-10 text-2xl'>{team}</h1>}
         </Route>
       </Switch>
     </Router>

@@ -19,7 +19,6 @@ const PlayerStatGraph = ({ playerName }) => {
         };
         
         const positionsToInclude = matchingPositions[matchingPlayer.Pos.toLowerCase()];
-        
         let sum = 0;
         let count = 0;
         
@@ -29,7 +28,7 @@ const PlayerStatGraph = ({ playerName }) => {
                 count++;
             }
         });
-        console.log(count)
+
         const leagueAverage = count > 0 ? sum / count : 0;
         return leagueAverage.toFixed(2);
     }
