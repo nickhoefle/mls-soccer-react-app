@@ -48,23 +48,55 @@ const PlayerStatGraph = ({ playerName }) => {
     const shotsOnTargetPer90 = sumStat(shootingStats, 'SoT90', matchingPlayerShooting);
 
     return (
-        <div>
+        <>
             <h1 className='text-white text-xl'>
                 Stat Graphs for {matchingPlayer ? matchingPlayer.Player : playerName}
             </h1>
+            
+            <br />
 
-            {matchingPlayer ? (
-                <div>           
-                    <p> Expected Goals per 90: {matchingPlayer.xG__1} - League Average: {xgPer90} </p>
-                    <p> Expected Assists per 90: {matchingPlayer.xAG__1} - League Average: {xaPer90} </p>
-                    <p> Yellow Cards: {matchingPlayer.CrdY} - League Average: {yellowCards} </p>
-                    <p> Shots per 90: {matchingPlayerShooting.Sh90} - League Average: {shotsPer90} </p>
-                    <p> Shots on Target per 90: {matchingPlayerShooting.SoT90} - League Average: {shotsOnTargetPer90} </p>
+            <div className='flex justify-center'>
+                {matchingPlayer ? (
+                <div className='w-1/3'>
+                    <h2 className='underline'>Expected Goals per 90</h2>
+                    <div className='flex items-center justify-between'>
+                        <div className='flex items-center'>
+                            <hr className='w-1/2 bg-gray-400' style={{ width: `${matchingPlayer.xG__1 * 500}px` }} />
+                            <p className='ml-3'>{matchingPlayer.xG__1}</p>
+                        </div>
+                        <p className='ml-3'>{matchingPlayer.Player}</p>
+                    </div>
+                    <div className='flex items-center justify-between'>
+                        <div className='flex items-center'>
+                            <hr className='w-1/2 bg-gray-400' style={{ width: `${xgPer90 * 500}px` }} />
+                            <p className='ml-3'>{xgPer90}</p>
+                        </div>
+                        <p className='ml-3'>Average for Position</p>
+                    </div>
+
+                    <br />
+
+                    <h2 className='underline'>Expected Assists per 90</h2>
+                    <div className='flex items-center justify-between'>
+                        <div className='flex items-center'>
+                            <hr className='w-1/2 bg-gray-400' style={{ width: `${matchingPlayer.Ast__1 * 500}px` }} />
+                            <p className='ml-3'>{matchingPlayer.Ast__1}</p>
+                        </div>
+                        <p className='ml-3'>{matchingPlayer.Player}</p>
+                    </div>
+                    <div className='flex items-center justify-between'>
+                        <div className='flex items-center'>
+                            <hr className='w-1/2 bg-gray-400' style={{ width: `${xaPer90 * 500}px` }} />
+                            <p className='ml-3'>{xaPer90}</p>
+                        </div>
+                        <p className='ml-3'>Average for Position</p>
+                    </div>
                 </div>
-            ) : (
-                    <p>No matching player found.</p>
+                ) : (
+                <p>No matching player found.</p>
                 )}
-        </div>
+            </div>
+        </>
     );
 };
 
