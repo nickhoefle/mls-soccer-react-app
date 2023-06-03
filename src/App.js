@@ -5,6 +5,7 @@ import TeamLogoStrip from './Components/TeamLogoStrip';
 import PlayerStatGraph from './Components/PlayerStatGraph';
 import LeagueLeaders from './Components/LeagueLeaders';
 import TeamRoster from './Components/TeamRoster';
+import PageTitle from './Components/PageTitle';
 
 function App() {
   const [player, setPlayer] = useState(null);
@@ -23,9 +24,7 @@ function App() {
       <Switch>
         <Route exact path="/">
           <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
-          <div className="bg-black p-6 content-center">
-            <h1 className="text-white text-center text-4xl">MLStats by Nick</h1>
-          </div>
+          <PageTitle />
           <br></br>
           <div className="flex justify-center bg-black opacity-75 p-4">
             <div className="text-white text-center opacity-75">
@@ -44,6 +43,7 @@ function App() {
         </Route>
         <Route path="/team/:teamId">
           <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
+          <PageTitle />
           {team && <TeamRoster team={team} setPlayer={setPlayer} />}
           <div className="text-white text-center bg-black opacity-75 pb-10">
             {player && <PlayerStatGraph playerName={player} />}

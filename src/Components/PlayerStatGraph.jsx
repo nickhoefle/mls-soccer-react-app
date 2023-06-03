@@ -79,8 +79,8 @@ const PlayerStatGraph = ({ playerName }) => {
                     <h2 className='underline'>Expected Assists per 90</h2>
                     <div className='flex items-center justify-between'>
                         <div className='flex items-center'>
-                            <hr className='w-1/2 bg-gray-400' style={{ width: `${matchingPlayer.Ast__1 * 500}px` }} />
-                            <p className='ml-3'>{matchingPlayer.Ast__1}</p>
+                            <hr className='w-1/2 bg-gray-400' style={{ width: `${matchingPlayer.xAG__1 * 500}px` }} />
+                            <p className='ml-3'>{matchingPlayer.xAG__1}</p>
                         </div>
                         <p className='ml-3'>{matchingPlayer.Player}</p>
                     </div>
@@ -91,6 +91,25 @@ const PlayerStatGraph = ({ playerName }) => {
                         </div>
                         <p className='ml-3'>Average for Position</p>
                     </div>
+
+                    <br />
+
+                    <h2 className='underline'>Yellow Cards</h2>
+                    <div className='flex items-center justify-between'>
+                        <div className='flex items-center'>
+                            <hr className='w-1/2 bg-gray-400' style={{ width: `${matchingPlayer.CrdY * 20}px` }} />
+                            <p className='ml-3'>{matchingPlayer.CrdY}</p>
+                        </div>
+                        <p className='ml-3'>{matchingPlayer.Player}</p>
+                    </div>
+                    <div className='flex items-center justify-between'>
+                        <div className='flex items-center'>
+                            <hr className='w-1/2 bg-gray-400' style={{ width: `${yellowCards * 20}px` }} />
+                            <p className='ml-3'>{yellowCards}</p>
+                        </div>
+                        <p className='ml-3'>Average for Position</p>
+                    </div>
+
                 </div>
                 ) : (
                 <p>No matching player found.</p>
