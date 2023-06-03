@@ -36,10 +36,10 @@ function App() {
           <div className="flex justify-center bg-black opacity-75 p-4">
             <div className="text-white text-center opacity-75">
               <PlayerSearch handleSubmit={handleSubmit} />
-              <div className="py-2">
-                {player && <PlayerStatGraph playerName={player} />}
-              </div>
             </div>
+          </div>
+          <div className="text-white text-center bg-black opacity-75 pb-10">
+              {player && <PlayerStatGraph playerName={player} />}
           </div>
         </Route>
         <Route path="/team/:teamId">
