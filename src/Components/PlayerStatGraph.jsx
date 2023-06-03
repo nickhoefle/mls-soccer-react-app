@@ -23,7 +23,7 @@ const PlayerStatGraph = ({ playerName }) => {
             dffw: ['fwdf', 'dffw', 'df', 'fw', 'mfdf', 'dfmf', 'fwmf', 'mffw'],
         };
         
-        const positionsToInclude = matchingPositions[matchingPlayer.Pos.toLowerCase()];
+        const positionsToInclude = matchingPositions[matchingPlayer.Pos.replace(',', '').toLowerCase()];
         let sum = 0;
         let count = 0;
         
