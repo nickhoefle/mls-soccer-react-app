@@ -4,6 +4,7 @@ import PlayerSearch from './Components/PlayerSearch';
 import TeamLogoStrip from './Components/TeamLogoStrip';
 import PlayerStatGraph from './Components/PlayerStatGraph';
 import LeagueLeaders from './Components/LeagueLeaders';
+import TeamRoster from './Components/TeamRoster';
 
 function App() {
   const [player, setPlayer] = useState(null);
@@ -28,7 +29,7 @@ function App() {
           <br></br>
           <div className="flex justify-center bg-black opacity-75 p-4">
             <div className="text-white text-center opacity-75">
-              <LeagueLeaders />
+              <LeagueLeaders setPlayer={setPlayer} />
             </div>
           </div>
           <br></br>
@@ -43,7 +44,10 @@ function App() {
         </Route>
         <Route path="/team/:teamId">
           <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
-          {team && <h1 className='text-white text-center pt-10 text-2xl'>{team}</h1>}
+          {team && <TeamRoster team={team} setPlayer={setPlayer} />}
+          <div className="text-white text-center bg-black opacity-75 pb-10">
+            {player && <PlayerStatGraph playerName={player} />}
+          </div>
         </Route>
       </Switch>
     </Router>
