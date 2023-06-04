@@ -1,3 +1,7 @@
+//csv to JSON converter
+https://csvjson.com/csv2json
+
+
 // player-standard-stats
 https://fbref.com/en/comps/22/stats/Major-League-Soccer-Stats
 
