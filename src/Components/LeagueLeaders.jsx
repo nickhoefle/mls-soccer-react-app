@@ -1,6 +1,6 @@
 import React from 'react'
-import data from '../csvjson.json';
-import goalkeeping from '../goalkeeping.json';
+import data from '../data/player-standard-stats.json';
+import goalkeeping from '../data/goalkeeping.json';
 
 const LeagueLeaders = ({ setPlayer }) => {
 

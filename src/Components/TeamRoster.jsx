@@ -1,5 +1,5 @@
 import React from 'react'
-import data from '../csvjson.json';
+import data from '../data/player-standard-stats.json';
 
 const TeamRoster = ({ team, setPlayer }) => {
 
