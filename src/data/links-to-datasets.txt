@@ -1,0 +1,14 @@
+// player-standard-stats
+https://fbref.com/en/comps/22/stats/Major-League-Soccer-Stats
+
+
+// goalkeeping
+https://fbref.com/en/comps/22/keepers/Major-League-Soccer-Stats
+
+
+//past-matches
+https://fbref.com/en/comps/22/schedule/Major-League-Soccer-Scores-and-Fixtures
+
+
+//shooting-stats
+https://fbref.com/en/comps/22/shooting/Major-League-Soccer-Stats

@@ -1,6 +1,6 @@
 import React from 'react';
-import data from '../csvjson.json';
-import shootingStats from '../shooting-stats.json';
+import data from '../data/player-standard-stats.json';
+import shootingStats from '../data/shooting-stats.json';
 import diacriticless from 'diacriticless';
 
 const PlayerStatGraph = ({ playerName }) => {

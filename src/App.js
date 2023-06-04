@@ -6,6 +6,7 @@ import PlayerStatGraph from './Components/PlayerStatGraph';
 import LeagueLeaders from './Components/LeagueLeaders';
 import TeamRoster from './Components/TeamRoster';
 import PageTitle from './Components/PageTitle';
+import TeamPastMatches from './Components/TeamPastMatches';
 
 function App() {
   const [player, setPlayer] = useState(null);
@@ -43,8 +44,9 @@ function App() {
         </Route>
         <Route path="/team/:teamId">
           <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
-          <PageTitle />
+          <PageTitle />          
           {team && <TeamRoster team={team} setPlayer={setPlayer} />}
+          <TeamPastMatches team={team} />
           <div className="text-white text-center bg-black opacity-75 pb-10">
             {player && <PlayerStatGraph playerName={player} />}
           </div>
