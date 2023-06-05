@@ -12,6 +12,7 @@ import TeamDropdown2 from './Components/TeamDropdown2';
 import PlayerDropdown from './Components/PlayerDropdown';
 import PlayerDropdown2 from './Components/PlayerDropdown2';
 import PlayerComparisonChart from './Components/PlayerComparisonChart';
+import TeamSeasonGraph from './Components/TeamSeasonGraph';
 
 function App() {
   const [player, setPlayer] = useState(null);
@@ -20,6 +21,7 @@ function App() {
   const [teamName2, setTeamName2] = useState('');
   const [playerToCompare, setPlayerToCompare] = useState('');
   const [playerToCompare2, setPlayerToCompare2] = useState('');
+  const [activeComponent, setActiveComponent] = useState('roster');
 
   function handleSubmit(player) {
     setPlayer(player);
@@ -43,6 +45,10 @@ function App() {
 
   function handlePlayerToCompare2(player2) {
     setPlayerToCompare2(player2);
+  }
+
+  function handleComponentClick(component) {
+    setActiveComponent(component);
   }
 
   return (
@@ -90,12 +96,37 @@ function App() {
 
         <Route path="/team/:teamId">
           <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
-          <PageTitle />          
-          {team && <TeamRoster team={team} setPlayer={setPlayer} />}
-          <TeamPastMatches team={team} />
-          <div className="text-white text-center bg-black opacity-75 pb-10">
-            {player && <PlayerStatGraph playerName={player} />}
-          </div>
+            <PageTitle />
+              <div className='flex justify-center bg-black opacity-75 pt-8'>
+                <h2 className='text-white text-2xl bold'>{team}</h2>
+              </div>
+              <div className="flex justify-center bg-black opacity-75 p-4">            
+                <button
+                  className={`mr-4 text-white text-lg ${activeComponent === 'roster' ? 'underline' : ''}`}
+                  onClick={() => handleComponentClick('roster')}
+                >
+                  Team Roster and Stats
+                </button>
+                <button
+                  className={`mr-4 text-white text-lg ${activeComponent === 'matches' ? 'underline' : ''}`}
+                  onClick={() => handleComponentClick('matches')}
+                >
+                  Past Matches
+                </button>
+                <button
+                  className={`mr-4 text-white text-lg ${activeComponent === 'graph' ? 'underline' : ''}`}
+                  onClick={() => handleComponentClick('graph')}
+                >
+                  Goal Differential Graph
+                </button>
+              </div>
+              {team && (
+                <>
+                  {activeComponent === 'roster' && <TeamRoster team={team} setPlayer={setPlayer} />}
+                  {activeComponent === 'matches' && <TeamPastMatches team={team} />}
+                  {activeComponent === 'graph' && <TeamSeasonGraph team={team} />}
+                </>
+              )}
         </Route>
 
       </Switch>
