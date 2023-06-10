@@ -13,6 +13,7 @@ import PlayerDropdown from './Components/PlayerDropdown';
 import PlayerDropdown2 from './Components/PlayerDropdown2';
 import PlayerComparisonChart from './Components/PlayerComparisonChart';
 import TeamSeasonGraph from './Components/TeamSeasonGraph';
+import TeamSalaryPieChart from './Components/TeamSalaryPieChart';
 
 function App() {
   const [player, setPlayer] = useState(null);
@@ -56,7 +57,9 @@ function App() {
       <Switch>
 
         <Route exact path="/">
-          <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
+          <div className='hidden md:block'>
+            <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
+          </div>
           <PageTitle />
           <br></br>
           <div className="flex justify-center bg-black opacity-75 p-4">
@@ -119,12 +122,19 @@ function App() {
                 >
                   Goal Differential Graph
                 </button>
+                <button
+                  className={`mr-4 text-white text-lg ${activeComponent === 'chart' ? 'underline' : ''}`}
+                  onClick={() => handleComponentClick('chart')}
+                >
+                  Team Salary Chart
+                </button>
               </div>
               {team && (
                 <>
                   {activeComponent === 'roster' && <TeamRoster team={team} setPlayer={setPlayer} />}
                   {activeComponent === 'matches' && <TeamPastMatches team={team} />}
                   {activeComponent === 'graph' && <TeamSeasonGraph team={team} />}
+                  {activeComponent === 'chart' && <TeamSalaryPieChart team={team} />}
                 </>
               )}
         </Route>
