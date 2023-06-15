@@ -4,6 +4,7 @@ import PlayerSearch from './Components/PlayerSearch';
 import TeamLogoStrip from './Components/TeamLogoStrip';
 import PlayerStatGraph from './Components/PlayerStatGraph';
 import LeagueLeaders from './Components/LeagueLeaders';
+import LeagueLeadersSwiper from './Components/LeagueLeadersSwiper';
 import TeamRoster from './Components/TeamRoster';
 import PageTitle from './Components/PageTitle';
 import TeamPastMatches from './Components/TeamPastMatches';
@@ -63,7 +64,10 @@ function App() {
           <PageTitle />
           <br></br>
           <div className="flex justify-center bg-black opacity-75 p-4">
-            <div className="text-white text-center opacity-75">
+            <div className="sm:block lg:hidden w-full">
+              <LeagueLeadersSwiper setPlayer={setPlayer} />
+            </div>
+            <div className="hidden lg:block text-white text-center opacity-75">
               <LeagueLeaders setPlayer={setPlayer} />
             </div>
           </div>
@@ -81,7 +85,7 @@ function App() {
             <h2 className='text-white text-2xl opacity-75'>Player Comparison</h2>
           </div>
           <div className='flex justify-center bg-black opacity-75 pb-0'>
-            <div className="text-white text-center pr-20">
+            <div className="text-white text-center pr-10">
               <h2 className='underline'>Player 1</h2>
               <TeamDropdown teamName={teamName} setTeamName={handleTeamNameSelect} />
               {teamName && <PlayerDropdown teamName={teamName} playerToCompare={playerToCompare} setPlayerToCompare={handlePlayerToCompare}/>}
