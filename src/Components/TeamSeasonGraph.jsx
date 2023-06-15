@@ -92,7 +92,7 @@ const TeamSeasonGraph = ({ team }) => {
 
     return (
         <div className="flex justify-center bg-black opacity-75">
-            <div className=" text-white rounded-lg p-4 w-1/2 mx-auto">
+            <div className=" text-white rounded-lg p-4 w-screen lg:w-2/3 sm:w-1/1">
                 <ReactApexChart
                 options={chartOptions}
                 series={chartSeries}
