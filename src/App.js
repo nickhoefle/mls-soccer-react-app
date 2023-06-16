@@ -15,6 +15,7 @@ import PlayerDropdown2 from './Components/PlayerDropdown2';
 import PlayerComparisonChart from './Components/PlayerComparisonChart';
 import TeamSeasonGraph from './Components/TeamSeasonGraph';
 import TeamSalaryPieChart from './Components/TeamSalaryPieChart';
+import TeamHamburger from './Components/TeamHamburger';
 
 function App() {
   const [player, setPlayer] = useState(null);
@@ -62,6 +63,9 @@ function App() {
             <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
           </div>
           <PageTitle />
+          <div className='sm:block lg:hidden bg-black text-white text-xl pl-6 pt-4'>
+            <TeamHamburger handleTeamSelect={handleTeamSelect} />
+          </div>
           <br></br>
           <div className="flex justify-center bg-black opacity-75 p-4">
             <div className="sm:block lg:hidden w-full">
@@ -102,8 +106,13 @@ function App() {
         </Route>
 
         <Route path="/team/:teamId">
-          <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
-            <PageTitle />
+        <div className='hidden md:block'>
+            <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
+          </div>
+          <PageTitle />
+          <div className='sm:block lg:hidden bg-black text-white text-xl pl-6 pt-4'>
+            <TeamHamburger handleTeamSelect={handleTeamSelect} />
+          </div>
               <div className='flex justify-center bg-black opacity-75 pt-8'>
                 <h2 className='text-white text-2xl bold'>{team}</h2>
               </div>

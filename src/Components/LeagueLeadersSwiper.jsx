@@ -32,6 +32,7 @@ const LeagueLeadersSwiper = ({ setPlayer }) => {
             type: "progressbar",
             }}
             navigation={false}
+            modules={[Pagination, Navigation]}
             className="mySwiper"
             style={{ height: "340px" }}
             >
