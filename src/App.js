@@ -67,17 +67,17 @@ function App() {
             <TeamHamburger handleTeamSelect={handleTeamSelect} />
           </div>
           <br></br>
-          <div className="flex justify-center bg-black opacity-75 p-4">
+          <div className="flex justify-center bg-black lg:opacity-75 p-4">
             <div className="sm:block lg:hidden w-full">
               <LeagueLeadersSwiper setPlayer={setPlayer} />
             </div>
-            <div className="hidden lg:block text-white text-center opacity-75">
+            <div className="hidden lg:block text-white text-center lg:opacity-75">
               <LeagueLeaders setPlayer={setPlayer} />
             </div>
           </div>
           <br></br>
           <div className="flex justify-center bg-black lg:opacity-75 p-4">
-            <div className="text-white text-center opacity-75">
+            <div className="text-white text-center lg:opacity-75">
               <PlayerSearch handleSubmit={handleSubmit} />
             </div>
           </div>
@@ -85,11 +85,11 @@ function App() {
               {player && <PlayerStatGraph playerName={player} />}
           </div>
           <br />
-          <div className='flex justify-center bg-black opacity-75 pb-4'>
+          <div className='flex justify-center bg-black lg:opacity-75 pb-4'>
             <h2 className='text-white text-2xl lg:opacity-75'>Player Comparison</h2>
           </div>
-          <div className='flex justify-center bg-black opacity-75 pb-0'>
-            <div className="text-white text-center pr-10">
+          <div className='md:flex md:justify-center bg-black lg:opacity-75 pb-0'>
+            <div className="text-white text-center md:pr-10 pb-6 md:pb-0">
               <h2 className='underline'>Player 1</h2>
               <TeamDropdown teamName={teamName} setTeamName={handleTeamNameSelect} />
               {teamName && <PlayerDropdown teamName={teamName} playerToCompare={playerToCompare} setPlayerToCompare={handlePlayerToCompare}/>}
@@ -100,7 +100,7 @@ function App() {
               {teamName2 && <PlayerDropdown2 teamName2={teamName2} playerToCompare2={playerToCompare2} setPlayerToCompare2={handlePlayerToCompare2}/>}
             </div>
           </div>
-          <div className="text-white text-center bg-black opacity-75 pb-10">
+          <div className="text-white text-center bg-black lg:opacity-75 pb-10">
             {playerToCompare && playerToCompare2 && <PlayerComparisonChart playerToCompare={playerToCompare} playerToCompare2={playerToCompare2} />}
           </div>
         </Route>
@@ -113,10 +113,10 @@ function App() {
           <div className='sm:block lg:hidden bg-black text-white text-xl pl-6 pt-4'>
             <TeamHamburger handleTeamSelect={handleTeamSelect} />
           </div>
-              <div className='flex justify-center bg-black opacity-75 pt-8'>
+              <div className='flex justify-center bg-black lg:opacity-75 pt-8'>
                 <h2 className='text-white text-2xl bold'>{team}</h2>
               </div>
-              <div className="flex justify-center bg-black opacity-75 p-4">            
+              <div className="flex justify-center bg-black lg:opacity-75 p-4">            
                 <button
                   className={`mr-4 text-white text-lg ${activeComponent === 'roster' ? 'underline' : ''}`}
                   onClick={() => handleComponentClick('roster')}

@@ -40,7 +40,7 @@ const TeamSalaryPieChart = ({ team }) => {
     
     if (salaries.length === 0) {
         return (
-            <div className='flex justify-center bg-black opacity-80 text-xl text-white pt-5 pb-5'>Salary data not available.</div>
+            <div className='flex justify-center bg-black text-xl text-white pt-5 pb-5'>Salary data not available.</div>
         )
     }
     return (
