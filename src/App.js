@@ -88,7 +88,7 @@ function App() {
           <div className='flex justify-center bg-black lg:opacity-75 pb-4'>
             <h2 className='text-white text-2xl lg:opacity-75'>Player Comparison</h2>
           </div>
-          <div className='md:flex md:justify-center bg-black lg:opacity-75 pb-10'>
+          <div className='md:flex md:justify-center bg-black lg:opacity-75 pb-0'>
             <div className="text-white text-center md:pr-10 pb-6 md:pb-0">
               <h2 className='underline'>Player 1</h2>
               <TeamDropdown teamName={teamName} setTeamName={handleTeamNameSelect} />
