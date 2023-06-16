@@ -76,17 +76,17 @@ function App() {
             </div>
           </div>
           <br></br>
-          <div className="flex justify-center bg-black opacity-75 p-4">
+          <div className="flex justify-center bg-black lg:opacity-75 p-4">
             <div className="text-white text-center opacity-75">
               <PlayerSearch handleSubmit={handleSubmit} />
             </div>
           </div>
-          <div className="text-white text-center bg-black opacity-75 pb-10">
+          <div className="text-white text-center bg-black lg:opacity-75 pb-10">
               {player && <PlayerStatGraph playerName={player} />}
           </div>
           <br />
           <div className='flex justify-center bg-black opacity-75 pb-4'>
-            <h2 className='text-white text-2xl opacity-75'>Player Comparison</h2>
+            <h2 className='text-white text-2xl lg:opacity-75'>Player Comparison</h2>
           </div>
           <div className='flex justify-center bg-black opacity-75 pb-0'>
             <div className="text-white text-center pr-10">
@@ -106,7 +106,7 @@ function App() {
         </Route>
 
         <Route path="/team/:teamId">
-        <div className='hidden md:block'>
+          <div className='hidden md:block'>
             <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
           </div>
           <PageTitle />
