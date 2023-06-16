@@ -94,7 +94,7 @@ function App() {
               <TeamDropdown teamName={teamName} setTeamName={handleTeamNameSelect} />
               {teamName && <PlayerDropdown teamName={teamName} playerToCompare={playerToCompare} setPlayerToCompare={handlePlayerToCompare}/>}
             </div>
-            <div className="text-white text-center">
+            <div className="text-white text-center pb-10 md:pb-0">
               <h2 className='underline'>Player 2</h2>
               <TeamDropdown2 teamName2={teamName2} setTeamName2={handleTeamName2Select} />
               {teamName2 && <PlayerDropdown2 teamName2={teamName2} playerToCompare2={playerToCompare2} setPlayerToCompare2={handlePlayerToCompare2}/>}
