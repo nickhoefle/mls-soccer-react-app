@@ -15,7 +15,7 @@ const PlayerDropdown = ({ teamName, playerToCompare, setPlayerToCompare }) => {
         <div>
             <p className='text-white'>Player</p>
             <select
-            className='bg-black outline-white border-2 text-center w-300'
+            className='bg-black outline-white border-2 text-center w-9/10'
             value={playerToCompare}
             onChange={handlePlayerToCompareChange}
             >
