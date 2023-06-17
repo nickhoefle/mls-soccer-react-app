@@ -1,11 +1,11 @@
 import React from 'react'
-import data from '../data/player-standard-stats.json'
+import standardStats from '../data/player-standard-stats.json'
 import shootingData from '../data/shooting-stats.json'
 
 const PlayerComparisonChart = ({ playerToCompare, playerToCompare2 }) => {
     
-    const player1 = data.find((player) => player.Player === playerToCompare);
-    const player2 = data.find((player) => player.Player === playerToCompare2);
+    const player1 = standardStats.find((player) => player.Player === playerToCompare);
+    const player2 = standardStats.find((player) => player.Player === playerToCompare2);
 
     const player1Shooting = shootingData.find((player) => player.Player === playerToCompare);
     const player2Shooting = shootingData.find((player) => player.Player === playerToCompare2);

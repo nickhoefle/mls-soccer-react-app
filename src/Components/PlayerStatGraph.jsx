@@ -4,10 +4,11 @@ import shootingStats from '../data/shooting-stats.json';
 import diacriticless from 'diacriticless';
 
 const PlayerStatGraph = ({ playerName }) => {
-    const cleanedSearchedPlayerName = diacriticless(playerName.toLowerCase());
+
+    const searchedPlayerName = diacriticless(playerName.toLowerCase());
     const matchingPlayer = data.find((player) => {
         const cleanedPlayerName = diacriticless(player.Player.toLowerCase());
-        return cleanedPlayerName.includes(cleanedSearchedPlayerName);
+        return cleanedPlayerName.includes(searchedPlayerName);
     });
 
     function sumStat(jsonFile, stat, matchingPlayer) {
@@ -24,9 +25,10 @@ const PlayerStatGraph = ({ playerName }) => {
         };
         
         const positionsToInclude = matchingPositions[matchingPlayer.Pos.replace(',', '').toLowerCase()];
+        
         let sum = 0;
         let count = 0;
-        
+
         jsonFile.forEach((player) => {
             if (positionsToInclude.includes(player.Pos.toLowerCase()) && player[stat] !== '') {
                 sum += Number(player[stat]);
@@ -38,7 +40,7 @@ const PlayerStatGraph = ({ playerName }) => {
     }
 
     const matchingPlayerShooting = shootingStats.find((p) =>
-        diacriticless(p.Player.toLowerCase()).includes(cleanedSearchedPlayerName)
+        diacriticless(p.Player.toLowerCase()).includes(searchedPlayerName)
     );
 
     const xgPer90 = sumStat(data, 'xG__1', matchingPlayer);
@@ -51,65 +53,57 @@ const PlayerStatGraph = ({ playerName }) => {
         <>
             <h1 className='text-white text-xl'>
                 Stat Graphs for {matchingPlayer ? matchingPlayer.Player : playerName}
-            </h1>
-            
-            <br />
-
-            <div className='flex justify-center'>
+            </h1>            
+            <div className='flex pt-4 pl-5 md:pl-0 md:justify-center'>
                 {matchingPlayer ? (
-                <div className='w-1/3'>
-                    <h2 className='underline'>Expected Goals per 90</h2>
+                <div className='w-1/1 md:w-1/3'>
+                    <h2 className='underline pb-4'>Expected Goals per 90</h2>
                     <div className='flex items-center justify-between'>
                         <div className='flex items-center'>
                             <hr className='w-1/2 bg-gray-400' style={{ width: `${matchingPlayer.xG__1 * 500}px` }} />
                             <p className='ml-3'>{matchingPlayer.xG__1}</p>
                         </div>
-                        <p className='ml-3'>{matchingPlayer.Player}</p>
+                        <p className='ml-3 text-sm md:text-base'>{matchingPlayer.Player}</p>
                     </div>
-                    <div className='flex items-center justify-between'>
+                    <div className='flex items-center justify-between pb-4'>
                         <div className='flex items-center'>
                             <hr className='w-1/2 bg-gray-400' style={{ width: `${xgPer90 * 500}px` }} />
-                            <p className='ml-3'>{xgPer90}</p>
+                            <p className='ml-3 text-sm md:text-base'>{xgPer90}</p>
                         </div>
-                        <p className='ml-3'>Average for Position</p>
+                        <p className='ml-3 text-sm md:text-base'>Average for Position</p>
                     </div>
 
-                    <br />
-
-                    <h2 className='underline'>Expected Assists per 90</h2>
+                    <h2 className='underline pb-4'>Expected Assists per 90</h2>
                     <div className='flex items-center justify-between'>
                         <div className='flex items-center'>
                             <hr className='w-1/2 bg-gray-400' style={{ width: `${matchingPlayer.xAG__1 * 500}px` }} />
                             <p className='ml-3'>{matchingPlayer.xAG__1}</p>
                         </div>
-                        <p className='ml-3'>{matchingPlayer.Player}</p>
+                        <p className='ml-3 text-sm md:text-base'>{matchingPlayer.Player}</p>
                     </div>
-                    <div className='flex items-center justify-between'>
+                    <div className='flex items-center justify-between pb-4'>
                         <div className='flex items-center'>
                             <hr className='w-1/2 bg-gray-400' style={{ width: `${xaPer90 * 500}px` }} />
-                            <p className='ml-3'>{xaPer90}</p>
+                            <p className='ml-3 text-sm md:text-base'>{xaPer90}</p>
                         </div>
-                        <p className='ml-3'>Average for Position</p>
+                        <p className='ml-3 text-sm md:text-base'>Average for Position</p>
                     </div>
 
-                    <br />
-
-                    <h2 className='underline'>Yellow Cards</h2>
+                    <h2 className='underline pb-4'>Yellow Cards</h2>
                     <div className='flex items-center justify-between'>
                         <div className='flex items-center'>
                             <hr className='w-1/2 bg-gray-400' style={{ width: `${matchingPlayer.CrdY * 20}px` }} />
-                            <p className='ml-3'>{matchingPlayer.CrdY}</p>
+                            <p className='ml-3 text-sm md:text-base'>{matchingPlayer.CrdY}</p>
                         </div>
-                        <p className='ml-3'>{matchingPlayer.Player}</p>
+                        <p className='ml-3 text-sm md:text-base'>{matchingPlayer.Player}</p>
                     </div>
-                    <div className='flex items-center justify-between'>
+                    <div className='flex items-center justify-between pb-4'>
                         <div className='flex items-center'>
                             <hr className='w-1/2 bg-gray-400' style={{ width: `${yellowCards * 20}px` }} />
                             <p className='ml-3'>{yellowCards}</p>
                         </div>
-                        <p className='ml-3'>Average for Position</p>
+                        <p className='ml-3 text-sm md:text-base'>Average for Position</p>
                     </div>
-
                 </div>
                 ) : (
                 <p>No matching player found.</p>

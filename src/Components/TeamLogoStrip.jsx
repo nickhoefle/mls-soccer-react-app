@@ -146,7 +146,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                 onClick={() => handleClick('Nashville')}
                 />
             </Link>   
-
+            
             <Link to='/team/NewEnglandRevolution'> 
                 <img src='https://www.thesportsdb.com/images/media/team/badge/1ula2l1639493143.png/tiny' 
                 onClick={() => handleClick('New England')}
@@ -176,7 +176,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                 onClick={() => handleClick('Philadelphia')}
                 />
             </Link>    
-
+            
             <Link to='/team/TorontoFC'>     
                 <img src='https://www.thesportsdb.com/images/media/team/badge/rsxyrr1473536512.png/tiny'
                 onClick={() => handleClick('Toronto')}

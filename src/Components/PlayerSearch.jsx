@@ -4,8 +4,8 @@ const PlayerSearch = ({ handleSubmit }) => {
     const [playerName, setPlayerName] = useState('');
 
     const handleSearch = (e) => {
-        e.preventDefault(); // Prevent the default form submission
-        handleSubmit(playerName); // Pass the playerName value to the handleSubmit function
+        e.preventDefault(); 
+        handleSubmit(playerName); 
     };
 
     const handleChange = (e) => {
@@ -20,7 +20,7 @@ const PlayerSearch = ({ handleSubmit }) => {
                 type="text"
                 placeholder="Search for an MLS Player"
                 value={playerName}
-                onChange={handleChange} // Add onChange event handler to update playerName state
+                onChange={handleChange}
             />
             <button
                 className="ml-2 px-12 py-2.5 border-solid border-2 border-white rounded-full bg-blue-900"

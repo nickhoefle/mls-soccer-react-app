@@ -1,4 +1,3 @@
-import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -14,22 +13,21 @@ const LeagueLeadersSwiper = ({ setPlayer }) => {
         setPlayer(playerName);
     };
 
-    const findPlayerWithMaxValue = (data, maxProperty) => {
-        const sortedData = data.sort((a, b) => b[maxProperty] - a[maxProperty]);
+    const findTopTenForStat = (jsonFile, stat) => {
+        const sortedData = jsonFile.sort((a, b) => b[stat] - a[stat]);
         return sortedData.slice(0,10);
     };
 
-    const topFiveAssists = findPlayerWithMaxValue(data, 'Ast'); 
-    const topFiveGoals = findPlayerWithMaxValue(data, 'Gls'); 
-    const topFiveSavePct = findPlayerWithMaxValue(goalkeeping, 'Save%'); 
+    const topFiveAssists = findTopTenForStat(data, 'Ast'); 
+    const topFiveGoals = findTopTenForStat(data, 'Gls'); 
+    const topFiveSavePct = findTopTenForStat(goalkeeping, 'Save%'); 
 
     return (
         <>
-            <h1 className='text-center text-2xl text-white'>Top Performers</h1>
-            <br></br>
+            <h1 className='text-center text-2xl text-white pb-4'>Top Performers</h1>
             <Swiper
             pagination={{
-            type: "progressbar",
+                type: "progressbar",
             }}
             navigation={false}
             modules={[Pagination, Navigation]}
@@ -40,9 +38,9 @@ const LeagueLeadersSwiper = ({ setPlayer }) => {
                     <h1 className='underline pb-2'>Assists</h1>
                     <ul className="space-y-1.5">
                         {topFiveAssists.map((player, index) => (
-                        <li key={index} className='flex items-center justify-between hover:cursor-pointer' onClick={() => handlePlayerClick(player.Player)}>
+                        <li key={index} className='flex items-center justify-between' onClick={() => handlePlayerClick(player.Player)}>
                             {player.Player} ({player.Squad})
-                            <span className='pl-2 text-right'>{player.Ast}</span>
+                            <span className='pl-4 text-right'>{player.Ast}</span>
                         </li>
                         ))}
                     </ul>
@@ -51,7 +49,7 @@ const LeagueLeadersSwiper = ({ setPlayer }) => {
                     <h1 className='underline pb-2'>Goals</h1>
                     <ul className="space-y-1.5">
                         {topFiveGoals.map((player, index) => (
-                        <li key={index} className='flex items-center justify-between hover:cursor-pointer' onClick={() => handlePlayerClick(player.Player)}>
+                        <li key={index} className='flex items-center justify-between' onClick={() => handlePlayerClick(player.Player)}>
                             {player.Player} ({player.Squad})
                             <span className='pl-4 text-right'>{player.Gls}</span>
                         </li>
