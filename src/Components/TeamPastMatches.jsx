@@ -8,7 +8,7 @@ const TeamPastMatches = ({ team }) => {
 
     return (
         <>
-        <div className='bg-black opacity-75 flex justify-center pb-10'>
+        <div className='bg-black lg:opacity-75 flex justify-center pb-10'>
             <table className="table-auto text-white">
                     <thead>
                         <tr>

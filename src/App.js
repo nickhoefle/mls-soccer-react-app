@@ -113,30 +113,30 @@ function App() {
           <div className='sm:block lg:hidden bg-black text-white text-xl pl-6 pt-4'>
             <TeamHamburger handleTeamSelect={handleTeamSelect} />
           </div>
-              <div className='flex justify-center bg-black lg:opacity-75 pt-8'>
+              <div className='flex justify-center bg-black lg:opacity-75 pt-2 md:pt-8'>
                 <h2 className='text-white text-2xl bold'>{team}</h2>
               </div>
-              <div className="flex justify-center bg-black lg:opacity-75 p-4">            
+              <div className="flex flex-col md:flex-row md:justify-center bg-black lg:opacity-75 p-4">            
                 <button
-                  className={`mr-4 text-white text-lg ${activeComponent === 'roster' ? 'underline' : ''}`}
+                  className={`mr-4 text-white text-lg py-2 ${activeComponent === 'roster' ? 'underline' : ''}`}
                   onClick={() => handleComponentClick('roster')}
                 >
                   Team Roster and Stats
                 </button>
                 <button
-                  className={`mr-4 text-white text-lg ${activeComponent === 'matches' ? 'underline' : ''}`}
+                  className={`mr-4 text-white text-lg py-2 ${activeComponent === 'matches' ? 'underline' : ''}`}
                   onClick={() => handleComponentClick('matches')}
                 >
                   Past Matches
                 </button>
                 <button
-                  className={`mr-4 text-white text-lg ${activeComponent === 'graph' ? 'underline' : ''}`}
+                  className={`mr-4 text-white text-lg py-2 ${activeComponent === 'graph' ? 'underline' : ''}`}
                   onClick={() => handleComponentClick('graph')}
                 >
                   Goal Differential Graph
                 </button>
                 <button
-                  className={`mr-4 text-white text-lg ${activeComponent === 'chart' ? 'underline' : ''}`}
+                  className={`mr-4 text-white text-lg py-2 ${activeComponent === 'chart' ? 'underline' : ''}`}
                   onClick={() => handleComponentClick('chart')}
                 >
                   Team Salary Chart
