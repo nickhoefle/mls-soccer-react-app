@@ -35,13 +35,6 @@ const TeamSeasonGraph = ({ team }) => {
             },
         },
         xaxis: {
-            title: {
-                text: 'Match Date',
-                style: {
-                    color: 'white',
-                    fontSize: '16px',
-                },
-            },
             categories: datesArray,
             labels: {
                 style: {
@@ -51,13 +44,6 @@ const TeamSeasonGraph = ({ team }) => {
             },
         },
         yaxis: {
-            title: {
-                text: 'Goal Differential',
-                style: {
-                    color: 'white',
-                    fontSize: '16px',
-                },
-            },
             labels: {
                 style: {
                     colors: 'white', 
