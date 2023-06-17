@@ -9,7 +9,7 @@ const TeamPastMatches = ({ team }) => {
     return (
         <>
         <div className='bg-black lg:opacity-75 flex justify-center pb-10'>
-            <table className="table-auto text-white">
+            <table className="table-auto text-white text-sm md:text-base">
                     <thead>
                         <tr>
                             <th className="px-4 py-2">Date</th>
@@ -23,12 +23,12 @@ const TeamPastMatches = ({ team }) => {
                     <tbody>
                     {teamMatches.map((match) => (
                         <tr key={match.index} className='hover:bg-green-700'>
-                            <td className="border px-4 py-2 text-center">{match.Date}</td>
-                            <td className="border px-4 py-2 text-center">{match.Home}</td>
-                            <td className="border px-4 py-2 text-center">{match.xG}</td>
-                            <td className="border px-4 py-2 text-center">{match.Score}</td>
-                            <td className="border px-4 py-2 text-center">{match.xG__1}</td>
-                            <td className="border px-4 py-2 text-center">{match.Away}</td>
+                            <td className="border px-1 md:px-4 py-2 text-center">{match.Date}</td>
+                            <td className="border px-1 md:px-4 py-2 text-center">{match.Home}</td>
+                            <td className="border px-1 md:px-4 py-2 text-center">{match.xG}</td>
+                            <td className="border px-1 md:px-4 py-2 text-center">{match.Score}</td>
+                            <td className="border px-1 md:px-4 py-2 text-center">{match.xG__1}</td>
+                            <td className="border px-1 md:px-4 py-2 text-center">{match.Away}</td>
                         </tr>
                 ))}
                     </tbody>
