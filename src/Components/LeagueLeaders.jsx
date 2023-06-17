@@ -1,6 +1,6 @@
 import React from 'react'
-import data from '../data/player-standard-stats.json';
-import goalkeeping from '../data/goalkeeping.json';
+import standardStats from '../data/player-standard-stats.json';
+import goalkeepingStats from '../data/goalkeeping.json';
 
 const LeagueLeaders = ({ setPlayer }) => {
 
@@ -8,19 +8,18 @@ const LeagueLeaders = ({ setPlayer }) => {
         setPlayer(playerName);
     };
 
-    const findPlayerWithMaxValue = (data, maxProperty) => {
-        const sortedData = data.sort((a, b) => b[maxProperty] - a[maxProperty]);
+    const findTopFiveForStat = (jsonFile, stat) => {
+        const sortedData = jsonFile.sort((a, b) => b[stat] - a[stat]);
         return sortedData.slice(0,5);
     };
 
-    const topFiveAssists = findPlayerWithMaxValue(data, 'Ast'); 
-    const topFiveGoals = findPlayerWithMaxValue(data, 'Gls'); 
-    const topFiveSavePct = findPlayerWithMaxValue(goalkeeping, 'Save%'); 
+    const topFiveAssists = findTopFiveForStat(standardStats, 'Ast'); 
+    const topFiveGoals = findTopFiveForStat(standardStats, 'Gls'); 
+    const topFiveSavePct = findTopFiveForStat(goalkeepingStats, 'Save%'); 
     
     return (
         <>
-            <h1 className='text-center text-2xl'>Top Performers</h1>
-            <br></br>
+            <h1 className='text-center text-2xl pb-4'>Top Performers</h1>
             <div className='flex'>            
                 <div>
                     <h1 className='underline'>Assists</h1>
@@ -57,7 +56,6 @@ const LeagueLeaders = ({ setPlayer }) => {
                         ))}
                     </ul>  
                 </div>
-
             </div>
         </>
     );

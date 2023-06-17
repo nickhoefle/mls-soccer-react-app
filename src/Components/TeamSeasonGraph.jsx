@@ -64,7 +64,6 @@ const TeamSeasonGraph = ({ team }) => {
                 const opponentName = opponentNames[dataPointIndex];
                 const goalDifference = goalDifferences[dataPointIndex];
                 const text = `${opponentName}: ${goalDifference}`;
-        
                 return `<div class="custom-tooltip">${text}</div>`;
             },
         },

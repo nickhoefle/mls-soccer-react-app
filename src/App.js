@@ -66,25 +66,22 @@ function App() {
           <div className='sm:block lg:hidden bg-black text-white text-xl pl-6 pt-4'>
             <TeamHamburger handleTeamSelect={handleTeamSelect} />
           </div>
-          <br></br>
-          <div className="flex justify-center bg-black lg:opacity-75 p-4">
+          <div className="flex justify-center bg-black lg:opacity-75 px-4">
             <div className="sm:block lg:hidden w-full">
               <LeagueLeadersSwiper setPlayer={setPlayer} />
             </div>
-            <div className="hidden lg:block text-white text-center lg:opacity-75">
+            <div className="hidden pt-4 lg:block text-white text-center lg:opacity-75">
               <LeagueLeaders setPlayer={setPlayer} />
             </div>
           </div>
-          <br></br>
           <div className="flex justify-center bg-black lg:opacity-75 p-4">
-            <div className="text-white text-center lg:opacity-75">
+            <div className="text-white text-center p-4 lg:opacity-75">
               <PlayerSearch handleSubmit={handleSubmit} />
             </div>
           </div>
-          <div className="text-white text-center bg-black lg:opacity-75 pb-10">
+          <div className="text-white text-center pb-4 bg-black lg:opacity-75">
               {player && <PlayerStatGraph playerName={player} />}
           </div>
-          <br />
           <div className='flex justify-center bg-black lg:opacity-75 pb-4'>
             <h2 className='text-white text-2xl lg:opacity-75'>Player Comparison</h2>
           </div>
@@ -113,43 +110,43 @@ function App() {
           <div className='sm:block lg:hidden bg-black text-white text-xl pl-6 pt-4'>
             <TeamHamburger handleTeamSelect={handleTeamSelect} />
           </div>
-              <div className='flex justify-center bg-black lg:opacity-75 pt-2 md:pt-8'>
-                <h2 className='text-white text-2xl bold'>{team}</h2>
-              </div>
-              <div className="flex flex-col md:flex-row md:justify-center bg-black lg:opacity-75 p-4">            
-                <button
-                  className={`mr-4 text-white text-lg py-2 ${activeComponent === 'roster' ? 'underline' : ''}`}
-                  onClick={() => handleComponentClick('roster')}
-                >
-                  Team Roster and Stats
-                </button>
-                <button
-                  className={`mr-4 text-white text-lg py-2 ${activeComponent === 'matches' ? 'underline' : ''}`}
-                  onClick={() => handleComponentClick('matches')}
-                >
-                  Past Matches
-                </button>
-                <button
-                  className={`mr-4 text-white text-lg py-2 ${activeComponent === 'graph' ? 'underline' : ''}`}
-                  onClick={() => handleComponentClick('graph')}
-                >
-                  Goal Differential Graph
-                </button>
-                <button
-                  className={`mr-4 text-white text-lg py-2 ${activeComponent === 'chart' ? 'underline' : ''}`}
-                  onClick={() => handleComponentClick('chart')}
-                >
-                  Team Salary Chart
-                </button>
-              </div>
-              {team && (
-                <>
-                  {activeComponent === 'roster' && <TeamRoster team={team} setPlayer={setPlayer} />}
-                  {activeComponent === 'matches' && <TeamPastMatches team={team} />}
-                  {activeComponent === 'graph' && <TeamSeasonGraph team={team} />}
-                  {activeComponent === 'chart' && <TeamSalaryPieChart team={team} />}
-                </>
-              )}
+            <div className='flex justify-center bg-black lg:opacity-75 pt-2 md:pt-8'>
+              <h2 className='text-white text-2xl bold'>{team}</h2>
+            </div>
+            <div className="flex flex-col md:flex-row md:justify-center bg-black lg:opacity-75 p-4">            
+              <button
+                className={`mr-4 text-white text-lg py-2 ${activeComponent === 'roster' ? 'underline' : ''}`}
+                onClick={() => handleComponentClick('roster')}
+              >
+                Team Roster and Stats
+              </button>
+              <button
+                className={`mr-4 text-white text-lg py-2 ${activeComponent === 'matches' ? 'underline' : ''}`}
+                onClick={() => handleComponentClick('matches')}
+              >
+                Past Matches
+              </button>
+              <button
+                className={`mr-4 text-white text-lg py-2 ${activeComponent === 'graph' ? 'underline' : ''}`}
+                onClick={() => handleComponentClick('graph')}
+              >
+                Goal Differential Graph
+              </button>
+              <button
+                className={`mr-4 text-white text-lg py-2 hidden md:block ${activeComponent === 'chart' ? 'underline' : ''}`}
+                onClick={() => handleComponentClick('chart')}
+              >
+                Team Salary Chart
+              </button>
+            </div>
+            {team && (
+              <>
+                {activeComponent === 'roster' && <TeamRoster team={team} setPlayer={setPlayer} />}
+                {activeComponent === 'matches' && <TeamPastMatches team={team} />}
+                {activeComponent === 'graph' && <TeamSeasonGraph team={team} />}
+                {activeComponent === 'chart' && <TeamSalaryPieChart team={team} />}
+              </>
+            )}
         </Route>
 
       </Switch>

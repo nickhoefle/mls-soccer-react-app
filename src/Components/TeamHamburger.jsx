@@ -22,7 +22,7 @@ const TeamHamburger = ({ handleTeamSelect }) => {
                 ☰ Teams 
             </div>
             {isOpen && (
-                <div className="flex dropdown">
+                <div className="flex">
                     <div className='w-1/2 pt-9'>
                         <div className='flex items-center text-white py-1'>
                             <Link to='/team/AustinFC' 
@@ -520,9 +520,7 @@ const TeamHamburger = ({ handleTeamSelect }) => {
                                 <span onClick={() => { handleClick('Toronto'); closeDropdown() }} className='text-base'>Toronto FC</span>
                             </Link>
                         </div>
-
                     </div>
-            
                 </div>
             )}
         </>

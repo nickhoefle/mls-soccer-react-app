@@ -3,11 +3,13 @@ import playerSalaries from '../data/player-salaries.json';
 import ReactApexChart from 'react-apexcharts';
 
 const TeamSalaryPieChart = ({ team }) => {
+    
     const teamPlayerObjs = playerSalaries.filter((player) => player.Squad === team);
     const players = teamPlayerObjs.map((player) => player.Player);
     const salaries = teamPlayerObjs.map((player) =>
         Number(player['Annual Wages'].split('(')[0].slice(1).replace(',', '').replace(',', ''))
     );
+    
     const formattedSalaries = salaries.map((number) => number.toLocaleString(undefined, { 
         style: 'currency', 
         currency: 'USD', 
@@ -18,11 +20,11 @@ const TeamSalaryPieChart = ({ team }) => {
     const chartOptions = {
         labels: players,
         plotOptions: {
-        pie: {
-            donut: {
-            size: '90%',
+            pie: {
+                donut: {
+                    size: '90%'
+                },
             },
-        },
         },
         legend: {
             show: false, // Set to false to hide the player name list
@@ -53,6 +55,6 @@ const TeamSalaryPieChart = ({ team }) => {
         />
         </div>
     );
-    };
+};
     
     export default TeamSalaryPieChart;
