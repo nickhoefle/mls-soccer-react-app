@@ -3,6 +3,8 @@ import '../styles.css';
 import data from '../data/player-standard-stats.json';
 import shootingStats from '../data/shooting-stats.json';
 import diacriticless from 'diacriticless';
+import matchingPositions from '../data/matchingPositions';
+
 
 const PlayerStatGraph = ({ playerName }) => {
     
@@ -18,24 +20,11 @@ const PlayerStatGraph = ({ playerName }) => {
         return cleanedPlayerName.includes(searchedPlayerName);
     });
 
-    function sumStat(jsonFile, stat, matchingPlayer) {
-        const matchingPositions = {
-            df: ['df', 'mfdf', 'dfmf', 'fwdf', 'dffw'],
-            mf: ['mf', 'dfmf', 'mfdf', 'fwdf', 'dffw'],
-            fw: ['fw', 'fwmf', 'mffw', 'fwdf', 'dffw'],
-            fwmf: ['fwmf', 'mffw', 'fw', 'mf', 'mfdf', 'dfmf'],
-            mffw: ['fwmf', 'mffw', 'fw', 'mf', 'mfdf', 'dfmf'],
-            mfdf: ['mf', 'df', 'mfdf', 'dfmf', 'mffw', 'fwmf', 'dffw', 'fwdf'],
-            dfmf: ['mf', 'df', 'mfdf', 'dfmf', 'mffw', 'fwmf', 'dffw', 'fwdf'],
-            fwdf: ['fwdf', 'dffw', 'df', 'fw', 'mfdf', 'dfmf', 'fwmf', 'mffw'],
-            dffw: ['fwdf', 'dffw', 'df', 'fw', 'mfdf', 'dfmf', 'fwmf', 'mffw'],
-        };
-        
-        const positionsToInclude = matchingPositions[matchingPlayer.Pos.replace(',', '').toLowerCase()];
-        
+    function findLeagueAverage(jsonFile, stat, matchingPlayer) {
         let sum = 0;
         let count = 0;
-
+        const positionsToInclude = matchingPositions[matchingPlayer.Pos.replace(',', '').toLowerCase()];        
+        
         jsonFile.forEach((player) => {
             if (positionsToInclude.includes(player.Pos.toLowerCase()) && player[stat] !== '') {
                 sum += Number(player[stat]);
@@ -50,11 +39,11 @@ const PlayerStatGraph = ({ playerName }) => {
         diacriticless(p.Player.toLowerCase()).includes(searchedPlayerName)
     );
 
-    const xgPer90 = sumStat(data, 'xG__1', matchingPlayer);
-    const xaPer90 = sumStat(data, 'xAG__1', matchingPlayer);
-    const yellowCards = sumStat(data, 'CrdY', matchingPlayer);
-    const shotsPer90 = sumStat(shootingStats, 'Sh90', matchingPlayerShooting);
-    const shotsOnTargetPer90 = sumStat(shootingStats, 'SoT90', matchingPlayerShooting);
+    const xgPer90Avg = findLeagueAverage(data, 'xG__1', matchingPlayer);
+    const xaPer90Avg = findLeagueAverage(data, 'xAG__1', matchingPlayer);
+    const yellowCardsAvg = findLeagueAverage(data, 'CrdY', matchingPlayer);
+    const shotsPer90 = findLeagueAverage(shootingStats, 'Sh90', matchingPlayerShooting);
+    const shotsOnTargetPer90 = findLeagueAverage(shootingStats, 'SoT90', matchingPlayerShooting);
 
     return (
         <>
@@ -82,14 +71,14 @@ const PlayerStatGraph = ({ playerName }) => {
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center'>
                                 <hr className='w-1/2 h-3 bg-white' style={{ width: `${matchingPlayer.xG__1 * 350}px` }} />
-                                <p className='ml-3 text-sm md:text-base'>{matchingPlayer.xG__1}</p>
+                                <p className='ml-3 text-sm md:text-base'>{matchingPlayer.xG__1.toFixed(2)}</p>
                             </div>
                             <p className='ml-3 text-sm md:text-base'>{matchingPlayer.Player.split(' ')[matchingPlayer.Player.split(' ').length -1]}</p>
                         </div>
                         <div className='flex items-center justify-between pb-4'>
                             <div className='flex items-center'>
-                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${xgPer90 * 350}px` }} />
-                                <p className='ml-3 text-sm md:text-base'>{xgPer90}</p>
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${xgPer90Avg * 350}px` }} />
+                                <p className='ml-3 text-sm md:text-base'>{xgPer90Avg}</p>
                             </div>
                             <p className='ml-3 text-sm md:text-base'>Average</p>
                         </div>
@@ -100,15 +89,15 @@ const PlayerStatGraph = ({ playerName }) => {
                     <div className='stat-content'>
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center'>
-                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${matchingPlayer.xAG__1 * 500}px` }} />
-                                <p className='ml-3 text-sm md:text-base'>{matchingPlayer.xAG__1}</p>
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${matchingPlayer.xAG__1 * 600}px` }} />
+                                <p className='ml-3 text-sm md:text-base'>{matchingPlayer.xAG__1.toFixed(2)}</p>
                             </div>
                             <p className='ml-3 text-sm md:text-base'>{matchingPlayer.Player.split(' ')[matchingPlayer.Player.split(' ').length -1]}</p>
                         </div>
                         <div className='flex items-center justify-between pb-4'>
                             <div className='flex items-center'>
-                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${xaPer90 * 500}px` }} />
-                                <p className='ml-3 text-sm md:text-base'>{xaPer90}</p>
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${xaPer90Avg * 500}px` }} />
+                                <p className='ml-3 text-sm md:text-base'>{xaPer90Avg}</p>
                             </div>
                             <p className='ml-3 text-sm md:text-base'>Average</p>
                         </div>
@@ -119,15 +108,15 @@ const PlayerStatGraph = ({ playerName }) => {
                     <div className='stat-content'>
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center'>
-                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${matchingPlayer.CrdY * 20}px` }} />
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${matchingPlayer.CrdY * 35}px` }} />
                                 <p className='ml-3 text-sm md:text-base'>{matchingPlayer.CrdY}</p>
                             </div>
                             <p className='ml-3 text-sm md:text-base'>{matchingPlayer.Player.split(' ')[matchingPlayer.Player.split(' ').length -1]}</p>
                         </div>
                         <div className='flex items-center justify-between pb-4'>
                             <div className='flex items-center'>
-                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${yellowCards * 20}px` }} />
-                                <p className='ml-3 text-sm md:text-base'>{yellowCards}</p>
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${yellowCardsAvg * 35}px` }} />
+                                <p className='ml-3 text-sm md:text-base'>{yellowCardsAvg}</p>
                             </div>
                             <p className='ml-3 text-sm md:text-base'>Average</p>
                         </div>
