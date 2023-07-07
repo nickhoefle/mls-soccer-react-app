@@ -64,7 +64,7 @@ const PlayerStatGraph = ({ playerName }) => {
             <i className='text-white text-md lg:opacity-75'>vs. League Average for Position</i>
             <div className='flex md:pl-0 md:justify-center text-white lg:opacity-75'>
                 {matchingPlayer ? (
-                <div className='w-1/1 md:w-1/3'>
+                <div className='w-1/1 md:w-1/4'>
                     <div className='flex justify-center stat-links'>
                         <p className='p-4 cursor-pointer' onClick={() => handleStatClick('xgPer90')}>
                             <span className={activeStat === 'xgPer90' ? 'underline' : ''}>xGoals per 90</span>
