@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+import '../styles.css';
 import data from '../data/player-standard-stats.json';
 import shootingStats from '../data/shooting-stats.json';
 import diacriticless from 'diacriticless';
 
 const PlayerStatGraph = ({ playerName }) => {
+    
+    const [activeStat, setActiveStat] = useState('xgPer90');
+
+    const handleStatClick = (stat) => {
+        setActiveStat(stat);
+    };
 
     const searchedPlayerName = diacriticless(playerName.toLowerCase());
     const matchingPlayer = data.find((player) => {
@@ -51,59 +58,81 @@ const PlayerStatGraph = ({ playerName }) => {
 
     return (
         <>
-            <h1 className='text-white text-xl'>
-                Stat Graphs for {matchingPlayer ? matchingPlayer.Player : playerName}
-            </h1>            
-            <div className='flex pt-4 pl-5 md:pl-0 md:justify-center'>
+            <h1 className='text-white text-2xl lg:opacity-75'>
+                {matchingPlayer ? matchingPlayer.Player : playerName} Stat Graphs
+            </h1>
+            <i className='text-white text-md lg:opacity-75'>vs. League Average for Position</i>
+            <div className='flex md:pl-0 md:justify-center text-white lg:opacity-75'>
                 {matchingPlayer ? (
                 <div className='w-1/1 md:w-1/3'>
-                    <h2 className='underline pb-4'>Expected Goals per 90</h2>
-                    <div className='flex items-center justify-between'>
-                        <div className='flex items-center'>
-                            <hr className='w-1/2 bg-gray-400' style={{ width: `${matchingPlayer.xG__1 * 500}px` }} />
-                            <p className='ml-3'>{matchingPlayer.xG__1}</p>
-                        </div>
-                        <p className='ml-3 text-sm md:text-base'>{matchingPlayer.Player}</p>
-                    </div>
-                    <div className='flex items-center justify-between pb-4'>
-                        <div className='flex items-center'>
-                            <hr className='w-1/2 bg-gray-400' style={{ width: `${xgPer90 * 500}px` }} />
-                            <p className='ml-3 text-sm md:text-base'>{xgPer90}</p>
-                        </div>
-                        <p className='ml-3 text-sm md:text-base'>Average for Position</p>
+                    <div className='flex justify-center stat-links'>
+                        <p className='p-4 cursor-pointer' onClick={() => handleStatClick('xgPer90')}>
+                            <span className={activeStat === 'xgPer90' ? 'underline' : ''}>xGoals per 90</span>
+                        </p>                    
+                        <p className='p-4 cursor-pointer' onClick={() => handleStatClick('xaPer90')}>
+                            <span className={activeStat === 'xaPer90' ? 'underline' : ''}>xAssists per 90</span>
+                        </p>
+                        <p className='p-4 cursor-pointer' onClick={() => handleStatClick('yellowCards')}>
+                            <span className={activeStat === 'yellowCards' ? 'underline' : ''}>Yellow Cards</span>
+                        </p>
                     </div>
 
-                    <h2 className='underline pb-4'>Expected Assists per 90</h2>
-                    <div className='flex items-center justify-between'>
-                        <div className='flex items-center'>
-                            <hr className='w-1/2 bg-gray-400' style={{ width: `${matchingPlayer.xAG__1 * 500}px` }} />
-                            <p className='ml-3'>{matchingPlayer.xAG__1}</p>
+                    {activeStat === 'xgPer90' && (
+                    <div className='stat-content'>
+                        <div className='flex items-center justify-between'>
+                            <div className='flex items-center'>
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${matchingPlayer.xG__1 * 500}px` }} />
+                                <p className='ml-3'>{matchingPlayer.xG__1}</p>
+                            </div>
+                            <p className='ml-3 text-sm md:text-base'>{matchingPlayer.Player.split(' ')[matchingPlayer.Player.split(' ').length -1]}</p>
                         </div>
-                        <p className='ml-3 text-sm md:text-base'>{matchingPlayer.Player}</p>
-                    </div>
-                    <div className='flex items-center justify-between pb-4'>
-                        <div className='flex items-center'>
-                            <hr className='w-1/2 bg-gray-400' style={{ width: `${xaPer90 * 500}px` }} />
-                            <p className='ml-3 text-sm md:text-base'>{xaPer90}</p>
+                        <div className='flex items-center justify-between pb-4'>
+                            <div className='flex items-center'>
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${xgPer90 * 500}px` }} />
+                                <p className='ml-3 text-sm md:text-base'>{xgPer90}</p>
+                            </div>
+                            <p className='ml-3 text-sm md:text-base'>Average</p>
                         </div>
-                        <p className='ml-3 text-sm md:text-base'>Average for Position</p>
                     </div>
+                    )}
 
-                    <h2 className='underline pb-4'>Yellow Cards</h2>
-                    <div className='flex items-center justify-between'>
-                        <div className='flex items-center'>
-                            <hr className='w-1/2 bg-gray-400' style={{ width: `${matchingPlayer.CrdY * 20}px` }} />
-                            <p className='ml-3 text-sm md:text-base'>{matchingPlayer.CrdY}</p>
+                    {activeStat === 'xaPer90' && (
+                    <div className='stat-content'>
+                        <div className='flex items-center justify-between'>
+                            <div className='flex items-center'>
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${matchingPlayer.xAG__1 * 500}px` }} />
+                                <p className='ml-3'>{matchingPlayer.xAG__1}</p>
+                            </div>
+                            <p className='ml-3 text-sm md:text-base'>{matchingPlayer.Player.split(' ')[matchingPlayer.Player.split(' ').length -1]}</p>
                         </div>
-                        <p className='ml-3 text-sm md:text-base'>{matchingPlayer.Player}</p>
-                    </div>
-                    <div className='flex items-center justify-between pb-4'>
-                        <div className='flex items-center'>
-                            <hr className='w-1/2 bg-gray-400' style={{ width: `${yellowCards * 20}px` }} />
-                            <p className='ml-3'>{yellowCards}</p>
+                        <div className='flex items-center justify-between pb-4'>
+                            <div className='flex items-center'>
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${xaPer90 * 500}px` }} />
+                                <p className='ml-3 text-sm md:text-base'>{xaPer90}</p>
+                            </div>
+                            <p className='ml-3 text-sm md:text-base'>Average</p>
                         </div>
-                        <p className='ml-3 text-sm md:text-base'>Average for Position</p>
                     </div>
+                    )}
+
+                    {activeStat === 'yellowCards' && (
+                    <div className='stat-content'>
+                        <div className='flex items-center justify-between'>
+                            <div className='flex items-center'>
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${matchingPlayer.CrdY * 20}px` }} />
+                                <p className='ml-3 text-sm md:text-base'>{matchingPlayer.CrdY}</p>
+                            </div>
+                            <p className='ml-3 text-sm md:text-base'>{matchingPlayer.Player.split(' ')[matchingPlayer.Player.split(' ').length -1]}</p>
+                        </div>
+                        <div className='flex items-center justify-between pb-4'>
+                            <div className='flex items-center'>
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${yellowCards * 20}px` }} />
+                                <p className='ml-3'>{yellowCards}</p>
+                            </div>
+                            <p className='ml-3 text-sm md:text-base'>Average</p>
+                        </div>
+                    </div>
+                    )}
                 </div>
                 ) : (
                 <p>No matching player found.</p>

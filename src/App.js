@@ -66,21 +66,21 @@ function App() {
           <div className='sm:block lg:hidden bg-black text-white text-xl pl-6 pt-4'>
             <TeamHamburger handleTeamSelect={handleTeamSelect} />
           </div>
-          <div className="flex justify-center bg-black lg:opacity-75 px-4">
+          <div className="flex justify-center bg-black lg:opacity-75 px-4 pb-8">
             <div className="sm:block lg:hidden w-full">
               <LeagueLeadersSwiper setPlayer={setPlayer} />
             </div>
             <div className="hidden pt-4 lg:block text-white text-center lg:opacity-75">
               <LeagueLeaders setPlayer={setPlayer} />
             </div>
+          </div>          
+          <div className="text-white text-center bg-black lg:opacity-75">
+              {player && <PlayerStatGraph playerName={player} />}
           </div>
           <div className="flex justify-center bg-black lg:opacity-75 p-4">
-            <div className="text-white text-center p-4 lg:opacity-75">
+            <div className="text-white text-center lg:opacity-75">
               <PlayerSearch handleSubmit={handleSubmit} />
             </div>
-          </div>
-          <div className="text-white text-center pb-4 bg-black lg:opacity-75">
-              {player && <PlayerStatGraph playerName={player} />}
           </div>
           <div className='flex justify-center bg-black lg:opacity-75 pb-4'>
             <h2 className='text-white text-2xl lg:opacity-75'>Player Comparison</h2>
