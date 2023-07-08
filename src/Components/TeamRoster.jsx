@@ -11,7 +11,7 @@ const TeamRoster = ({ team, setPlayer }) => {
     return (
         <div className="overflow-x-auto">
             <div className="bg-black md:opacity-75">
-                <div className="md:flex md:justify-center md:items-center">
+                <div className="md:flex md:justify-center pb-10 md:items-center">
                     <table className="table-auto text-white text-sm md:text-base">
                         <thead>
                             <tr className='md:opacity-75'>
