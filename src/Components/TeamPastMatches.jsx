@@ -22,12 +22,12 @@ const TeamPastMatches = ({ team }) => {
                     <tbody>
                     {teamMatches.map((match) => (
                         <tr key={match.index} className='hover:bg-green-700'>
-                            <td className="border px-1 md:px-4 py-2 text-center">{match.Date.slice(5,10)}</td>
-                            <td className="border px-1 md:px-4 py-2 text-center">{match.Home}</td>
-                            <td className="border px-1 md:px-4 py-2 text-center">{match.xG}</td>
-                            <td className="border px-1 md:px-4 py-2 text-center">{match.Score}</td>
-                            <td className="border px-1 md:px-4 py-2 text-center">{match.xG__1}</td>
-                            <td className="border px-1 md:px-4 py-2 text-center">{match.Away}</td>
+                            <td className="border-t border-b px-1 md:px-4 py-2 text-center">{match.Date.slice(5,10)}</td>
+                            <td className="border-t border-b px-1 md:px-4 py-2 text-center">{match.Home}</td>
+                            <td className="border-t border-b px-1 md:px-4 py-2 text-center">{match.xG}</td>
+                            <td className="border-t border-b px-1 md:px-4 py-2 text-center">{match.Score}</td>
+                            <td className="border-t border-b px-1 md:px-4 py-2 text-center">{match.xG__1}</td>
+                            <td className="border-t border-b px-1 md:px-4 py-2 text-center">{match.Away}</td>
                         </tr>
                     ))}
                     </tbody>
