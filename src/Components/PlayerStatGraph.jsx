@@ -40,10 +40,12 @@ const PlayerStatGraph = ({ playerName }) => {
     );
 
     const xgPer90Avg = findLeagueAverage(data, 'xG__1', matchingPlayer);
+    const goalsPer90Avg = findLeagueAverage(data, 'Gls__1', matchingPlayer);
     const xaPer90Avg = findLeagueAverage(data, 'xAG__1', matchingPlayer);
+    const assistsPer90Avg = findLeagueAverage(data, 'Ast__1', matchingPlayer);
     const yellowCardsAvg = findLeagueAverage(data, 'CrdY', matchingPlayer);
-    const shotsPer90 = findLeagueAverage(shootingStats, 'Sh90', matchingPlayerShooting);
-    const shotsOnTargetPer90 = findLeagueAverage(shootingStats, 'SoT90', matchingPlayerShooting);
+    const shotsPer90Avg = findLeagueAverage(shootingStats, 'Sh/90', matchingPlayerShooting);
+    
 
     return (
         <>
@@ -65,26 +67,57 @@ const PlayerStatGraph = ({ playerName }) => {
                             <span className={activeStat === 'yellowCards' ? 'underline' : ''}>Yellow Cards</span>
                         </p>
                     </div>
-
+                    <div className='flex justify-center stat-links pb-4'>
+                        <p className='px-4 cursor-pointer' onClick={() => handleStatClick('goalsPer90')}>
+                            <span className={activeStat === 'goalsPer90' ? 'underline' : ''}>Goals per 90</span>
+                        </p>
+                        <p className='px-4 cursor-pointer' onClick={() => handleStatClick('assistsPer90')}>
+                            <span className={activeStat === 'assistsPer90' ? 'underline' : ''}>Assists per 90</span>
+                        </p>
+                        <p className='px-4 cursor-pointer' onClick={() => handleStatClick('shotsPer90')}>
+                            <span className={activeStat === 'shotsPer90' ? 'underline' : ''}>Shots per 90</span>
+                        </p>
+                    </div>
+                    
+                    {/* Expected Goals per 90 */}
                     {activeStat === 'xgPer90' && (
                     <div className='stat-content'>
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center'>
-                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${matchingPlayer.xG__1 * 350}px` }} />
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${matchingPlayer.xG__1 * 250}px` }} />
                                 <p className='ml-3 text-sm md:text-base'>{matchingPlayer.xG__1.toFixed(2)}</p>
                             </div>
                             <p className='ml-3 text-sm md:text-base'>{matchingPlayer.Player.split(' ')[matchingPlayer.Player.split(' ').length -1]}</p>
                         </div>
                         <div className='flex items-center justify-between pb-4'>
                             <div className='flex items-center'>
-                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${xgPer90Avg * 350}px` }} />
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${xgPer90Avg * 250}px` }} />
                                 <p className='ml-3 text-sm md:text-base'>{xgPer90Avg}</p>
                             </div>
                             <p className='ml-3 text-sm md:text-base'>Average</p>
                         </div>
                     </div>
                     )}
-
+                    {/* Goals per 90 */}
+                    {activeStat === 'goalsPer90' && (
+                    <div className='stat-content'>
+                        <div className='flex items-center justify-between'>
+                            <div className='flex items-center'>
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${matchingPlayer.Gls__1 * 250}px` }} />
+                                <p className='ml-3 text-sm md:text-base'>{matchingPlayer.Gls__1}</p>
+                            </div>
+                            <p className='ml-3 text-sm md:text-base'>{matchingPlayer.Player.split(' ')[matchingPlayer.Player.split(' ').length -1]}</p>
+                        </div>
+                        <div className='flex items-center justify-between pb-4'>
+                            <div className='flex items-center'>
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${goalsPer90Avg * 250}px` }} />
+                                <p className='ml-3 text-sm md:text-base'>{goalsPer90Avg}</p>
+                            </div>
+                            <p className='ml-3 text-sm md:text-base'>Average</p>
+                        </div>
+                    </div>
+                    )}
+                    {/* Expected Assists per 90 */}
                     {activeStat === 'xaPer90' && (
                     <div className='stat-content'>
                         <div className='flex items-center justify-between'>
@@ -103,7 +136,26 @@ const PlayerStatGraph = ({ playerName }) => {
                         </div>
                     </div>
                     )}
-
+                    {/* Assists per 90 */}
+                    {activeStat === 'assistsPer90' && (
+                    <div className='stat-content'>
+                        <div className='flex items-center justify-between'>
+                            <div className='flex items-center'>
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${matchingPlayer.Ast__1 * 500}px` }} />
+                                <p className='ml-3 text-sm md:text-base'>{matchingPlayer.Ast__1.toFixed(2)}</p>
+                            </div>
+                            <p className='ml-3 text-sm md:text-base'>{matchingPlayer.Player.split(' ')[matchingPlayer.Player.split(' ').length -1]}</p>
+                        </div>
+                        <div className='flex items-center justify-between pb-4'>
+                            <div className='flex items-center'>
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${assistsPer90Avg * 500}px` }} />
+                                <p className='ml-3 text-sm md:text-base'>{assistsPer90Avg}</p>
+                            </div>
+                            <p className='ml-3 text-sm md:text-base'>Average</p>
+                        </div>
+                    </div>
+                    )}
+                    {/* Yellow Cards */}
                     {activeStat === 'yellowCards' && (
                     <div className='stat-content'>
                         <div className='flex items-center justify-between'>
@@ -122,6 +174,25 @@ const PlayerStatGraph = ({ playerName }) => {
                         </div>
                     </div>
                     )}
+                    {/* Shots per 90 */}
+                    {activeStat === 'shotsPer90' && (
+                    <div className='stat-content'>
+                        <div className='flex items-center justify-between'>
+                            <div className='flex items-center'>
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${matchingPlayerShooting['Sh/90'] * 50}px` }} />
+                                <p className='ml-3 text-sm md:text-base'>{matchingPlayerShooting['Sh/90']}</p>
+                            </div>
+                            <p className='ml-3 text-sm md:text-base'>{matchingPlayer.Player.split(' ')[matchingPlayer.Player.split(' ').length -1]}</p>
+                        </div>
+                        <div className='flex items-center justify-between pb-4'>
+                            <div className='flex items-center'>
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${shotsPer90Avg * 50}px` }} />
+                                <p className='ml-3 text-sm md:text-base'>{shotsPer90Avg}</p>
+                            </div>
+                            <p className='ml-3 text-sm md:text-base'>Average</p>
+                        </div>
+                    </div>
+                    )}                    
                 </div>
                 ) : (
                 <p>No matching player found.</p>
