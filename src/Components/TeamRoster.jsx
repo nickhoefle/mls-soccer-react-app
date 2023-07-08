@@ -10,7 +10,7 @@ const TeamRoster = ({ team, setPlayer }) => {
 
     return (
         <div className="overflow-x-auto">
-            <div className="bg-black bg-opacity-75 pb-10">
+            <div className="bg-black md:opacity-75">
                 <div className="md:flex md:justify-center md:items-center">
                     <table className="table-auto text-white text-sm md:text-base">
                         <thead>
@@ -28,7 +28,7 @@ const TeamRoster = ({ team, setPlayer }) => {
                         </thead>
                         <tbody>
                         {teamPlayers.map((player) => (
-                            <tr key={player.Player} className="-white md:hover:bg-green-700 bg-black md:opacity-75">
+                            <tr key={player.Player} className="md:hover:bg-green-700 bg-black md:opacity-75">
                                 <td
                                     className="border-t border-b px-4 py-2 sticky left-0 whitespace-nowrap bg-black md:bg-transparent cursor-pointer"
                                     onClick={() => handlePlayerClick(player.Player)}
