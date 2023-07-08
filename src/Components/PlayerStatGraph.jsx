@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../styles.css';
 import data from '../data/player-standard-stats.json';
 import shootingStats from '../data/shooting-stats.json';
+import defStats from '../data/def-90.json';
 import diacriticless from 'diacriticless';
 import matchingPositions from '../data/matchingPositions';
 
@@ -39,12 +40,19 @@ const PlayerStatGraph = ({ playerName }) => {
         diacriticless(p.Player.toLowerCase()).includes(searchedPlayerName)
     );
 
+    const matchingPlayerDefense = defStats.find((p) =>
+        diacriticless(p.Player.toLowerCase()).includes(searchedPlayerName)
+    );
+
     const xgPer90Avg = findLeagueAverage(data, 'xG__1', matchingPlayer);
     const goalsPer90Avg = findLeagueAverage(data, 'Gls__1', matchingPlayer);
     const xaPer90Avg = findLeagueAverage(data, 'xAG__1', matchingPlayer);
     const assistsPer90Avg = findLeagueAverage(data, 'Ast__1', matchingPlayer);
     const yellowCardsAvg = findLeagueAverage(data, 'CrdY', matchingPlayer);
     const shotsPer90Avg = findLeagueAverage(shootingStats, 'Sh/90', matchingPlayerShooting);
+    const tacklesPer90Avg = findLeagueAverage(defStats, 'Tkl', matchingPlayerDefense);
+    const tacklePercent = findLeagueAverage(defStats, 'Tkl%', matchingPlayerDefense);
+    const clearsPer90Avg = findLeagueAverage(defStats, 'Clr', matchingPlayerDefense);
     
 
     return (
@@ -76,6 +84,17 @@ const PlayerStatGraph = ({ playerName }) => {
                         </p>
                         <p className='px-4 cursor-pointer' onClick={() => handleStatClick('shotsPer90')}>
                             <span className={activeStat === 'shotsPer90' ? 'underline' : ''}>Shots per 90</span>
+                        </p>
+                    </div>
+                    <div className='flex justify-center stat-links pb-4'>
+                        <p className='px-4 cursor-pointer' onClick={() => handleStatClick('tacklesPer90')}>
+                            <span className={activeStat === 'tacklesPer90' ? 'underline' : ''}>Tackles per 90</span>
+                        </p>
+                        <p className='px-4 cursor-pointer' onClick={() => handleStatClick('tacklePercent')}>
+                            <span className={activeStat === 'tacklePercent' ? 'underline' : ''}>Tackle Percent</span>
+                        </p>
+                        <p className='px-4 cursor-pointer' onClick={() => handleStatClick('clearsPer90')}>
+                            <span className={activeStat === 'clearsPer90' ? 'underline' : ''}>Clears per 90</span>
                         </p>
                     </div>
                     
@@ -180,7 +199,7 @@ const PlayerStatGraph = ({ playerName }) => {
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center'>
                                 <hr className='w-1/2 h-3 bg-white' style={{ width: `${matchingPlayerShooting['Sh/90'] * 50}px` }} />
-                                <p className='ml-3 text-sm md:text-base'>{matchingPlayerShooting['Sh/90']}</p>
+                                <p className='ml-3 text-sm md:text-base'>{matchingPlayerShooting['Sh/90'].toFixed(2)}</p>
                             </div>
                             <p className='ml-3 text-sm md:text-base'>{matchingPlayer.Player.split(' ')[matchingPlayer.Player.split(' ').length -1]}</p>
                         </div>
@@ -192,7 +211,64 @@ const PlayerStatGraph = ({ playerName }) => {
                             <p className='ml-3 text-sm md:text-base'>Average</p>
                         </div>
                     </div>
-                    )}                    
+                    )}
+                    {/* Tackles per 90 */}
+                    {activeStat === 'tacklesPer90' && (
+                    <div className='stat-content'>
+                        <div className='flex items-center justify-between'>
+                            <div className='flex items-center'>
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${matchingPlayerDefense.Tkl * 50}px` }} />
+                                <p className='ml-3 text-sm md:text-base'>{matchingPlayerDefense.Tkl.toFixed(2)}</p>
+                            </div>
+                            <p className='ml-3 text-sm md:text-base'>{matchingPlayer.Player.split(' ')[matchingPlayer.Player.split(' ').length -1]}</p>
+                        </div>
+                        <div className='flex items-center justify-between pb-4'>
+                            <div className='flex items-center'>
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${tacklesPer90Avg * 50}px` }} />
+                                <p className='ml-3 text-sm md:text-base'>{tacklesPer90Avg}</p>
+                            </div>
+                            <p className='ml-3 text-sm md:text-base'>Average</p>
+                        </div>
+                    </div>
+                    )}
+                    {/* Tackle Percent */}
+                    {activeStat === 'tacklePercent' && (
+                    <div className='stat-content'>
+                        <div className='flex items-center justify-between'>
+                            <div className='flex items-center'>
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${matchingPlayerDefense['Tkl%'] * 3}px` }} />
+                                <p className='ml-3 text-sm md:text-base'>{matchingPlayerDefense['Tkl%'].toFixed(2)} %</p>
+                            </div>
+                            <p className='ml-3 text-sm md:text-base'>{matchingPlayer.Player.split(' ')[matchingPlayer.Player.split(' ').length -1]}</p>
+                        </div>
+                        <div className='flex items-center justify-between pb-4'>
+                            <div className='flex items-center'>
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${tacklePercent * 3}px` }} />
+                                <p className='ml-3 text-sm md:text-base'>{tacklePercent} %</p>
+                            </div>
+                            <p className='ml-3 text-sm md:text-base'>Average</p>
+                        </div>
+                    </div>
+                    )}
+                    {/* Clears Per 90 */}
+                    {activeStat === 'clearsPer90' && (
+                    <div className='stat-content'>
+                        <div className='flex items-center justify-between'>
+                            <div className='flex items-center'>
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${matchingPlayerDefense.Clr * 40}px` }} />
+                                <p className='ml-3 text-sm md:text-base'>{matchingPlayerDefense.Clr.toFixed(2)}</p>
+                            </div>
+                            <p className='ml-3 text-sm md:text-base'>{matchingPlayer.Player.split(' ')[matchingPlayer.Player.split(' ').length -1]}</p>
+                        </div>
+                        <div className='flex items-center justify-between pb-4'>
+                            <div className='flex items-center'>
+                                <hr className='w-1/2 h-3 bg-white' style={{ width: `${clearsPer90Avg * 40}px` }} />
+                                <p className='ml-3 text-sm md:text-base'>{clearsPer90Avg}</p>
+                            </div>
+                            <p className='ml-3 text-sm md:text-base'>Average</p>
+                        </div>
+                    </div>
+                    )}                           
                 </div>
                 ) : (
                 <p>No matching player found.</p>
