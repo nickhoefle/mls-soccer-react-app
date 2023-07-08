@@ -31,7 +31,7 @@ const TeamSeasonGraph = ({ team }) => {
         chart: {
             id: 'team-season-chart',
             toolbar: {
-            show: false,
+                show: false,
             },
         },
         xaxis: {
