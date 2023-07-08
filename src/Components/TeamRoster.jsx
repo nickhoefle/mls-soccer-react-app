@@ -28,21 +28,21 @@ const TeamRoster = ({ team, setPlayer }) => {
                         </thead>
                         <tbody>
                         {teamPlayers.map((player) => (
-                            <tr key={player.Player} className="md:hover:bg-green-700 bg-black md:opacity-75">
+                            <tr key={player.Player} className="-white md:hover:bg-green-700 bg-black md:opacity-75">
                                 <td
-                                    className="border px-4 py-2 sticky left-0 whitespace-nowrap bg-black md:bg-transparent cursor-pointer"
+                                    className="border-t border-b px-4 py-2 sticky left-0 whitespace-nowrap bg-black md:bg-transparent cursor-pointer"
                                     onClick={() => handlePlayerClick(player.Player)}
                                 >
                                     {player.Player}
                                 </td>
-                                <td className="border px-4 py-2 text-center">{player.Age.split('-')[0]}</td>
-                                <td className="border px-4 py-2 text-center">{player.Pos}</td>
-                                <td className="border px-4 py-2 text-center">{player.MP}</td>
-                                <td className="border px-4 py-2 text-center">{player.Starts}</td>
-                                <td className="border px-4 py-2 text-center">{player.Min}</td>
-                                <td className="border px-4 py-2 text-center">{player.Gls}</td>
-                                <td className="border px-4 py-2 text-center">{player.Ast}</td>
-                                <td className="border px-4 py-2 text-center">{player.CrdY}</td>
+                                <td className="border-t border-b px-4 py-2 text-center">{player.Age.split('-')[0]}</td>
+                                <td className="border-t border-b px-4 py-2 text-center">{player.Pos}</td>
+                                <td className="border-t border-b px-4 py-2 text-center">{player.MP}</td>
+                                <td className="border-t border-b px-4 py-2 text-center">{player.Starts}</td>
+                                <td className="border-t border-b px-4 py-2 text-center">{player.Min}</td>
+                                <td className="border-t border-b px-4 py-2 text-center">{player.Gls}</td>
+                                <td className="border-t border-b px-4 py-2 text-center">{player.Ast}</td>
+                                <td className="border-t border-b px-4 py-2 text-center">{player.CrdY}</td>
                             </tr>
                         ))}
                         </tbody>
