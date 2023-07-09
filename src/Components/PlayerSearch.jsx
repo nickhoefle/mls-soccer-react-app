@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import playerStats from '../data/player-standard-stats.json';
 import diacriticless from 'diacriticless';
 
-const PlayerSearch = ({ handleSubmit }) => {
+const PlayerSearch = ({ handlePlayerSearch }) => {
     const [playerName, setPlayerName] = useState('');
     const [suggestedPlayers, setsuggestedPlayers] = useState([]);
 
-    const handleSearch = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        handleSubmit(playerName);
+        handlePlayerSearch(playerName);
         setsuggestedPlayers([]); 
     };
 
@@ -22,8 +22,8 @@ const PlayerSearch = ({ handleSubmit }) => {
     const generateSuggestions = (searchBarText) => {
         const matchingPlayers = playerStats.filter((player) => {
             const playerNameLowercase = diacriticless(player.Player.toLowerCase());
-            const searchBarTextLower = searchBarText.toLowerCase();
-            return playerNameLowercase.includes(searchBarTextLower);
+            const searchBarTextLowercase = searchBarText.toLowerCase();
+            return playerNameLowercase.includes(searchBarTextLowercase);
         });
 
         const suggestedPlayers = matchingPlayers.slice(0, 5).map((player) => player.Player);
@@ -31,7 +31,7 @@ const PlayerSearch = ({ handleSubmit }) => {
     };
 
     return (
-        <form onSubmit={handleSearch}>
+        <form onSubmit={handleSubmit}>
             <h1 className="text-2xl text-white pb-4">Search Player</h1>
             <input
                 className="text-black rounded-full p-3"                

@@ -26,7 +26,7 @@ function App() {
   const [playerToCompare2, setPlayerToCompare2] = useState('');
   const [activeComponent, setActiveComponent] = useState('roster');
 
-  function handleSubmit(player) {
+  function handlePlayerSearch(player) {
     setPlayer(player);
   }
 
@@ -79,7 +79,7 @@ function App() {
           </div>
           <div className="flex justify-center bg-black lg:opacity-75 p-4">
             <div className="text-white text-center lg:opacity-75">
-              <PlayerSearch handleSubmit={handleSubmit} />
+              <PlayerSearch handlePlayerSearch={handlePlayerSearch} />
             </div>
           </div>
           <div className='flex justify-center bg-black lg:opacity-75 pb-4'>
