@@ -3,8 +3,8 @@ import shootingStats from '../data/shooting-stats.json'
 
 const PlayerDropdown = ({ teamName, playerToCompare, setPlayerToCompare }) => {
 
-    let teamPlayers = shootingStats.filter((player) => (player.Squad === teamName));
-    teamPlayers.sort((a, b) => a.Pos.localeCompare(b.Pos));
+    let teamPlayers = shootingStats.filter((player) => (player.Squad === teamName))
+        .sort((a, b) => a.Pos.localeCompare(b.Pos));
 
     const handlePlayerToCompareChange = (event) => {
         setPlayerToCompare(event.target.value); 

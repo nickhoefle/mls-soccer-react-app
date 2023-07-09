@@ -31,7 +31,6 @@ const LeagueLeadersSwiper = ({ setPlayer }) => {
             }}
             navigation={false}
             modules={[Pagination, Navigation]}
-            className="mySwiper"
             style={{ height: "340px" }}
             >
                 <SwiperSlide className="bg-black text-white text-base px-2 pt-4">

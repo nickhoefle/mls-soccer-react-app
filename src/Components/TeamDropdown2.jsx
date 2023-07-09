@@ -11,9 +11,9 @@ const TeamDropdown2 = ({ teamName2, setTeamName2 }) => {
         <div>
         <p>Team</p>
         <select
-            className='bg-black outline-white border-2 w-300'
-            value={teamName2}
-            onChange={handleTeam2Change}
+        className='bg-black outline-white border-2 w-300'
+        value={teamName2}
+        onChange={handleTeam2Change}
         >
             <option className='text-left'>Select:</option>
             {teamArray.map((team2, index) => (
