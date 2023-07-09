@@ -8,7 +8,6 @@ import matchingPositions from '../data/matchingPositions';
 
 
 const PlayerStatGraph = ({ playerName }) => {
-    
     const [activeStat, setActiveStat] = useState('xgPer90');
 
     const handleStatClick = (stat) => {
@@ -64,6 +63,7 @@ const PlayerStatGraph = ({ playerName }) => {
             <div className='flex md:pl-0 md:justify-center text-white lg:opacity-75'>
                 {matchingPlayer ? (
                 <div className='w-1/1 md:w-1/4'>
+                    {/* Row 1 - Clickable Stats */}
                     <div className='flex justify-center stat-links'>
                         <p className='p-4 cursor-pointer' onClick={() => handleStatClick('xgPer90')}>
                             <span className={activeStat === 'xgPer90' ? 'underline' : ''}>xGoals per 90</span>
@@ -75,6 +75,7 @@ const PlayerStatGraph = ({ playerName }) => {
                             <span className={activeStat === 'yellowCards' ? 'underline' : ''}>Yellow Cards</span>
                         </p>
                     </div>
+                    {/* Row 2 - Clickable Stats */}
                     <div className='flex justify-center stat-links pb-4'>
                         <p className='px-4 cursor-pointer' onClick={() => handleStatClick('goalsPer90')}>
                             <span className={activeStat === 'goalsPer90' ? 'underline' : ''}>Goals per 90</span>
@@ -86,6 +87,7 @@ const PlayerStatGraph = ({ playerName }) => {
                             <span className={activeStat === 'shotsPer90' ? 'underline' : ''}>Shots per 90</span>
                         </p>
                     </div>
+                    {/* Row 3 - Clickable Stats */}
                     <div className='flex justify-center stat-links pb-4'>
                         <p className='px-4 cursor-pointer' onClick={() => handleStatClick('tacklesPer90')}>
                             <span className={activeStat === 'tacklesPer90' ? 'underline' : ''}>Tackles per 90</span>
