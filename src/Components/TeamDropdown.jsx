@@ -8,23 +8,23 @@ const TeamDropdown = ({ teamName, setTeamName }) => {
 
     return (
         <div>
-        <p>Team</p>
-        <select
-        className='bg-black outline-white border-2 w-300'
-        value={teamName}
-        onChange={handleTeamChange}
-        >
-            <option>Select:</option>
-            {teamArray.map((team, index) => (
-            <option
-                key={index}
-                value={team}
-                className='text-center'
+            <p>Team</p>
+            <select
+            className='bg-black outline-white border-2 w-300'
+            value={teamName}
+            onChange={handleTeamChange}
             >
-                {team}
-            </option>
-            ))}
-        </select>
+                <option>Select:</option>
+                {teamArray.map((team, index) => (
+                <option
+                    key={index}
+                    value={team}
+                    className='text-center'
+                >
+                    {team}
+                </option>
+                ))}
+            </select>
         </div>
     );
 };

@@ -45,7 +45,12 @@ const PlayerSearch = ({ handlePlayerSearch }) => {
                     <li className='font-bold underline'>Suggested Players</li>
                     {suggestedPlayers.map((suggestedPlayer) => (
                         <li key={suggestedPlayer} 
-                        onClick={() => { setPlayerName(suggestedPlayer); handleSubmit(suggestedPlayer); setsuggestedPlayers([]); } }
+                        onClick={() => {
+                            setPlayerName(suggestedPlayer);
+                            handlePlayerSearch(suggestedPlayer); 
+                            setsuggestedPlayers([]);
+                            setPlayerName('');
+                        }}
                         className="cursor-pointer"
                         >{suggestedPlayer}</li>
                     ))}
