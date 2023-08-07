@@ -100,6 +100,8 @@ function App() {
           <div className="text-white text-center bg-black lg:opacity-75 pb-10">
             {playerToCompare && playerToCompare2 && <PlayerComparisonChart playerToCompare={playerToCompare} playerToCompare2={playerToCompare2} />}
           </div>
+
+
         </Route>
 
         <Route path="/team/:teamId">
