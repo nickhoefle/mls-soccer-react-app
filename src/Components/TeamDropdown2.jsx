@@ -15,11 +15,7 @@ const TeamDropdown2 = ({ teamName2, setTeamName2 }) => {
                 value={teamName2}
                 onChange={handleTeam2Change}
             >
-                <option 
-                   
-                >
-                    Select:
-                </option>
+                <option>Select:</option>
                 {mlsTeamsArray.map((team, index) => (
                     <option
                         key={index}

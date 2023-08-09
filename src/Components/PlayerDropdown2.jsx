@@ -1,5 +1,5 @@
 import React from 'react'
-import shootingStats from '../data/shooting-stats.json'
+import shootingStats from '../data/leaguePlayersShootingStatsRawData.json'
 
 const PlayerDropdown2 = ({ teamName2, playerToCompare2, setPlayerToCompare2 }) => {
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import standardStats from '../data/leaguePlayersStandardStatsRawData.json'
-import shootingData from '../data/shooting-stats.json'
+import shootingData from '../data/leaguePlayersShootingStatsRawData.json'
 
 const PlayerComparisonChart = ({ playerToCompare, playerToCompare2 }) => {
     

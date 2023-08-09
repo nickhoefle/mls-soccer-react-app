@@ -53,7 +53,7 @@ export function cleanStandardStats(rawData) {
             GoalsPlusAssists: playerObj["G+A"], 
             NonPenaltyGoals: playerObj["G-PK"], 
             PenaltyKickGoals: playerObj.PK, 
-            PenaltyKickAttemps: playerObj.PKatt, 
+            PenaltyKickAttempts: playerObj.PKatt, 
             YellowCards: playerObj.CrdY, 
             RedCards: playerObj.CrdR, 
             ExpectedGoals: playerObj.xG, 
@@ -74,6 +74,70 @@ export function cleanStandardStats(rawData) {
             ExpectedNonPenaltyGoalsPer90: playerObj["npxG__1"], 
             ExpectedNonPenaltyGoalsPlusAssistsPer90: playerObj["npxG+xAG__1"], 
             Matches: playerObj.Matches,
+        }
+    ));
+}
+
+export function cleanShootingStats(rawData) {
+    return rawData.map(playerObj => (
+        {
+            Rk: playerObj.Rk,
+            Name: playerObj.Player, 
+            Nation: playerObj.Nation,
+            Position: playerObj.Pos, 
+            Team: playerObj.Squad,
+            Age: playerObj.Age,
+            Born: playerObj.Born,
+            Full90s: playerObj["90s"],
+            Goals: playerObj.Gls,
+            Shots: playerObj.Sh,
+            ShotsOnTarget: playerObj.SoT,
+            ShotsOnTargetPercent: playerObj["SoT%"],
+            ShotsPer90: playerObj["Sh/90"],
+            ShotsOnTargetPer90: playerObj["SoT/90"],
+            GoalsPerShot: playerObj["G/Sh"],
+            GoalsPerShotOnTarget: playerObj["G/SoT"],
+            AverageShotDistance: playerObj["Dist"],
+            ShotsFromFreeKicks: playerObj["FK"],
+            PenaltyKickGoals: playerObj["PK"],
+            PenaltyKickAttempts: playerObj["PKatt"],
+            ExpectedGoals: playerObj["xG"],
+            ExpectedNonPenaltyGoals: playerObj["npxG"],
+            ExpectedNonPenaltyGoalsPerShot: playerObj["npxG/Sh"],
+            GoalsMinusExpectedGoals: playerObj["G-xG"],
+            NonPenaltyGoalsMinusNonPenaltyExpectedGoals: playerObj["np:G-xG"],
+            Matches: playerObj["Matches"],
+        }
+    ));
+}
+
+export function cleanDefenseStats(rawData) {
+    return rawData.map(playerObj => (
+        {
+            Rk: playerObj.Rk,
+            Name: playerObj.Player, 
+            Nation: playerObj.Nation,
+            Position: playerObj.Pos, 
+            Team: playerObj.Squad,
+            Age: playerObj.Age,
+            Born: playerObj.Born,
+            TacklesPer90: playerObj.Tkl,
+            TacklesWonPer90: playerObj.TklW,
+            TacklesInDefensiveThirdPer90: playerObj["Def 3rd"],
+            TacklesInMiddleThirdPer90: playerObj["Mid 3rd"],
+            TacklesInAttackingThirdPer90: playerObj["Att 3rd"],
+            DribblersTackledPer90: playerObj["Tkl__1"],
+            DribblesChallengedPer90: playerObj["Att"],
+            TacklePercent: playerObj["Tkl%"],
+            ChallengesLostPer90: playerObj["Lost"],
+            BlocksPer90: playerObj["Blocks"],
+            ShotsBlockedPer90: playerObj["Sh"],
+            PassesBlockedPer90: playerObj["Pass"],
+            InterceptionsPer90: playerObj["Int"],
+            TacklesAndInterceptionsPer90: playerObj["Tkl+Int"],
+            ClearancesPer90: playerObj["Clr"],
+            ErrorsPer90: playerObj["Err"],
+            Matches: playerObj["Matches"],
         }
     ));
 }
