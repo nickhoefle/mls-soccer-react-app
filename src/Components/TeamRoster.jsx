@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import standardStats from '../data/leaguePlayersStandardStatsRawData.json';
 
 const TeamRoster = ({ team }) => {
-    const [sortColumn, setSortColumn] = useState('Gls');
-    const [sortDirection, setSortDirection] = useState('asc');
+    const [sortColumn, setSortColumn] = useState('');
+    const [sortDirection, setSortDirection] = useState('');
 
     const handleColumnSort = (column) => {
         if (sortColumn === column) {
             setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
         } else {
-        setSortColumn(column);
-        setSortDirection('asc');
+            setSortColumn(column);
+            setSortDirection('asc');
         }
     };
 
