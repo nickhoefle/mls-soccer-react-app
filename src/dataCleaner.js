@@ -34,7 +34,7 @@ export function cleanPlayerSalariesRawData(rawData) {
     ));
 }
 
-export function cleanPlayerSalariesRawData(rawData) {
+export function cleanStandardStats(rawData) {
     return rawData.map(playerObj => (
         {
             Rk: playerObj.Rk,
@@ -54,12 +54,12 @@ export function cleanPlayerSalariesRawData(rawData) {
             NonPenaltyGoals: playerObj["G-PK"], // Change "G-PK" to "NonPenaltyGoals"
             PenaltyKickGoals: playerObj.PK, // Change "PK" to "PenaltyKickGoals"
             PenaltyKickAttemps: playerObj.PKatt, // Change "PKatt" to "PenaltyKickAttempts"
-            YellowCards: CrdY, // Change "CrdY" to "YellowCards"
+            YellowCards: playerObj.CrdY, // Change "CrdY" to "YellowCards"
             RedCards: playerObj.CrdR, // Change "CrdR" to "RedCards"
             ExpectedGoals: playerObj.xG, // Change "xG" to "ExpectedGoals"
             NonPenaltyExpectedGoals: playerObj.npxG, // Change "npxG" to "NonPenaltyExpectedGoals"
             ExpectedAssists: playerObj.xAG, // Change "xAG" to "ExpectedAssists"
-            NonPenaltyExpectedGoalsPlusAssistedGoals: playerObj.npxG+xAG, //Changed "npxG+AG" to "NonPenaltyExpectedGoalsPlusAssistedGoals"
+            NonPenaltyExpectedGoalsPlusAssistedGoals: playerObj["npxG+xAG"], //Changed "npxG+AG" to "NonPenaltyExpectedGoalsPlusAssistedGoals"
             ProgressiveCarries: playerObj.PrgC, // Change "PrgC" to "ProgressiveCarries"
             ProgressivePasses: playerObj.PrgP, // Change "PrgP" to "ProgressivePasses"
             ProgressivePassesReceived: playerObj.PrgR, // Change "PrgR" to "ProgressivePassesReceived"
