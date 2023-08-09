@@ -141,3 +141,37 @@ export function cleanDefenseStats(rawData) {
         }
     ));
 }
+
+export function cleanGoalkeeperStats(rawData) {
+    return rawData.map(playerObj => (
+        {
+            Rk: playerObj.Rk,
+            Name: playerObj.Player, 
+            Nation: playerObj.Nation,
+            Position: playerObj.Pos, 
+            Team: playerObj.Squad,
+            Age: playerObj.Age,
+            Born: playerObj.Born,
+            MatchesPlayed: playerObj.MP,
+            MatchesStarted: playerObj.Starts,
+            MinutesPlayed: playerObj.Min,
+            Full90s: playerObj["90s"],
+            GoalsAgainst: playerObj.GA,
+            GoalsAgainstPer90: playerObj.GA90,
+            ShotsOnTargetAgainst: playerObj.SoTA,
+            Saves: playerObj.Saves,
+            SavePercent: playerObj["Save%"],
+            Wins: playerObj.W,
+            Draws: playerObj.D,
+            Losses: playerObj.L,
+            CleanSheets: playerObj.CS,
+            CleanSheetPercent: playerObj["CS%"],
+            PenaltyKicksAttemptsAgainst: playerObj["PKatt"],
+            PenaltyKickGoalsAgainst: playerObj["PKA"],
+            PenaltyKicksSaved: playerObj.PKsv,
+            PenaltyKicksMissed: playerObj.PKm,
+            PenaltyKickSavePercent: playerObj["Save%__1"],
+            Matches: playerObj.Matches,
+        }
+    ));
+}

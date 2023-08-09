@@ -15,16 +15,16 @@ const PlayerDropdown2 = ({ teamName2, playerToCompare2, setPlayerToCompare2 }) =
         <div>
             <p className='text-white'>Player</p>
             <select
-            className='bg-black outline-white border-2 text-center w-300'
-            value={playerToCompare2}
-            onChange={handlePlayerToCompareChange2}
+                className='bg-black outline-white border-2 text-center w-300'
+                value={playerToCompare2}
+                onChange={handlePlayerToCompareChange2}
             >
                 <option className='text-left'>Select:</option>
                     {teamPlayers.map((teamPlayer, index) => (
                 <option
-                key={index}
-                value={teamPlayer.Player}
-                className='text-center'
+                    key={index}
+                    value={teamPlayer.Player}
+                    className='text-center'
                 >
                     {teamPlayer.Player} ({teamPlayer.Pos})
                 </option>
