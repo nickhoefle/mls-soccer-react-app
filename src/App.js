@@ -22,7 +22,7 @@ function App() {
   const [team, setTeam] = useState(null);
   const [teamName1, setTeamName1] = useState('');
   const [teamName2, setTeamName2] = useState('');
-  const [playerToCompare, setPlayerToCompare] = useState('');
+  const [playerToCompare1, setPlayerToCompare1] = useState('');
   const [playerToCompare2, setPlayerToCompare2] = useState('');
   const [activeComponent, setActiveComponent] = useState('roster');
 
@@ -42,8 +42,8 @@ function App() {
     setTeamName2(teamName2);
   }
 
-  function handlePlayerToCompare(player) {
-    setPlayerToCompare(player);
+  function handlePlayerToCompare1(player1) {
+    setPlayerToCompare1(player1);
   }
 
   function handlePlayerToCompare2(player2) {
@@ -89,7 +89,7 @@ function App() {
             <div className="text-white text-center md:pr-10 pb-6 md:pb-0">
               <h2 className='underline'>Player 1</h2>
               <TeamDropdown teamName={teamName1} setTeamName1={handleTeamNameSelect} />
-              {teamName1 && <PlayerDropdown teamName1={teamName1} playerToCompare={playerToCompare} setPlayerToCompare={handlePlayerToCompare}/>}
+              {teamName1 && <PlayerDropdown teamName1={teamName1} playerToCompare1={playerToCompare1} setPlayerToCompare1={handlePlayerToCompare1}/>}
             </div>
             <div className="text-white text-center pb-10 md:pb-0">
               <h2 className='underline'>Player 2</h2>
@@ -98,7 +98,7 @@ function App() {
             </div>
           </div>
           <div className="text-white text-center bg-black lg:opacity-75 pb-10">
-            {playerToCompare && playerToCompare2 && <PlayerComparisonChart playerToCompare={playerToCompare} playerToCompare2={playerToCompare2} />}
+            {playerToCompare1 && playerToCompare2 && <PlayerComparisonChart playerToCompare1={playerToCompare1} playerToCompare2={playerToCompare2} />}
           </div>
         </Route>
 
