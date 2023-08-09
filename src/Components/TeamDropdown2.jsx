@@ -3,8 +3,8 @@ import mlsTeamsArray from '../data/mlsTeamsArray.js';
 
 const TeamDropdown2 = ({ teamName2, setTeamName2 }) => { 
 
-    const handleTeam2Change = (event) => {
-        setTeamName2(event.target.value); 
+    const handleTeam2Change = (e) => {
+        setTeamName2(e.target.value); 
     };
 
     return (
@@ -16,17 +16,17 @@ const TeamDropdown2 = ({ teamName2, setTeamName2 }) => {
                 onChange={handleTeam2Change}
             >
                 <option 
-                    className='text-left'
+                   
                 >
                     Select:
                 </option>
-                {mlsTeamsArray.map((team2, index) => (
+                {mlsTeamsArray.map((team, index) => (
                     <option
                         key={index}
-                        value={team2}
+                        value={team}
                         className='text-center'
                     >
-                        {team2}
+                        {team}
                     </option>
                 ))}
             </select>

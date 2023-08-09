@@ -20,7 +20,7 @@ import TeamHamburger from './Components/TeamHamburger';
 function App() {
   const [player, setPlayer] = useState(null);
   const [team, setTeam] = useState(null);
-  const [teamName, setTeamName] = useState('');
+  const [teamName1, setTeamName1] = useState('');
   const [teamName2, setTeamName2] = useState('');
   const [playerToCompare, setPlayerToCompare] = useState('');
   const [playerToCompare2, setPlayerToCompare2] = useState('');
@@ -34,8 +34,8 @@ function App() {
     setTeam(team);
   }
 
-  function handleTeamNameSelect(teamName) {
-    setTeamName(teamName);
+  function handleTeamNameSelect(teamName1) {
+    setTeamName1(teamName1);
   }
 
   function handleTeamName2Select(teamName2) {
@@ -59,9 +59,7 @@ function App() {
       <Switch>
 
         <Route exact path="/">
-          <div className='hidden md:block'>
-            <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
-          </div>
+          <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
           <PageTitle />
           <div className='sm:block lg:hidden bg-black text-white text-xl pl-6 pt-4'>
             <TeamHamburger handleTeamSelect={handleTeamSelect} />
@@ -88,8 +86,8 @@ function App() {
           <div className='md:flex md:justify-center bg-black lg:opacity-75 pb-0'>
             <div className="text-white text-center md:pr-10 pb-6 md:pb-0">
               <h2 className='underline'>Player 1</h2>
-              <TeamDropdown teamName={teamName} setTeamName={handleTeamNameSelect} />
-              {teamName && <PlayerDropdown teamName={teamName} playerToCompare={playerToCompare} setPlayerToCompare={handlePlayerToCompare}/>}
+              <TeamDropdown teamName={teamName1} setTeamName1={handleTeamNameSelect} />
+              {teamName1 && <PlayerDropdown teamName1={teamName1} playerToCompare={playerToCompare} setPlayerToCompare={handlePlayerToCompare}/>}
             </div>
             <div className="text-white text-center pb-10 md:pb-0">
               <h2 className='underline'>Player 2</h2>

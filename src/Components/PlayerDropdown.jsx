@@ -1,9 +1,9 @@
 import React from 'react'
 import shootingStats from '../data/shooting-stats.json'
 
-const PlayerDropdown = ({ teamName, playerToCompare, setPlayerToCompare }) => {
+const PlayerDropdown = ({ teamName1, playerToCompare, setPlayerToCompare }) => {
 
-    let teamPlayers = shootingStats.filter((player) => (player.Squad === teamName))
+    let teamPlayers = shootingStats.filter((player) => (player.Squad === teamName1))
         .sort((a, b) => a.Pos.localeCompare(b.Pos));
 
     const handlePlayerToCompareChange = (event) => {
