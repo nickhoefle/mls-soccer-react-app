@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
-import allLeagueMatchesRawData from '../data/past-matches.json';
+import allLeagueMatchesRawData from '../data/allLeagueMatchesRawData.json';
 import { cleanAllLeagueMatchesRawData } from '../dataCleaner'; 
 
 const allLeagueMatches = cleanAllLeagueMatchesRawData(allLeagueMatchesRawData);
@@ -82,10 +82,10 @@ const TeamSeasonGraph = ({ team }) => {
         <div className="flex justify-center bg-black opacity-75">
             <div className=" text-white rounded-lg p-4 w-screen lg:w-2/3 sm:w-1/1">
                 <ReactApexChart
-                options={chartOptions}
-                series={chartSeries}
-                type="line"
-                height={300}
+                    options={chartOptions}
+                    series={chartSeries}
+                    type="line"
+                    height={300}
                 />
             </div>
         </div>

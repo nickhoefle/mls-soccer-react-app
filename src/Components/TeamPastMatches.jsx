@@ -1,5 +1,5 @@
 import React from 'react'
-import pastMatches from '../data/past-matches.json';
+import pastMatches from '../data/allLeagueMatchesRawData.json';
 
 const TeamPastMatches = ({ team }) => {
 
