@@ -1,29 +1,32 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
-import pastMatches from '../data/past-matches.json';
+import allLeagueMatchesRawData from '../data/past-matches.json';
+import { cleanAllLeagueMatchesRawData } from '../dataCleaner'; 
+
+const allLeagueMatches = cleanAllLeagueMatchesRawData(allLeagueMatchesRawData);
 
 const TeamSeasonGraph = ({ team }) => {
     
-    const teamMatches = pastMatches.filter((match) => (match.Home === team || match.Away === team) && match.Score !== '');
-    const datesArray = teamMatches.map((match) => match.Date.slice(5));
-    const goalDifferences = [];
+    const teamMatchesArray = allLeagueMatches.filter((match) => (match.HomeTeam === team || match.AwayTeam === team) && match.Score !== '');
+    const datesArray = teamMatchesArray.map((teamMatch) => teamMatch.Date.slice(5));
+    const goalDifferentialArray = [];
 
-    teamMatches.forEach((match) => {
-        if (match.Home === team) {
-        const homeScore = match.Score.split('–')[0];
-        const awayScore = match.Score.split('–')[1];
-        const goalDifference = parseInt(homeScore) - parseInt(awayScore);
-        goalDifferences.push(goalDifference);
-        } else if (match.Away === team) {
-        const homeScore = match.Score.split('–')[0];
-        const awayScore = match.Score.split('–')[1];
-        const goalDifference = parseInt(awayScore) - parseInt(homeScore);
-        goalDifferences.push(goalDifference);
+    teamMatchesArray.forEach((teamMatch) => {
+        if (teamMatch.HomeTeam === team) {
+            const homeScore = teamMatch.Score.split('–')[0];
+            const awayScore = teamMatch.Score.split('–')[1];
+            const goalDifference = parseInt(homeScore) - parseInt(awayScore);
+            goalDifferentialArray.push(goalDifference);
+        } else if (teamMatch.AwayTeam === team) {
+            const homeScore = teamMatch.Score.split('–')[0];
+            const awayScore = teamMatch.Score.split('–')[1];
+            const goalDifference = parseInt(awayScore) - parseInt(homeScore);
+            goalDifferentialArray.push(goalDifference);
         }
     });
 
-    const opponentNames = teamMatches.map((match) => {
-        return match.Home === team ? match.Away : match.Home;
+    const opponentNamesArray = teamMatchesArray.map((teamMatch) => {
+        return teamMatch.HomeTeam === team ? teamMatch.AwayTeam : teamMatch.HomeTeam;
     });
 
     const chartOptions = {
@@ -61,8 +64,8 @@ const TeamSeasonGraph = ({ team }) => {
             shared: false,
             intersect: true,
             custom: function ({ dataPointIndex }) {
-                const opponentName = opponentNames[dataPointIndex];
-                const goalDifference = goalDifferences[dataPointIndex];
+                const opponentName = opponentNamesArray[dataPointIndex];
+                const goalDifference = goalDifferentialArray[dataPointIndex];
                 const text = `${opponentName}: ${goalDifference}`;
                 return `<div class="custom-tooltip">${text}</div>`;
             },
@@ -71,7 +74,7 @@ const TeamSeasonGraph = ({ team }) => {
     const chartSeries = [
         {
             name: 'Goal Differential',
-            data: goalDifferences,
+            data: goalDifferentialArray,
         },
     ];
 
