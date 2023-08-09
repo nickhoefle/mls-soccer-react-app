@@ -4,7 +4,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "../styles.css";
 import { Pagination, Navigation } from "swiper";
-import data from '../data/player-standard-stats.json';
+import data from '../data/leaguePlayersStandardStatsRawData.json';
 import goalkeeping from '../data/goalkeeping.json';
 
 const LeagueLeadersSwiper = ({ setPlayer }) => {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import playerStats from '../data/player-standard-stats.json';
+import playerStats from '../data/leaguePlayersStandardStatsRawData.json';
 import diacriticless from 'diacriticless';
 
 const PlayerSearch = ({ handlePlayerSearch }) => {

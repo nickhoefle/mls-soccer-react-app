@@ -1,5 +1,5 @@
 import React from 'react'
-import standardStats from '../data/player-standard-stats.json';
+import standardStats from '../data/leaguePlayersStandardStatsRawData.json';
 import goalkeepingStats from '../data/goalkeeping.json';
 
 const LeagueLeaders = ({ setPlayer }) => {

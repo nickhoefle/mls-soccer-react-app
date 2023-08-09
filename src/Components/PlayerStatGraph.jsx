@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles.css';
-import data from '../data/player-standard-stats.json';
+import data from '../data/leaguePlayersStandardStatsRawData.json';
 import shootingStats from '../data/shooting-stats.json';
 import defStats from '../data/def-90.json';
 import diacriticless from 'diacriticless';

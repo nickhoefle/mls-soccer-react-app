@@ -60,4 +60,4 @@ const TeamSalaryPieChart = ({ team }) => {
     );
 };
     
-    export default TeamSalaryPieChart;
+export default TeamSalaryPieChart;
