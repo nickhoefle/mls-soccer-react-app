@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import standardStats from '../data/leaguePlayersStandardStatsRawData.json';
+import leaguePlayersStandardStatsRawData from '../data/leaguePlayersStandardStatsRawData.json';
+import { cleanStandardStats } from '../dataCleaner'; 
+
+const leaguePlayersStandardStats = cleanStandardStats(leaguePlayersStandardStatsRawData);
 
 const TeamRoster = ({ team }) => {
     const [sortColumn, setSortColumn] = useState('');
@@ -14,12 +17,12 @@ const TeamRoster = ({ team }) => {
         }
     };
 
-    const teamPlayers = standardStats
-        .filter((player) => player.Squad === team)
+    const teamPlayers = leaguePlayersStandardStats
+        .filter((player) => player.Team === team)
         .sort((b, a) => {
             const valueB = b[sortColumn];
             const valueA = a[sortColumn];            
-            if (sortColumn === 'Player' || sortColumn === 'Pos') {
+            if (sortColumn === 'Name' || sortColumn === 'Position') {
                 return sortDirection === 'asc' ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA);
             } 
             const numericValueA = parseInt(valueA);
@@ -36,7 +39,7 @@ const TeamRoster = ({ team }) => {
                     <tr>
                         <th 
                             className="px-4 py-2 sticky left-0 bg-black cursor-pointer"
-                            onClick={() => handleColumnSort('Player')}
+                            onClick={() => handleColumnSort('Name')}
                         >
                             Player
                         </th>
@@ -48,13 +51,13 @@ const TeamRoster = ({ team }) => {
                         </th>
                         <th
                             className="px-4 py-2 cursor-pointer"
-                            onClick={() => handleColumnSort('Pos')}
+                            onClick={() => handleColumnSort('Position')}
                         >
                             Position
                         </th>
                         <th
                             className="px-4 py-2 cursor-pointer"
-                            onClick={() => handleColumnSort('MP')}
+                            onClick={() => handleColumnSort('MatchesPlayed')}
                         >
                             Matches
                         </th>
@@ -66,25 +69,25 @@ const TeamRoster = ({ team }) => {
                         </th>
                         <th
                             className="px-4 py-2 cursor-pointer"
-                            onClick={() => handleColumnSort('Min')}
+                            onClick={() => handleColumnSort('MinutesPlayed')}
                         >
                             Minutes
                         </th>
                         <th
                             className="px-4 py-2 cursor-pointer"
-                            onClick={() => handleColumnSort('Gls')}
+                            onClick={() => handleColumnSort('Goals')}
                         >
                             Goals
                         </th>
                         <th
                             className="px-4 py-2 cursor-pointer"
-                            onClick={() => handleColumnSort('Ast')}
+                            onClick={() => handleColumnSort('Assists')}
                         >
                             Assists
                         </th>
                         <th
                             className="px-4 py-2 cursor-pointer"
-                            onClick={() => handleColumnSort('CrdY')}
+                            onClick={() => handleColumnSort('YellowCards')}
                         >
                             Yellow Cards
                         </th>
@@ -92,16 +95,16 @@ const TeamRoster = ({ team }) => {
                 </thead>
                 <tbody>
                 {teamPlayers.map((player) => (
-                    <tr key={player.Player} className="md:hover:bg-green-700">
-                        <td className="border-t border-b px-4 py-2 sticky left-0 whitespace-nowrap bg-black md:bg-transparent cursor-pointer">{player.Player}</td>
+                    <tr key={player.Name} className="md:hover:bg-green-700">
+                        <td className="border-t border-b px-4 py-2 sticky left-0 whitespace-nowrap bg-black md:bg-transparent cursor-pointer">{player.Name}</td>
                         <td className="border-t border-b px-4 py-2 text-center">{player.Age.split('-')[0]}</td>
-                        <td className="border-t border-b px-4 py-2 text-center">{player.Pos}</td>
-                        <td className="border-t border-b px-4 py-2 text-center">{player.MP}</td>
+                        <td className="border-t border-b px-4 py-2 text-center">{player.Position}</td>
+                        <td className="border-t border-b px-4 py-2 text-center">{player.MatchesPlayed}</td>
                         <td className="border-t border-b px-4 py-2 text-center">{player.Starts}</td>
-                        <td className="border-t border-b px-4 py-2 text-center">{player.Min}</td>
-                        <td className="border-t border-b px-4 py-2 text-center">{player.Gls}</td>
-                        <td className="border-t border-b px-4 py-2 text-center">{player.Ast}</td>
-                        <td className="border-t border-b px-4 py-2 text-center">{player.CrdY}</td>
+                        <td className="border-t border-b px-4 py-2 text-center">{player.MinutesPlayed}</td>
+                        <td className="border-t border-b px-4 py-2 text-center">{player.Goals}</td>
+                        <td className="border-t border-b px-4 py-2 text-center">{player.Assists}</td>
+                        <td className="border-t border-b px-4 py-2 text-center">{player.YellowCards}</td>
                     </tr>
                 ))}
                 </tbody>
