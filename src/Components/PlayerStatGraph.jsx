@@ -17,7 +17,7 @@ const leaguePlayersShootingStats = cleanShootingStats(leaguePlayersShootingStats
 const leaguePlayersDefensePer90Stats = cleanDefenseStats(leaguePlayersDefensePer90StatsRawData);
 
 const PlayerStatGraph = ({ playerName }) => {
-    const [activeStat, setActiveStat] = useState('xgPer90');
+    const [activeStat, setActiveStat] = useState('ExpectedGoalsPer90');
 
     const handleStatClick = (stat) => {
         setActiveStat(stat);
@@ -62,7 +62,6 @@ const PlayerStatGraph = ({ playerName }) => {
     const TacklePercentAvg = findLeagueAverage(leaguePlayersDefensePer90Stats, 'TacklePercent', matchingPlayerDefenseStats);
     const ClearancePer90Avg = findLeagueAverage(leaguePlayersDefensePer90Stats, 'ClearancesPer90', matchingPlayerDefenseStats);
     
-
     return (
         <>
             <h1 className='text-white text-2xl lg:opacity-75'>{matchingPlayerStandardStats.Name} Stat Graphs</h1>
@@ -72,43 +71,43 @@ const PlayerStatGraph = ({ playerName }) => {
                 <div className='w-1/1 md:w-1/4'>
                     {/* Row 1 - Clickable Stats */}
                     <div className='flex justify-center stat-links'>
-                        <p className='p-4 cursor-pointer' onClick={() => handleStatClick('xgPer90')}>
-                            <span className={activeStat === 'xgPer90' ? 'underline' : ''}>xGoals per 90</span>
+                        <p className='p-4 cursor-pointer' onClick={() => handleStatClick('ExpectedGoalsPer90')}>
+                            <span className={activeStat === 'ExpectedGoalsPer90' ? 'underline' : ''}>xGoals per 90</span>
                         </p>                    
-                        <p className='p-4 cursor-pointer' onClick={() => handleStatClick('xaPer90')}>
-                            <span className={activeStat === 'xaPer90' ? 'underline' : ''}>xAssists per 90</span>
+                        <p className='p-4 cursor-pointer' onClick={() => handleStatClick('ExpectedAssistsPer90')}>
+                            <span className={activeStat === 'ExpectedAssistsPer90' ? 'underline' : ''}>xAssists per 90</span>
                         </p>
-                        <p className='p-4 cursor-pointer' onClick={() => handleStatClick('yellowCards')}>
-                            <span className={activeStat === 'yellowCards' ? 'underline' : ''}>Yellow Cards</span>
+                        <p className='p-4 cursor-pointer' onClick={() => handleStatClick('YellowCards')}>
+                            <span className={activeStat === 'YellowCards' ? 'underline' : ''}>Yellow Cards</span>
                         </p>
                     </div>
                     {/* Row 2 - Clickable Stats */}
                     <div className='flex justify-center stat-links pb-4'>
-                        <p className='px-4 cursor-pointer' onClick={() => handleStatClick('goalsPer90')}>
-                            <span className={activeStat === 'goalsPer90' ? 'underline' : ''}>Goals per 90</span>
+                        <p className='px-4 cursor-pointer' onClick={() => handleStatClick('GoalsPer90')}>
+                            <span className={activeStat === 'GoalsPer90' ? 'underline' : ''}>Goals per 90</span>
                         </p>
-                        <p className='px-4 cursor-pointer' onClick={() => handleStatClick('assistsPer90')}>
-                            <span className={activeStat === 'assistsPer90' ? 'underline' : ''}>Assists per 90</span>
+                        <p className='px-4 cursor-pointer' onClick={() => handleStatClick('AssistsPer90')}>
+                            <span className={activeStat === 'AssistsPer90' ? 'underline' : ''}>Assists per 90</span>
                         </p>
-                        <p className='px-4 cursor-pointer' onClick={() => handleStatClick('shotsPer90')}>
-                            <span className={activeStat === 'shotsPer90' ? 'underline' : ''}>Shots per 90</span>
+                        <p className='px-4 cursor-pointer' onClick={() => handleStatClick('ShotsPer90')}>
+                            <span className={activeStat === 'ShotsPer90' ? 'underline' : ''}>Shots per 90</span>
                         </p>
                     </div>
                     {/* Row 3 - Clickable Stats */}
                     <div className='flex justify-center stat-links pb-4'>
-                        <p className='px-4 cursor-pointer' onClick={() => handleStatClick('tacklesPer90')}>
-                            <span className={activeStat === 'tacklesPer90' ? 'underline' : ''}>Tackles per 90</span>
+                        <p className='px-4 cursor-pointer' onClick={() => handleStatClick('TacklesPer90')}>
+                            <span className={activeStat === 'TacklesPer90' ? 'underline' : ''}>Tackles per 90</span>
                         </p>
-                        <p className='px-4 cursor-pointer' onClick={() => handleStatClick('tacklePercent')}>
-                            <span className={activeStat === 'tacklePercent' ? 'underline' : ''}>Tackle Percent</span>
+                        <p className='px-4 cursor-pointer' onClick={() => handleStatClick('TacklePercent')}>
+                            <span className={activeStat === 'TacklePercent' ? 'underline' : ''}>Tackle Percent</span>
                         </p>
-                        <p className='px-4 cursor-pointer' onClick={() => handleStatClick('clearsPer90')}>
-                            <span className={activeStat === 'clearsPer90' ? 'underline' : ''}>Clears per 90</span>
+                        <p className='px-4 cursor-pointer' onClick={() => handleStatClick('ClearancesPer90')}>
+                            <span className={activeStat === 'ClearancesPer90' ? 'underline' : ''}>Clears per 90</span>
                         </p>
                     </div>
                     
                     {/* Expected Goals per 90 */}
-                    {activeStat === 'xgPer90' && (
+                    {activeStat === 'ExpectedGoalsPer90' && (
                     <div className='stat-content'>
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center'>
@@ -127,7 +126,7 @@ const PlayerStatGraph = ({ playerName }) => {
                     </div>
                     )}
                     {/* Goals per 90 */}
-                    {activeStat === 'goalsPer90' && (
+                    {activeStat === 'GoalsPer90' && (
                     <div className='stat-content'>
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center'>
@@ -146,7 +145,7 @@ const PlayerStatGraph = ({ playerName }) => {
                     </div>
                     )}
                     {/* Expected Assists per 90 */}
-                    {activeStat === 'xaPer90' && (
+                    {activeStat === 'ExpectedAssistsPer90' && (
                     <div className='stat-content'>
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center'>
@@ -165,7 +164,7 @@ const PlayerStatGraph = ({ playerName }) => {
                     </div>
                     )}
                     {/* Assists per 90 */}
-                    {activeStat === 'assistsPer90' && (
+                    {activeStat === 'AssistsPer90' && (
                     <div className='stat-content'>
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center'>
@@ -184,7 +183,7 @@ const PlayerStatGraph = ({ playerName }) => {
                     </div>
                     )}
                     {/* Yellow Cards */}
-                    {activeStat === 'yellowCards' && (
+                    {activeStat === 'YellowCards' && (
                     <div className='stat-content'>
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center'>
@@ -203,7 +202,7 @@ const PlayerStatGraph = ({ playerName }) => {
                     </div>
                     )}
                     {/* Shots per 90 */}
-                    {activeStat === 'shotsPer90' && (
+                    {activeStat === 'ShotsPer90' && (
                     <div className='stat-content'>
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center'>
@@ -222,7 +221,7 @@ const PlayerStatGraph = ({ playerName }) => {
                     </div>
                     )}
                     {/* Tackles per 90 */}
-                    {activeStat === 'tacklesPer90' && (
+                    {activeStat === 'TacklesPer90' && (
                     <div className='stat-content'>
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center'>
@@ -241,7 +240,7 @@ const PlayerStatGraph = ({ playerName }) => {
                     </div>
                     )}
                     {/* Tackle Percent */}
-                    {activeStat === 'tacklePercent' && (
+                    {activeStat === 'TacklePercent' && (
                     <div className='stat-content'>
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center'>
@@ -260,7 +259,7 @@ const PlayerStatGraph = ({ playerName }) => {
                     </div>
                     )}
                     {/* Clears Per 90 */}
-                    {activeStat === 'clearsPer90' && (
+                    {activeStat === 'ClearancesPer90' && (
                     <div className='stat-content'>
                         <div className='flex items-center justify-between'>
                             <div className='flex items-center'>
