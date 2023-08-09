@@ -1,4 +1,4 @@
-import teamArray from '../data/teamArray.js';
+import mlsTeamsArray from '../data/mlsTeamsArray.js';
 
 const TeamDropdown = ({ teamName, setTeamName }) => { 
 
@@ -15,7 +15,7 @@ const TeamDropdown = ({ teamName, setTeamName }) => {
         onChange={handleTeamChange}
         >
             <option>Select:</option>
-            {teamArray.map((team, index) => (
+            {mlsTeamsArray.map((team, index) => (
             <option
                 key={index}
                 value={team}
