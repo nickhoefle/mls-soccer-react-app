@@ -5,9 +5,9 @@ export function cleanAllLeagueMatchesRawData(rawData) {
             Date: match.Date,
             Time: match.Time,
             HomeTeam: match.Home, // Change "Home" to "HomeTeam"
-            xG: match.xG,
+            HomeTeamExpectedGoals: match.xG, // Change "xG" to "HomeTeamExpectedGoals"
             Score: match.Score,
-            xG__1: match.xG__1,
+            AwayTeamExpectedGoals: match.xG__1, // Change "xG__1" to "AwayTeamExpectedGoals"
             AwayTeam: match.Away, // Change "Away" to "AwayTeam"
             Attendance: match.Attendance,
             Venue: match.Venue,
