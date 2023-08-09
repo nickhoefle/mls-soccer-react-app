@@ -10,7 +10,7 @@ import PageTitle from './Components/PageTitle';
 import TeamPastMatches from './Components/TeamPastMatches';
 import TeamDropdown from './Components/TeamDropdown';
 import TeamDropdown2 from './Components/TeamDropdown2';
-import PlayerDropdown from './Components/PlayerDropdown';
+import PlayerDropdown1 from './Components/PlayerDropdown1';
 import PlayerDropdown2 from './Components/PlayerDropdown2';
 import PlayerComparisonChart from './Components/PlayerComparisonChart';
 import TeamSeasonGraph from './Components/TeamSeasonGraph';
@@ -89,7 +89,7 @@ function App() {
             <div className="text-white text-center md:pr-10 pb-6 md:pb-0">
               <h2 className='underline'>Player 1</h2>
               <TeamDropdown teamName={teamName1} setTeamName1={handleTeamNameSelect} />
-              {teamName1 && <PlayerDropdown teamName1={teamName1} playerToCompare1={playerToCompare1} setPlayerToCompare1={handlePlayerToCompare1}/>}
+              {teamName1 && <PlayerDropdown1 teamName1={teamName1} playerToCompare1={playerToCompare1} setPlayerToCompare1={handlePlayerToCompare1}/>}
             </div>
             <div className="text-white text-center pb-10 md:pb-0">
               <h2 className='underline'>Player 2</h2>
@@ -100,9 +100,7 @@ function App() {
           <div className="text-white text-center bg-black lg:opacity-75 pb-10">
             {playerToCompare1 && playerToCompare2 && <PlayerComparisonChart playerToCompare1={playerToCompare1} playerToCompare2={playerToCompare2} />}
           </div>
-          <div className='h-[calc(100vh-693px)] bg-black opacity-75'>
-
-          </div>
+          <div className='h-[calc(100vh-693px)] bg-black opacity-75'></div>
         </Route>
 
         <Route path="/team/:teamId">
