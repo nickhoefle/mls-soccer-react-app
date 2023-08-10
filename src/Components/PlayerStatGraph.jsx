@@ -25,21 +25,28 @@ const PlayerStatGraph = ({ playerName }) => {
 
     const searchedPlayerName = diacriticless(playerName.toLowerCase());
     
-    const matchingPlayerStandardStats = leaguePlayersStandardStats.find((player) => 
-        diacriticless(player.Name.toLowerCase()).includes(searchedPlayerName)
+    const matchingPlayerStandardStats = leaguePlayersStandardStats.find((leaguePlayer) => 
+        diacriticless(leaguePlayer.Name.toLowerCase()).includes(searchedPlayerName)
+    );
+    
+    const matchingPlayerShootingStats = leaguePlayersShootingStats.find((leaguePlayer) =>
+        diacriticless(leaguePlayer.Name.toLowerCase()).includes(searchedPlayerName)
     );
 
-    const matchingPlayerShootingStats = leaguePlayersShootingStats.find((player) =>
-        diacriticless(player.Name.toLowerCase()).includes(searchedPlayerName)
+    const matchingPlayerDefenseStats = leaguePlayersDefensePer90Stats.find((leaguePlayer) =>
+        diacriticless(leaguePlayer.Name.toLowerCase()).includes(searchedPlayerName)
     );
 
-    const matchingPlayerDefenseStats = leaguePlayersDefensePer90Stats.find((player) =>
-        diacriticless(player.Name.toLowerCase()).includes(searchedPlayerName)
-    );
+    if (!matchingPlayerStandardStats) {
+        return (
+            <h1 className='text-red-500 opacity-75'>"{playerName}" was not found.</h1>
+        );
+    }
 
     function findLeagueAverage(jsonFile, stat, matchingPlayer) {
         let sum = 0;
         let count = 0;
+        
         const positionsToInclude = matchingPositions[matchingPlayer.Position.replace(',', '').toLowerCase()];        
         
         jsonFile.forEach((leaguePlayer) => {
@@ -61,7 +68,7 @@ const PlayerStatGraph = ({ playerName }) => {
     const TacklesPer90Avg = findLeagueAverage(leaguePlayersDefensePer90Stats, 'TacklesPer90', matchingPlayerDefenseStats);
     const TacklePercentAvg = findLeagueAverage(leaguePlayersDefensePer90Stats, 'TacklePercent', matchingPlayerDefenseStats);
     const ClearancePer90Avg = findLeagueAverage(leaguePlayersDefensePer90Stats, 'ClearancesPer90', matchingPlayerDefenseStats);
-    
+
     return (
         <>
             <h1 className='text-white text-2xl lg:opacity-75'>{matchingPlayerStandardStats.Name} Stat Graphs</h1>

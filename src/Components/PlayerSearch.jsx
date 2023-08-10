@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import playerStats from '../data/leaguePlayersStandardStatsRawData.json';
 import diacriticless from 'diacriticless';
+import leaguePlayersStandardStatsRawData from '../data/leaguePlayersStandardStatsRawData.json';
+import { cleanStandardStats } from '../dataCleaner'; 
+
+const leaguePlayersStandardStats = cleanStandardStats(leaguePlayersStandardStatsRawData);
 
 const PlayerSearch = ({ handlePlayerSearch }) => {
     const [playerName, setPlayerName] = useState('');
@@ -20,13 +23,11 @@ const PlayerSearch = ({ handlePlayerSearch }) => {
     };
 
     const generateSuggestions = (searchBarText) => {
-        const matchingPlayers = playerStats.filter((player) => {
-            const playerNameLowercase = diacriticless(player.Player.toLowerCase());
-            const searchBarTextLowercase = searchBarText.toLowerCase();
-            return playerNameLowercase.includes(searchBarTextLowercase);
+        const matchingPlayers = leaguePlayersStandardStats.filter((leaguePlayer) => {
+            return diacriticless(leaguePlayer.Name.toLowerCase()).includes(diacriticless(searchBarText.toLowerCase()));
         });
 
-        const suggestedPlayers = matchingPlayers.slice(0, 5).map((player) => player.Player);
+        const suggestedPlayers = matchingPlayers.slice(0, 5).map((matchingPlayer) => matchingPlayer.Name);
         return suggestedPlayers;
     };
 
@@ -39,15 +40,22 @@ const PlayerSearch = ({ handlePlayerSearch }) => {
                 value={playerName}
                 onChange={handleChange}
             />
-            <br></br>
+            <br />
             {suggestedPlayers.length > 0 && (
                 <ul className="mt-2 bg-white text-black rounded">
                     <li className='font-bold underline'>Suggested Players</li>
                     {suggestedPlayers.map((suggestedPlayer) => (
-                        <li key={suggestedPlayer} 
-                        onClick={() => { setPlayerName(suggestedPlayer); handleSubmit(suggestedPlayer); setsuggestedPlayers([]); } }
-                        className="cursor-pointer"
-                        >{suggestedPlayer}</li>
+                        <li 
+                            key={suggestedPlayer} 
+                            className="cursor-pointer"
+                            onClick={(e) => { 
+                                e.preventDefault();
+                                setPlayerName(suggestedPlayer); 
+                                handleSubmit(e);
+                            }}                            
+                        >
+                            {suggestedPlayer}
+                        </li>
                     ))}
                 </ul>
             )}
@@ -55,9 +63,7 @@ const PlayerSearch = ({ handlePlayerSearch }) => {
                 className="mt-2 ml-2 px-12 py-2.5 border-solid border-2 border-white rounded-full bg-blue-900"
             >
                 Search
-            </button>
-
-            
+            </button>            
         </form>
     );
 };
