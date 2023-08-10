@@ -12,7 +12,8 @@ const PlayerSearch = ({ handlePlayerSearch }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         handlePlayerSearch(playerName);
-        setsuggestedPlayers([]); 
+        setsuggestedPlayers([]);
+        setPlayerName('');
     };
 
     const handleChange = (e) => {
