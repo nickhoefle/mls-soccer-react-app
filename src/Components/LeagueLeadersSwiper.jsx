@@ -25,9 +25,9 @@ const LeagueLeadersSwiper = ({ setPlayer }) => {
         return sortedData.slice(0,10);
     };
 
-    const topFiveAssists = findTopTenForStat(leaguePlayersStandardStats, 'Assists'); 
-    const topFiveGoals = findTopTenForStat(leaguePlayersStandardStats, 'Goals'); 
-    const topFiveSavePct = findTopTenForStat(leagueGoalkeeperStats, 'SavePercent'); 
+    const topTenAssists = findTopTenForStat(leaguePlayersStandardStats, 'Assists'); 
+    const topTenGoals = findTopTenForStat(leaguePlayersStandardStats, 'Goals'); 
+    const topTenSavePct = findTopTenForStat(leagueGoalkeeperStats, 'SavePercent'); 
 
     return (
         <>
@@ -43,17 +43,17 @@ const LeagueLeadersSwiper = ({ setPlayer }) => {
                 <SwiperSlide className="bg-black text-white text-base px-2 pt-4">
                     <h1 className='underline pb-2'>Assists</h1>
                     <ul className="space-y-1.5">
-                        {topFiveAssists.map((topFivePlayer, index) => (
+                        {topTenAssists.map((topTenPlayer, index) => (
                         <li 
                             key={index} 
                             className='flex items-center justify-between' 
-                            onClick={() => handlePlayerClick(topFivePlayer.Name)}
+                            onClick={() => handlePlayerClick(topTenPlayer.Name)}
                         >
-                            {topFivePlayer.Name} ({topFivePlayer.Team})
+                            {topTenPlayer.Name} ({topTenPlayer.Team})
                         <span 
                             className='pl-4 text-right'
                         >
-                            {topFivePlayer.Assists}
+                            {topTenPlayer.Assists}
                         </span>
                         </li>
                         ))}
@@ -62,17 +62,17 @@ const LeagueLeadersSwiper = ({ setPlayer }) => {
                 <SwiperSlide className="bg-black text-white text-base px-2 pt-4">
                     <h1 className='underline pb-2'>Goals</h1>
                     <ul className="space-y-1.5">
-                        {topFiveGoals.map((topFivePlayer, index) => (
+                        {topTenGoals.map((topTenPlayer, index) => (
                         <li 
                             key={index} 
                             className='flex items-center justify-between' 
-                            onClick={() => handlePlayerClick(topFivePlayer.Name)}
+                            onClick={() => handlePlayerClick(topTenPlayer.Name)}
                         >
-                            {topFivePlayer.Name} ({topFivePlayer.Team})
+                            {topTenPlayer.Name} ({topTenPlayer.Team})
                         <span 
                             className='pl-4 text-right'
                         >
-                            {topFivePlayer.Goals}
+                            {topTenPlayer.Goals}
                         </span>
                         </li>
                         ))}
@@ -81,16 +81,16 @@ const LeagueLeadersSwiper = ({ setPlayer }) => {
                 <SwiperSlide className="bg-black text-white text-base px-2 pt-4">
                     <h1 className='underline pb-2'>Save Percent</h1>
                     <ul className="space-y-1.5">
-                        {topFiveSavePct.map((topFivePlayer, index) => (
+                        {topTenSavePct.map((topTenPlayer, index) => (
                         <li 
                             key={index} 
                             className='flex items-center justify-between'
                         >
-                            {topFivePlayer.Name} ({topFivePlayer.Team})
+                            {topTenPlayer.Name} ({topTenPlayer.Team})
                         <span 
                             className='pl-4 text-right'
                         >
-                            {topFivePlayer.SavePercent.toFixed(1)} %
+                            {topTenPlayer.SavePercent.toFixed(1)} %
                         </span>
                         </li>
                         ))}
