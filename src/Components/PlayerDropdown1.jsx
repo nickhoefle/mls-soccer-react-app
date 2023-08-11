@@ -4,10 +4,10 @@ import { cleanShootingStats } from '../dataCleaner';
 
 const leaguePlayersShootingStats = cleanShootingStats(leaguePlayersShootingStatsRawData);
 
-const PlayerDropdown1 = ({ teamName1, playerToCompare, setPlayerToCompare1 }) => {
+const PlayerDropdown1 = ({ teamName1, playerToCompare1, setPlayerToCompare1 }) => {
 
     let teamPlayers = leaguePlayersShootingStats
-        .filter((teamPlayer) => (teamPlayer.Team === teamName1))
+        .filter((leaguePlayer) => (leaguePlayer.Team === teamName1))
         .sort((a, b) => a.Position.localeCompare(b.Position));
 
     const handlePlayerToCompareChange = (e) => {
@@ -20,7 +20,7 @@ const PlayerDropdown1 = ({ teamName1, playerToCompare, setPlayerToCompare1 }) =>
             <p className='text-white'>Player</p>
             <select
                 className='bg-black outline-white border-2 text-center w-300'
-                value={playerToCompare}
+                value={playerToCompare1}
                 onChange={handlePlayerToCompareChange}
             >
                 <option 

@@ -1,13 +1,17 @@
 import React from 'react'
-import shootingStats from '../data/leaguePlayersShootingStatsRawData.json'
+import leaguePlayersShootingStatsRawData from '../data/leaguePlayersShootingStatsRawData.json';
+import { cleanShootingStats } from '../dataCleaner'; 
+
+const leaguePlayersShootingStats = cleanShootingStats(leaguePlayersShootingStatsRawData);
 
 const PlayerDropdown2 = ({ teamName2, playerToCompare2, setPlayerToCompare2 }) => {
 
-    let teamPlayers = shootingStats.filter((player) => (player.Squad === teamName2));
-    teamPlayers.sort((a, b) => a.Pos.localeCompare(b.Pos));
+    let teamPlayers = leaguePlayersShootingStats
+    .filter((leaguePlayer) => (leaguePlayer.Team === teamName2))
+    .sort((a, b) => a.Position.localeCompare(b.Position));
 
-    const handlePlayerToCompareChange2 = (event) => {
-        setPlayerToCompare2(event.target.value); 
+    const handlePlayerToCompareChange2 = (e) => {
+        setPlayerToCompare2(e.target.value); 
     };
 
     
@@ -27,10 +31,10 @@ const PlayerDropdown2 = ({ teamName2, playerToCompare2, setPlayerToCompare2 }) =
                 {teamPlayers.map((teamPlayer, index) => (
                 <option
                     key={index}
-                    value={teamPlayer.Player}
+                    value={teamPlayer.Name}
                     className='text-center'
                 >
-                    {teamPlayer.Player} ({teamPlayer.Pos})
+                    {teamPlayer.Name} ({teamPlayer.Position})
                 </option>
             ))}
             </select>
