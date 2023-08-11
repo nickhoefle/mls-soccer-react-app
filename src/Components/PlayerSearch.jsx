@@ -6,54 +6,49 @@ import { cleanStandardStats } from '../dataCleaner';
 const leaguePlayersStandardStats = cleanStandardStats(leaguePlayersStandardStatsRawData);
 
 const PlayerSearch = ({ handlePlayerSearch }) => {
-    const [playerName, setPlayerName] = useState('');
+    const [searchBarText, setSearchBarText] = useState('');
     const [suggestedPlayers, setsuggestedPlayers] = useState([]);
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        handlePlayerSearch(playerName);
-        setsuggestedPlayers([]);
-        setPlayerName('');
-    };
 
     const handleChange = (e) => {
         const searchBarText = e.target.value;
-        setPlayerName(searchBarText);
-        const suggestedPlayers = generateSuggestions(searchBarText);
-        setsuggestedPlayers(suggestedPlayers);
+        setSearchBarText(searchBarText);
+        const matchingPlayers = leaguePlayersStandardStats.filter(leaguePlayer =>
+            diacriticless(leaguePlayer.Name.toLowerCase()).includes(diacriticless(searchBarText.toLowerCase()))
+        );
+        setsuggestedPlayers(matchingPlayers.slice(0, 5).map(leaguePlayer => leaguePlayer.Name));
     };
 
-    const generateSuggestions = (searchBarText) => {
-        const matchingPlayers = leaguePlayersStandardStats.filter((leaguePlayer) => {
-            return diacriticless(leaguePlayer.Name.toLowerCase()).includes(diacriticless(searchBarText.toLowerCase()));
-        });
-
-        const suggestedPlayers = matchingPlayers.slice(0, 5).map((matchingPlayer) => matchingPlayer.Name);
-        return suggestedPlayers;
+    const handleSuggestionClick = (suggestedPlayer) => {
+        handlePlayerSearch(suggestedPlayer);
+        setsuggestedPlayers([]);
+        setSearchBarText('');
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form 
+            onSubmit={(e) => { 
+                e.preventDefault(); 
+                handlePlayerSearch(searchBarText);
+                setsuggestedPlayers('');
+                setSearchBarText('');
+            }}
+        >
             <h1 className="text-2xl text-white pb-4">Search Player</h1>
             <input
                 className="text-black rounded-full p-3"                
                 placeholder="Search for an MLS Player"
-                value={playerName}
+                value={searchBarText}
                 onChange={handleChange}
             />
             <br />
             {suggestedPlayers.length > 0 && (
                 <ul className="mt-2 bg-white text-black rounded">
                     <li className='font-bold underline'>Suggested Players</li>
-                    {suggestedPlayers.map((suggestedPlayer) => (
+                    {suggestedPlayers.map((suggestedPlayer, index) => (
                         <li 
-                            key={suggestedPlayer} 
+                            key={index} 
                             className="cursor-pointer"
-                            onClick={(e) => { 
-                                e.preventDefault();
-                                setPlayerName(suggestedPlayer); 
-                                handleSubmit(e);
-                            }}                            
+                            onClick={ () => handleSuggestionClick(suggestedPlayer) }                            
                         >
                             {suggestedPlayer}
                         </li>
