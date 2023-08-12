@@ -17,8 +17,9 @@ const TeamRoster = ({ team }) => {
         }
     };
 
+    // Recalculates when component state changes
     const teamPlayers = leaguePlayersStandardStats
-        .filter((player) => player.Team === team)
+        .filter((leaguePlayer) => leaguePlayer.Team === team)
         .sort((a, b) => {
             const valueA = a[sortColumn]; 
             const valueB = b[sortColumn];           

@@ -87,12 +87,10 @@ function App() {
           </div>
           <div className='md:flex md:justify-center bg-black lg:opacity-75 pb-0'>
             <div className="text-white text-center md:pr-10 pb-6 md:pb-0">
-              <h2 className='underline'>Player 1</h2>
               <TeamDropdown teamName={teamName1} setTeamName1={handleTeamNameSelect} />
               {teamName1 && <PlayerDropdown1 teamName1={teamName1} playerToCompare1={playerToCompare1} setPlayerToCompare1={handlePlayerToCompare1}/>}
             </div>
             <div className="text-white text-center pb-10 md:pb-0">
-              <h2 className='underline'>Player 2</h2>
               <TeamDropdown2 teamName2={teamName2} setTeamName2={handleTeamName2Select} />
               {teamName2 && <PlayerDropdown2 teamName2={teamName2} playerToCompare2={playerToCompare2} setPlayerToCompare2={handlePlayerToCompare2}/>}
             </div>

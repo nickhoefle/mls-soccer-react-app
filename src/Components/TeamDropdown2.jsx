@@ -9,6 +9,7 @@ const TeamDropdown2 = ({ teamName2, setTeamName2 }) => {
 
     return (
         <div>
+            <h2 className='underline'>Player 2</h2>
             <p>Team</p>
             <select
                 className='bg-black outline-white border-2 w-300'
