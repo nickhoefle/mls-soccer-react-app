@@ -7,11 +7,11 @@ const allPlayersSalaries = cleanPlayerSalariesRawData(leaguePlayerSalariesRawDat
 
 const TeamSalaryPieChart = ({ team }) => {
     
-    const teamPlayersSalaryArrayRaw = allPlayersSalaries.filter((player) => player.Team === team); 
+    const teamPlayersSalaryArrayUncleaned = allPlayersSalaries.filter((player) => player.Team === team); 
     
-    const teamPlayerNames = teamPlayersSalaryArrayRaw.map((player) => player.Name);
+    const teamPlayerNames = teamPlayersSalaryArrayUncleaned.map((player) => player.Name);
     
-    const teamPlayersSalaryArrayCleaned = teamPlayersSalaryArrayRaw.map((player) =>
+    const teamPlayersSalaryArrayCleaned = teamPlayersSalaryArrayUncleaned.map((player) =>
         Number(player.AnnualWages.split('(')[0].slice(1).replace(',', '').replace(',', ''))  // Raw AnnualWages data format = $x (€y, £z)
     );
     

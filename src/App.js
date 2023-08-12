@@ -142,7 +142,7 @@ function App() {
           </div>
           {team && (
             <>
-              {activeComponent === 'roster' && <TeamRoster team={team} setPlayer={setPlayer} />}
+              {activeComponent === 'roster' && <TeamRoster team={team} />}
               {activeComponent === 'matches' && <TeamPastMatches team={team} />}
               {activeComponent === 'graph' && <TeamSeasonGraph team={team} />}
               {activeComponent === 'chart' && <TeamSalaryPieChart team={team} />}

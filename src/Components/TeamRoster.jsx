@@ -5,23 +5,23 @@ import { cleanStandardStats } from '../dataCleaner';
 const leaguePlayersStandardStats = cleanStandardStats(leaguePlayersStandardStatsRawData);
 
 const TeamRoster = ({ team }) => {
-    const [sortColumn, setSortColumn] = useState('');
-    const [sortDirection, setSortDirection] = useState('');
+    const [sortColumn, setSortColumn] = useState('Goals');
+    const [sortDirection, setSortDirection] = useState('desc');
 
     const handleColumnSort = (column) => {
         if (sortColumn === column) {
             setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
         } else {
             setSortColumn(column);
-            setSortDirection('asc');
+            setSortDirection('desc');
         }
     };
 
     const teamPlayers = leaguePlayersStandardStats
         .filter((player) => player.Team === team)
-        .sort((b, a) => {
-            const valueB = b[sortColumn];
-            const valueA = a[sortColumn];            
+        .sort((a, b) => {
+            const valueA = a[sortColumn]; 
+            const valueB = b[sortColumn];           
             if (sortColumn === 'Name' || sortColumn === 'Position') {
                 return sortDirection === 'asc' ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA);
             } 
