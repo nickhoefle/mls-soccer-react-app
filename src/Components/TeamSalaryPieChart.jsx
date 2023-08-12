@@ -12,7 +12,7 @@ const TeamSalaryPieChart = ({ team }) => {
     const teamPlayerNames = teamPlayersSalaryArrayUncleaned.map((player) => player.Name);
     
     const teamPlayersSalaryArrayCleaned = teamPlayersSalaryArrayUncleaned.map((player) =>
-        Number(player.AnnualWages.split('(')[0].slice(1).replace(',', '').replace(',', ''))  // Raw AnnualWages data format = $x (€y, £z)
+        Number(player.AnnualWages.split('(')[0].slice(1).replace(',', '').replace(',', ''))  // Uncleaned AnnualWages data format = $x (€y, £z)
     );
     
     const tooltipSalaries = teamPlayersSalaryArrayCleaned.map((number) => number.toLocaleString('en-US', { 
