@@ -29,7 +29,7 @@ const PlayerSearch = ({ handlePlayerSearch }) => {
             onSubmit={(e) => { 
                 e.preventDefault(); 
                 handlePlayerSearch(searchBarText);
-                setsuggestedPlayers('');
+                setsuggestedPlayers([]);
                 setSearchBarText('');
             }}
         >
