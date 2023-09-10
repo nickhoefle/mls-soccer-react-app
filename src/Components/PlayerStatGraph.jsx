@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import diacriticless from 'diacriticless';
 import '../styles.css';
 import matchingPositions from '../data/matchingPositions';
+import thirdsDiagramImage from "../images/thirds-diagram.png";
 
 import leaguePlayersStandardStatsRawData from '../data/leaguePlayersStandardStatsRawData.json';
 import { cleanStandardStats } from '../dataCleaner'; 
@@ -68,6 +69,7 @@ const PlayerStatGraph = ({ playerName }) => {
     const TacklesPer90Avg = findLeagueAverage(leaguePlayersDefensePer90Stats, 'TacklesPer90', matchingPlayerDefenseStats);
     const TacklePercentAvg = findLeagueAverage(leaguePlayersDefensePer90Stats, 'TacklePercent', matchingPlayerDefenseStats);
     const ClearancePer90Avg = findLeagueAverage(leaguePlayersDefensePer90Stats, 'ClearancesPer90', matchingPlayerDefenseStats);
+    const TacklesInDefThird = findLeagueAverage(leaguePlayersDefensePer90Stats, 'TacklesInDefensiveThirdPer90', matchingPlayerDefenseStats);
 
     return (
         <>
@@ -110,6 +112,12 @@ const PlayerStatGraph = ({ playerName }) => {
                         </p>
                         <p className='px-4 cursor-pointer' onClick={() => handleStatClick('ClearancesPer90')}>
                             <span className={activeStat === 'ClearancesPer90' ? 'underline' : ''}>Clears per 90</span>
+                        </p>
+                    </div>
+                    {/* Row 4 - Clickable Stats */}
+                    <div className='flex justify-center stat-links pb-4'>
+                        <p className='px-4 cursor-pointer' onClick={() => handleStatClick('tacklesByThird')}>
+                            <span className={activeStat === 'tacklesByThird' ? 'underline' : ''}>Tackles by Third per 90</span>
                         </p>
                     </div>
                     
@@ -283,6 +291,17 @@ const PlayerStatGraph = ({ playerName }) => {
                                 <p className='ml-3 text-sm md:text-base'>Average</p>
                             </div>
                         </>
+                    )}
+                    {activeStat === 'tacklesByThird' && (
+                        <div className="relative p-4">
+                        <img src={thirdsDiagramImage} alt="Thirds Diagram" />                
+                        <div className="absolute top-[80%] left-0 w-full text-center">
+                            <b className='pr-1'>{matchingPlayerDefenseStats.Name.split(' ')[matchingPlayerDefenseStats.Name.split(' ').length -1]}:</b>
+                            <b className='pr-6'>{matchingPlayerDefenseStats.TacklesInDefensiveThirdPer90}</b>
+                            <b className='pr-1'>Average:</b>
+                            <b>{TacklesInDefThird}</b>
+                        </div>
+                    </div>
                     )}                           
                 </div>
                 ) : (
