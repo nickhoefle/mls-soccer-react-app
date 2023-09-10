@@ -70,6 +70,8 @@ const PlayerStatGraph = ({ playerName }) => {
     const TacklePercentAvg = findLeagueAverage(leaguePlayersDefensePer90Stats, 'TacklePercent', matchingPlayerDefenseStats);
     const ClearancePer90Avg = findLeagueAverage(leaguePlayersDefensePer90Stats, 'ClearancesPer90', matchingPlayerDefenseStats);
     const TacklesInDefThird = findLeagueAverage(leaguePlayersDefensePer90Stats, 'TacklesInDefensiveThirdPer90', matchingPlayerDefenseStats);
+    const TacklesInMiddleThird = findLeagueAverage(leaguePlayersDefensePer90Stats, 'TacklesInMiddleThirdPer90', matchingPlayerDefenseStats);
+    const TacklesInAttackingThird = findLeagueAverage(leaguePlayersDefensePer90Stats, 'TacklesInAttackingThirdPer90', matchingPlayerDefenseStats);
 
     return (
         <>
@@ -294,8 +296,20 @@ const PlayerStatGraph = ({ playerName }) => {
                     )}
                     {activeStat === 'tacklesByThird' && (
                         <div className="relative p-4">
-                        <img src={thirdsDiagramImage} alt="Thirds Diagram" />                
-                        <div className="absolute top-[80%] left-0 w-full text-center">
+                        <img src={thirdsDiagramImage} alt="Thirds Diagram" />
+                        <div className="absolute top-[18%] right-8 w-full text-center">
+                            <b className='pr-1'>{matchingPlayerDefenseStats.Name.split(' ')[matchingPlayerDefenseStats.Name.split(' ').length -1]}:</b>
+                            <b className='pr-6'>{matchingPlayerDefenseStats.TacklesInAttackingThirdPer90}</b>
+                            <b className='pr-1'>Average:</b>
+                            <b>{TacklesInAttackingThird}</b>
+                        </div>  
+                        <div className="absolute top-[48%] right-8 w-full text-center">
+                            <b className='pr-1'>{matchingPlayerDefenseStats.Name.split(' ')[matchingPlayerDefenseStats.Name.split(' ').length -1]}:</b>
+                            <b className='pr-6'>{matchingPlayerDefenseStats.TacklesInMiddleThirdPer90}</b>
+                            <b className='pr-1'>Average:</b>
+                            <b>{TacklesInMiddleThird}</b>
+                        </div>                
+                        <div className="absolute top-[78%] right-8 w-full text-center">
                             <b className='pr-1'>{matchingPlayerDefenseStats.Name.split(' ')[matchingPlayerDefenseStats.Name.split(' ').length -1]}:</b>
                             <b className='pr-6'>{matchingPlayerDefenseStats.TacklesInDefensiveThirdPer90}</b>
                             <b className='pr-1'>Average:</b>
