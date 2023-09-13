@@ -18,24 +18,54 @@ const TeamRecordByReferee = ({ team }) => {
 
         if (!refereeStatistics[referee]) {
             refereeStatistics[referee] = { wins: 0, losses: 0, ties: 0 };
-        } else if (isHomeTeam && homeScore > awayScore) {
-            refereeStatistics[referee].wins++;
-        } else if (isAwayTeam && awayScore > homeScore) {
-            refereeStatistics[referee].wins++;
-        } else if (homeScore === awayScore) {
-            refereeStatistics[referee].ties++;
-        } else {
-            refereeStatistics[referee].losses++;
         }
+        if (isHomeTeam && homeScore > awayScore) {
+            refereeStatistics[referee].wins++;
+        }  
+        if (isAwayTeam && awayScore > homeScore) {
+            refereeStatistics[referee].wins++;
+        } 
+        if (homeScore === awayScore) {
+            refereeStatistics[referee].ties++;
+        } 
+        refereeStatistics[referee].losses++;
     });
+
 
     console.log(refereeStatistics);
     
+    const rows = Object.keys(refereeStatistics).map((referee) => {
+        const { wins, losses, ties } = refereeStatistics[referee];
+        return (
+            <tr key={referee}>
+                <td>{referee}</td>
+                <td>{wins}</td>
+                <td>{losses}</td>
+                <td>{ties}</td>
+            </tr>
+        );
+    });
+    
     return (
-            <div>
-                <p>WORKING</p>
-            </div>
-    )
-}
+        <table>
+            <thead>
+                <tr>
+                    <th>Referee</th>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Ties</th>
+                </tr>
+            </thead>
+            <tbody>{rows}</tbody>
+        </table>
+    );
+};
+    
+    
+    
+    
+    
+    
+    
 
 export default TeamRecordByReferee
