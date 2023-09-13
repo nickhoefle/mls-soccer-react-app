@@ -21,15 +21,19 @@ const TeamRoster = ({ team }) => {
     const teamPlayers = leaguePlayersStandardStats
         .filter((leaguePlayer) => leaguePlayer.Team === team)
         .sort((a, b) => {
-            const valueA = a[sortColumn]; 
-            const valueB = b[sortColumn];           
+            const valueA = String(a[sortColumn]);
+            const valueB = String(b[sortColumn]);
+
             if (sortColumn === 'Name' || sortColumn === 'Position') {
-                return sortDirection === 'asc' ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA);
-            } 
-            const numericValueA = parseInt(valueA);
-            const numericValueB = parseInt(valueB);
-            return (sortDirection === 'asc' ? numericValueA - numericValueB : numericValueB - numericValueA)
+            return sortDirection === 'asc' ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA);
+            }
+
+            const numericValueA = parseInt(valueA.replace(',', ''));
+            const numericValueB = parseInt(valueB.replace(',', ''));
+
+            return sortDirection === 'asc' ? numericValueA - numericValueB : numericValueB - numericValueA;
         });
+
 
     return (
         <div className="overflow-x-auto">
