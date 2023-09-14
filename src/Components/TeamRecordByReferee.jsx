@@ -29,13 +29,15 @@ const TeamRecordByReferee = ({ team }) => {
         const awayScore = parseInt(scoreParts[1]);
 
         if (!refereeStatistics[referee]) {
-            refereeStatistics[referee] = { name: referee, wins: 0, losses: 0, ties: 0 };
+            refereeStatistics[referee] = { name: referee, wins: 0, losses: 0, ties: 0, winsVs: [] };
         }
         if (isHomeTeam && homeScore > awayScore) {
             refereeStatistics[referee].wins++;
+            refereeStatistics[referee].winsVs.push(match.AwayTeam);
         }  
         if (isAwayTeam && awayScore > homeScore) {
             refereeStatistics[referee].wins++;
+            refereeStatistics[referee].winsVs.push(match.HomeTeam);
         } 
         if (homeScore === awayScore) {
             refereeStatistics[referee].ties++;
@@ -54,11 +56,11 @@ const TeamRecordByReferee = ({ team }) => {
     });
 
     const rows = sortedReferees.map((refereeData) => {
-        const { name, wins, losses, ties } = refereeData;
+        const { name, wins, losses, ties, winsVs } = refereeData;
         return (
             <tr key={name}>
                 <td className="border-t border-b px-4 py-2 text-center">{name}</td>
-                <td className="border-t border-b px-4 py-2 text-center">{wins}</td>
+                <td className="border-t border-b px-4 py-2 text-center underline cursor-pointer" title={winsVs.join(', ')}>{wins}</td>
                 <td className="border-t border-b px-4 py-2 text-center">{losses}</td>
                 <td className="border-t border-b px-4 py-2 text-center">{ties}</td>
             </tr>
