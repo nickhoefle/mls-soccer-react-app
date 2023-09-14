@@ -45,6 +45,7 @@ const TeamSeasonGraph = ({ team }) => {
                     fontSize: '12px'
                 },
             },
+            tickAmount: Math.ceil(datesArray.length / 2),
         },
         yaxis: {
             labels: {
