@@ -38,26 +38,46 @@ const TeamRecordByReferee = ({ team }) => {
         const { wins, losses, ties } = refereeStatistics[referee];
         return (
             <tr key={referee}>
-                <td>{referee}</td>
-                <td>{wins}</td>
-                <td>{losses}</td>
-                <td>{ties}</td>
+                <td className="border-t border-b px-4 py-2 text-center">{referee}</td>
+                <td className="border-t border-b px-4 py-2 text-center">{wins}</td>
+                <td className="border-t border-b px-4 py-2 text-center">{losses}</td>
+                <td className="border-t border-b px-4 py-2 text-center">{ties}</td>
             </tr>
         );
     });
     
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Referee</th>
-                    <th>Wins</th>
-                    <th>Losses</th>
-                    <th>Ties</th>
-                </tr>
-            </thead>
-            <tbody>{rows}</tbody>
-        </table>
+        <div className="bg-black md:opacity-75">
+            <div className="md:flex justify-center pb-10 items-center">
+                <table className="table-auto text-white text-sm md:text-base">
+                    <thead>
+                        <tr>
+                            <th
+                                className="px-4 py-2 sticky left-0 bg-black cursor-pointer"
+                            >
+                                Referee
+                            </th>
+                            <th
+                                className="px-4 py-2 sticky left-0 bg-black cursor-pointer"
+                            >
+                                Wins
+                            </th>
+                            <th
+                                className="px-4 py-2 sticky left-0 bg-black cursor-pointer"
+                            >
+                                Losses
+                            </th>
+                            <th
+                                className="px-4 py-2 sticky left-0 bg-black cursor-pointer"
+                            >
+                                Ties
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>{rows}</tbody>
+                </table>
+            </div>
+        </div>
     );
 };
     
