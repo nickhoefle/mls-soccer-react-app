@@ -16,6 +16,7 @@ import PlayerComparisonChart from './Components/PlayerComparisonChart';
 import TeamSeasonGraph from './Components/TeamSeasonGraph';
 import TeamSalaryPieChart from './Components/TeamSalaryPieChart';
 import TeamHamburger from './Components/TeamHamburger';
+import TeamRecordByReferee from './Components/TeamRecordByReferee';
 
 function App() {
   const [player, setPlayer] = useState(null);
@@ -137,6 +138,12 @@ function App() {
             >
               Team Salary Chart
             </button>
+            <button
+              className={`mr-4 text-white text-lg py-2 ${activeComponent === 'referee' ? 'underline' : ''}`}
+              onClick={() => handleComponentClick('referee')}
+            >
+              Wins/Losses by Referee
+            </button>
           </div>
           {team && (
             <>
@@ -144,6 +151,7 @@ function App() {
               {activeComponent === 'matches' && <TeamPastMatches team={team} />}
               {activeComponent === 'graph' && <TeamSeasonGraph team={team} />}
               {activeComponent === 'chart' && <TeamSalaryPieChart team={team} />}
+              {activeComponent === 'referee' && <TeamRecordByReferee team={team} />}
             </>
           )}
         </Route>
