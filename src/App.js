@@ -17,7 +17,7 @@ import TeamSeasonGraph from './Components/TeamSeasonGraph';
 import TeamSalaryPieChart from './Components/TeamSalaryPieChart';
 import TeamHamburger from './Components/TeamHamburger';
 import TeamRecordByReferee from './Components/TeamRecordByReferee';
-import { getTeamLogoHref } from './teamLogoHelper';
+import { getTeamLogoSrc } from './teamLogoHelper';
 
 function App() {
   const [player, setPlayer] = useState(null);
@@ -112,7 +112,7 @@ function App() {
             <TeamHamburger handleTeamSelect={handleTeamSelect} />
           </div>
           <div className='flex justify-center bg-black lg:opacity-75 pt-2 md:pt-8'>
-            <img src={getTeamLogoHref(team)} alt={`${team} Logo`} className="flex justify-center h-32" />
+            <img src={getTeamLogoSrc(team)} alt={`${team} Logo`} className="flex justify-center h-32" />
           </div>
           <div className='flex justify-center bg-black lg:opacity-75'>
             <h2 className='text-white text-2xl bold font-bold'>{team}</h2>
