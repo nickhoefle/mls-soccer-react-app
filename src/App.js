@@ -119,31 +119,31 @@ function App() {
           </div>
           <div className="flex flex-col md:flex-row md:justify-center bg-black lg:opacity-75 p-4">            
             <button
-              className={`text-white text-lg py-2 ${activeComponent === 'roster' ? 'underline' : ''}`}
+              className={`text-white text-lg py-2 md:mr-4 ${activeComponent === 'roster' ? 'underline' : ''}`}
               onClick={() => handleComponentClick('roster')}
             >
               Team Roster and Stats
             </button>
             <button
-              className={`text-white text-lg py-2 ${activeComponent === 'matches' ? 'underline' : ''}`}
+              className={`text-white text-lg py-2 md:mr-4 ${activeComponent === 'matches' ? 'underline' : ''}`}
               onClick={() => handleComponentClick('matches')}
             >
               Past Matches
             </button>
             <button
-              className={`text-white text-lg py-2 ${activeComponent === 'graph' ? 'underline' : ''}`}
+              className={`text-white text-lg py-2 md:mr-4 ${activeComponent === 'graph' ? 'underline' : ''}`}
               onClick={() => handleComponentClick('graph')}
             >
               Goal Differential Graph
             </button>
             <button
-              className={`text-white text-lg py-2 hidden md:block ${activeComponent === 'chart' ? 'underline' : ''}`}
+              className={`text-white text-lg py-2 md:mr-4 hidden md:block ${activeComponent === 'chart' ? 'underline' : ''}`}
               onClick={() => handleComponentClick('chart')}
             >
               Team Salary Chart
             </button>
             <button
-              className={`text-white text-lg py-2 ${activeComponent === 'referee' ? 'underline' : ''}`}
+              className={`text-white text-lg py-2 md:mr-4 ${activeComponent === 'referee' ? 'underline' : ''}`}
               onClick={() => handleComponentClick('referee')}
             >
               Wins/Losses by Referee
