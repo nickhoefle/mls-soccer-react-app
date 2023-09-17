@@ -25,8 +25,7 @@ export function teamRecord(team) {
         } else if (homeScore === awayScore) {
             ties++;
         } else { 
-            losses++; 
-        }
+            losses++; }
     });
 
     return `${wins} - ${losses} - ${ties}`;

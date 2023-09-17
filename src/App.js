@@ -118,8 +118,8 @@ function App() {
           <div className='flex justify-center bg-black lg:opacity-75'>
             <h2 className='text-white text-2xl bold font-bold'>{team}</h2>
           </div>
-          <div>
-            <p className='text-white'>{teamRecord(team)}</p>
+          <div className='flex justify-center bg-black lg:opacity-75'>
+            <p className='text-white font-bold'>({teamRecord(team)})</p>
           </div>
           <div className="flex flex-col md:flex-row md:justify-center bg-black lg:opacity-75 p-4">            
             <button
