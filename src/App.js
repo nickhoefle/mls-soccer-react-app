@@ -18,6 +18,7 @@ import TeamSalaryPieChart from './Components/TeamSalaryPieChart';
 import TeamHamburger from './Components/TeamHamburger';
 import TeamRecordByReferee from './Components/TeamRecordByReferee';
 import { getTeamLogoSrc } from './teamLogoHelper';
+import { teamRecord } from './teamRecord';
 
 function App() {
   const [player, setPlayer] = useState(null);
@@ -116,6 +117,9 @@ function App() {
           </div>
           <div className='flex justify-center bg-black lg:opacity-75'>
             <h2 className='text-white text-2xl bold font-bold'>{team}</h2>
+          </div>
+          <div className='flex justify-center bg-black lg:opacity-75'>
+            <p className='text-white font-bold'>({teamRecord(team)})</p>
           </div>
           <div className="flex flex-col md:flex-row md:justify-center bg-black lg:opacity-75 p-4">            
             <button
