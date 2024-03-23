@@ -40,7 +40,12 @@ const TeamRecordByReferee = ({ team }) => {
         if (homeScore === awayScore) {
             refereeStatistics[referee].ties++;
         } 
-        refereeStatistics[referee].losses++;
+        if (isHomeTeam && homeScore < awayScore) {
+            refereeStatistics[referee].losses++;
+        }
+        if (isAwayTeam && homeScore > awayScore) {
+            refereeStatistics[referee].losses++;
+        }
     });
 
     const sortedReferees = Object.values(refereeStatistics).sort((a, b) => {

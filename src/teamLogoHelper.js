@@ -56,8 +56,8 @@ export function getTeamLogoSrc(team) {
             return '/logos/full-size/orlando.png';
         case 'Philadelphia':
             return '/logos/full-size/philadelphia.png';
-        case 'Toronto':
-            return '/logos/full-size/toronto.png';
+        case 'Toronto FC':
+            return '/logos/full-size/torontofc.png';
         default:
             return 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/MLS_crest_logo_RGB_gradient.svg/1024px-MLS_crest_logo_RGB_gradient.svg.png'
     }

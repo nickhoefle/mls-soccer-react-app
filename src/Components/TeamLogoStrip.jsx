@@ -179,7 +179,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
             
             <Link to='/team/TorontoFC'>     
                 <img src='https://www.thesportsdb.com/images/media/team/badge/rsxyrr1473536512.png/tiny'
-                onClick={() => handleClick('Toronto')}
+                onClick={() => handleClick('Toronto FC')}
                 />
             </Link>
         </div>
