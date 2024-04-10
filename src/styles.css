@@ -48,3 +48,8 @@ body::after {
   .swiper-button-prev {
     display: none;
   }
+
+  .team-logo {
+    height: 50px;
+    width: 50px;
+  }
