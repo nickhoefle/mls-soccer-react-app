@@ -28,7 +28,7 @@ const LeagueLeaders = ({ setPlayer }) => {
         <>
             <h1 className='text-center text-2xl pb-4'>Top Performers</h1>
             <div className='flex'>            
-                <div className='pl-14'>
+                <div>
                     <h1 className='underline'>Assists</h1>
                     <ul>
                         {topFiveAssists.map((topFivePlayer, index) => (
