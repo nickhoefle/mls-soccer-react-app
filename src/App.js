@@ -104,9 +104,7 @@ function App() {
         </Route>
 
         <Route path="/team/:teamId">
-          <div className='hidden md:block'>
-            <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
-          </div>
+          <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
           <PageTitle />
           <div className='sm:block lg:hidden bg-black text-white text-xl pl-6 pt-4'>
             <TeamHamburger handleTeamSelect={handleTeamSelect} />
