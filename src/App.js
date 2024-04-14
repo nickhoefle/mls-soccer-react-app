@@ -62,13 +62,11 @@ function App() {
       <Switch>
 
         <Route exact path="/">
-          
-            <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
-          
+          <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
           <PageTitle />
-          <div className='sm:block lg:hidden bg-black text-white text-xl pl-6 pt-4'>
+          
             <TeamHamburger handleTeamSelect={handleTeamSelect} />
-          </div>
+          
           <div className="flex justify-center lg:px-4 pb-8">
             <div className="sm:block lg:hidden w-full">
               <LeagueLeadersSwiper setPlayer={setPlayer} />
