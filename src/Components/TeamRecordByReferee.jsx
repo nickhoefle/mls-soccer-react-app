@@ -71,7 +71,7 @@ const TeamRecordByReferee = ({ team }) => {
     });
 
     return (
-        <div className="bg-black md:opacity-75 flex items-center justify-center pb-10">
+        <div className="bg-black md:flex items-center justify-center pb-10">
             <table className="table-auto text-white text-sm md:text-base">
                 <thead>
                     <tr>

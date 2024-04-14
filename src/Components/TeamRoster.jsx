@@ -37,7 +37,7 @@ const TeamRoster = ({ team }) => {
 
     return (
         <div className="overflow-x-auto">
-            <div className="bg-black md:opacity-75">
+            <div className="bg-black">
                 <div className="md:flex justify-center pb-10 items-center">
                     <table className="table-auto text-white text-sm md:text-base">
                         <thead>

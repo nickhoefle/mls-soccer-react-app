@@ -69,26 +69,26 @@ function App() {
           <div className='sm:block lg:hidden bg-black text-white text-xl pl-6 pt-4'>
             <TeamHamburger handleTeamSelect={handleTeamSelect} />
           </div>
-          <div className="flex justify-center bg-black lg:opacity-75 px-4 pb-8">
+          <div className="flex justify-center bg-black lg:px-4 pb-8">
             <div className="sm:block lg:hidden w-full">
               <LeagueLeadersSwiper setPlayer={setPlayer} />
             </div>
-            <div className="hidden pt-4 lg:block text-white text-center lg:opacity-75">
+            <div className="hidden pt-4 lg:block text-white text-center">
               <LeagueLeaders setPlayer={setPlayer} />
             </div>
           </div>          
-          <div className="text-white text-center bg-black lg:opacity-75">
+          <div className="text-white text-center bg-black">
               {player && <PlayerStatGraph playerName={player} />}
           </div>
-          <div className="flex justify-center bg-black lg:opacity-75 p-4">
-            <div className="text-white text-center lg:opacity-75">
+          <div className="flex justify-center bg-black lg:p-4">
+            <div className="text-white text-center">
               <PlayerSearch handlePlayerSearch={handlePlayerSearch} />
             </div>
           </div>
-          <div className='flex justify-center bg-black lg:opacity-75 pb-4'>
-            <h2 className='text-white text-2xl lg:opacity-75'>Player Comparison</h2>
+          <div className='flex justify-center bg-black lg:pb-4'>
+            <h2 className='text-white text-2xl'>Player Comparison</h2>
           </div>
-          <div className='md:flex md:justify-center bg-black lg:opacity-75 pb-0'>
+          <div className='md:flex md:justify-center bg-black lg:pb-0'>
             <div className="text-white text-center md:pr-10 pb-6 md:pb-0">
               <TeamDropdown teamName={teamName1} setTeamName1={handleTeamNameSelect} />
               {teamName1 && <PlayerDropdown1 teamName1={teamName1} playerToCompare1={playerToCompare1} setPlayerToCompare1={handlePlayerToCompare1}/>}
@@ -98,10 +98,10 @@ function App() {
               {teamName2 && <PlayerDropdown2 teamName2={teamName2} playerToCompare2={playerToCompare2} setPlayerToCompare2={handlePlayerToCompare2}/>}
             </div>
           </div>
-          <div className="text-white text-center bg-black lg:opacity-75 pb-10">
+          <div className="text-white text-center bg-black lg:pb-10">
             {playerToCompare1 && playerToCompare2 && <PlayerComparisonChart playerToCompare1={playerToCompare1} playerToCompare2={playerToCompare2} />}
           </div>
-          <div className='h-[calc(100vh-693px)] bg-black opacity-75'></div>
+          <div className='h-[calc(100vh-693px)] bg-black'></div>
         </Route>
 
         <Route path="/team/:teamId">
@@ -112,16 +112,16 @@ function App() {
           <div className='sm:block lg:hidden bg-black text-white text-xl pl-6 pt-4'>
             <TeamHamburger handleTeamSelect={handleTeamSelect} />
           </div>
-          <div className='flex justify-center bg-black lg:opacity-75 pt-2 md:pt-8'>
+          <div className='flex justify-center bg-black lg:pt-2 md:pt-8'>
             <img src={getTeamLogoSrc(team)} alt={`${team} Logo`} className="flex justify-center h-32" />
           </div>
-          <div className='flex justify-center bg-black lg:opacity-75'>
+          <div className='flex justify-center bg-black'>
             <h2 className='text-white text-2xl bold font-bold'>{team}</h2>
           </div>
-          <div className='flex justify-center bg-black lg:opacity-75'>
+          <div className='flex justify-center bg-black'>
             <p className='text-white font-bold'>({teamRecord(team)})</p>
           </div>
-          <div className="flex flex-col md:flex-row md:justify-center bg-black lg:opacity-75 p-4">            
+          <div className="flex flex-col md:flex-row md:justify-center bg-black lg:p-4">            
             <button
               className={`text-white text-lg py-2 md:mr-4 ${activeComponent === 'roster' ? 'underline font-bold' : ''}`}
               onClick={() => handleComponentClick('roster')}
