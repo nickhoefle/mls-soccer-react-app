@@ -30,7 +30,7 @@ const LeagueLeadersSwiper = ({ setPlayer }) => {
     const topTenSavePct = findTopTenForStat(leagueGoalkeeperStats, 'SavePercent'); 
 
     return (
-        <>
+        <div className="bg-black">
             <h1 className='text-center text-2xl text-white pb-4'>Top Performers</h1>
             <Swiper
                 pagination={{
@@ -97,7 +97,7 @@ const LeagueLeadersSwiper = ({ setPlayer }) => {
                     </ul>           
                 </SwiperSlide>
             </Swiper>
-        </>
+        </div>
     )
 }
 
