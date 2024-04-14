@@ -27,7 +27,7 @@ const PlayerComparisonChart = ({ playerToCompare1, playerToCompare2 }) => {
 
     return (
         <div className='flex justify-center pt-10'>
-            <table className="table-auto text-white">
+            <table className="table-auto text-white text-xl">
                 <thead>
                     <tr>
                         <th className="border px-4 py-2">Stat</th>

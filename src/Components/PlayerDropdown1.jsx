@@ -17,16 +17,16 @@ const PlayerDropdown1 = ({ teamName1, playerToCompare1, setPlayerToCompare1 }) =
     
     return (
         <div>
-            <p className='text-white'>Player</p>
+
             <select
-                className='bg-black outline-white border-2 text-center w-300'
+                className='bg-black outline-white border-2 p-1 text-center text-xl w-1/2'
                 value={playerToCompare1}
                 onChange={handlePlayerToCompareChange}
             >
                 <option 
-                    className='text-left'
+                    className='text-center'
                 >
-                    Select:
+                    - Players -
                 </option>
                 {teamPlayers.map((teamPlayer, index) => (
                 <option
