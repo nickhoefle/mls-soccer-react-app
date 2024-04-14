@@ -74,7 +74,7 @@ const PlayerStatGraph = ({ playerName }) => {
     const TacklesInAttackingThird = findLeagueAverage(leaguePlayersDefensePer90Stats, 'TacklesInAttackingThirdPer90', matchingPlayerDefenseStats);
 
     return (
-        <>
+        <div className="text-white text-center">
             <h1 className='text-white text-2xl'>{matchingPlayerStandardStats.Name} Stat Graphs</h1>
             <i className='text-white text-md'>vs. League Average for Position</i>
             <div className='flex md:pl-0 md:justify-center text-white'>
@@ -322,7 +322,7 @@ const PlayerStatGraph = ({ playerName }) => {
                 <p>No matching player found.</p>
                 )}
             </div>
-        </>
+        </div>
     );
 };
 

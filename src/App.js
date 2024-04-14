@@ -60,20 +60,19 @@ function App() {
   return (
     <Router>
       <Switch>
-
         <Route exact path="/">
+          
           <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
           <PageTitle />
           <TeamHamburger handleTeamSelect={handleTeamSelect} />
+          
           <div className="flex justify-center lg:px-4 pb-8">
             <LeagueLeadersSwiper setPlayer={setPlayer} />           
-            <div className="hidden pt-4 lg:block text-white text-center">
-              <LeagueLeaders setPlayer={setPlayer} />
-            </div>
+            <LeagueLeaders setPlayer={setPlayer} />
           </div>          
-          <div className="text-white text-center">
-              {player && <PlayerStatGraph playerName={player} />}
-          </div>
+        
+          {player && <PlayerStatGraph playerName={player} />}
+          
           <div className="flex justify-center lg:p-4">
             <div className="text-white text-center">
               <PlayerSearch handlePlayerSearch={handlePlayerSearch} />

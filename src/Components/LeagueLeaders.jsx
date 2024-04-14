@@ -25,7 +25,7 @@ const LeagueLeaders = ({ setPlayer }) => {
     const topFiveSavePct = findTopFiveForStat(leagueGoalkeeperStats, 'SavePercent'); 
     
     return (
-        <>
+        <div className="hidden pt-4 lg:block text-white text-center">
             <h1 className='text-center text-2xl pb-4'>Top Performers</h1>
             <div className='flex'>            
                 <div>
@@ -86,7 +86,7 @@ const LeagueLeaders = ({ setPlayer }) => {
                     </ul>  
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 
