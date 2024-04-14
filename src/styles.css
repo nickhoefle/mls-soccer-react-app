@@ -3,16 +3,20 @@
 @import 'tailwindcss/utilities';
 
 body {
-    background-image: url("./images/bg.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+  background-image: url("./images/bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+body::after {
+  opacity: 75%;
 }
 
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: #fff;
+  background: black;
 
   /* Center slide text vertically */
   display: flex;

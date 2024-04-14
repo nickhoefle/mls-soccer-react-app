@@ -30,74 +30,76 @@ const LeagueLeadersSwiper = ({ setPlayer }) => {
     const topTenSavePct = findTopTenForStat(leagueGoalkeeperStats, 'SavePercent'); 
 
     return (
-        <>
-            <h1 className='text-center text-2xl text-white pb-4'>Top Performers</h1>
-            <Swiper
-                pagination={{
-                    type: "progressbar",
-                }}
-                navigation={false}
-                modules={[Pagination, Navigation]}
-                style={{ height: "340px" }}
-            >
-                <SwiperSlide className="bg-black text-white text-base px-2 pt-4">
-                    <h1 className='underline pb-2'>Assists</h1>
-                    <ul className="space-y-1.5">
-                        {topTenAssists.map((topTenPlayer, index) => (
-                        <li 
-                            key={index} 
-                            className='flex items-center justify-between' 
-                            onClick={() => handlePlayerClick(topTenPlayer.Name)}
-                        >
-                            {topTenPlayer.Name} ({topTenPlayer.Team})
-                        <span 
-                            className='pl-4 text-right'
-                        >
-                            {topTenPlayer.Assists}
-                        </span>
-                        </li>
-                        ))}
-                    </ul>
-                </SwiperSlide>
-                <SwiperSlide className="bg-black text-white text-base px-2 pt-4">
-                    <h1 className='underline pb-2'>Goals</h1>
-                    <ul className="space-y-1.5">
-                        {topTenGoals.map((topTenPlayer, index) => (
-                        <li 
-                            key={index} 
-                            className='flex items-center justify-between' 
-                            onClick={() => handlePlayerClick(topTenPlayer.Name)}
-                        >
-                            {topTenPlayer.Name} ({topTenPlayer.Team})
-                        <span 
-                            className='pl-4 text-right'
-                        >
-                            {topTenPlayer.Goals}
-                        </span>
-                        </li>
-                        ))}
-                    </ul>
-                </SwiperSlide>
-                <SwiperSlide className="bg-black text-white text-base px-2 pt-4">
-                    <h1 className='underline pb-2'>Save Percent</h1>
-                    <ul className="space-y-1.5">
-                        {topTenSavePct.map((topTenPlayer, index) => (
-                        <li 
-                            key={index} 
-                            className='flex items-center justify-between'
-                        >
-                            {topTenPlayer.Name} ({topTenPlayer.Team})
-                        <span 
-                            className='pl-4 text-right'
-                        >
-                            {topTenPlayer.SavePercent.toFixed(1)} %
-                        </span>
-                        </li>
-                        ))}
-                    </ul>           
-                </SwiperSlide>
-            </Swiper>
-        </>
+        <div className="sm:block lg:hidden w-full">
+            <div className="bg-black">
+                <h1 className='text-center text-2xl text-white pb-4'>Top Performers</h1>
+                <Swiper
+                    pagination={{
+                        type: "progressbar",
+                    }}
+                    navigation={false}
+                    modules={[Pagination, Navigation]}
+                    style={{ height: "340px" }}
+                >
+                    <SwiperSlide className="bg-black text-white text-base px-2 pt-4">
+                        <h1 className='underline pb-2'>Assists</h1>
+                        <ul className="space-y-1.5">
+                            {topTenAssists.map((topTenPlayer, index) => (
+                            <li 
+                                key={index} 
+                                className='flex items-center justify-between' 
+                                onClick={() => handlePlayerClick(topTenPlayer.Name)}
+                            >
+                                {topTenPlayer.Name} ({topTenPlayer.Team})
+                            <span 
+                                className='pl-4 text-right'
+                            >
+                                {topTenPlayer.Assists}
+                            </span>
+                            </li>
+                            ))}
+                        </ul>
+                    </SwiperSlide>
+                    <SwiperSlide className="bg-black text-white text-base px-2 pt-4">
+                        <h1 className='underline pb-2'>Goals</h1>
+                        <ul className="space-y-1.5">
+                            {topTenGoals.map((topTenPlayer, index) => (
+                            <li 
+                                key={index} 
+                                className='flex items-center justify-between' 
+                                onClick={() => handlePlayerClick(topTenPlayer.Name)}
+                            >
+                                {topTenPlayer.Name} ({topTenPlayer.Team})
+                            <span 
+                                className='pl-4 text-right'
+                            >
+                                {topTenPlayer.Goals}
+                            </span>
+                            </li>
+                            ))}
+                        </ul>
+                    </SwiperSlide>
+                    <SwiperSlide className="bg-black text-white text-base px-2 pt-4">
+                        <h1 className='underline pb-2'>Save Percent</h1>
+                        <ul className="space-y-1.5">
+                            {topTenSavePct.map((topTenPlayer, index) => (
+                            <li 
+                                key={index} 
+                                className='flex items-center justify-between'
+                            >
+                                {topTenPlayer.Name} ({topTenPlayer.Team})
+                            <span 
+                                className='pl-4 text-right'
+                            >
+                                {topTenPlayer.SavePercent.toFixed(1)} %
+                            </span>
+                            </li>
+                            ))}
+                        </ul>           
+                    </SwiperSlide>
+                </Swiper>
+            </div>
+        </div>
     )
 }
 

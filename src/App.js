@@ -8,17 +8,13 @@ import LeagueLeadersSwiper from './Components/LeagueLeadersSwiper';
 import TeamRoster from './Components/TeamRoster';
 import PageTitle from './Components/PageTitle';
 import TeamPastMatches from './Components/TeamPastMatches';
-import TeamDropdown from './Components/TeamDropdown';
-import TeamDropdown2 from './Components/TeamDropdown2';
-import PlayerDropdown1 from './Components/PlayerDropdown1';
-import PlayerDropdown2 from './Components/PlayerDropdown2';
-import PlayerComparisonChart from './Components/PlayerComparisonChart';
 import TeamSeasonGraph from './Components/TeamSeasonGraph';
 import TeamSalaryPieChart from './Components/TeamSalaryPieChart';
 import TeamHamburger from './Components/TeamHamburger';
 import TeamRecordByReferee from './Components/TeamRecordByReferee';
 import { getTeamLogoSrc } from './teamLogoHelper';
 import { teamRecord } from './teamRecord';
+import PlayerComparisonSection from './Components/PlayerComparisonSection';
 
 function App() {
   const [player, setPlayer] = useState(null);
@@ -60,53 +56,35 @@ function App() {
   return (
     <Router>
       <Switch>
-
         <Route exact path="/">
-          <div className='hidden md:block'>
-            <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
-          </div>
+          
+          <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
           <PageTitle />
-          <div className='sm:block lg:hidden bg-black text-white text-xl pl-6 pt-4'>
-            <TeamHamburger handleTeamSelect={handleTeamSelect} />
-          </div>
+          <TeamHamburger handleTeamSelect={handleTeamSelect} />
+          
           <div className="flex justify-center lg:px-4 pb-8">
-            <div className="sm:block lg:hidden w-full">
-              <LeagueLeadersSwiper setPlayer={setPlayer} />
-            </div>
-            <div className="hidden pt-4 lg:block text-white text-center">
-              <LeagueLeaders setPlayer={setPlayer} />
-            </div>
+            <LeagueLeadersSwiper setPlayer={setPlayer} />           
+            <LeagueLeaders setPlayer={setPlayer} />
           </div>          
-          <div className="text-white text-center">
-              {player && <PlayerStatGraph playerName={player} />}
-          </div>
-          <div className="flex justify-center lg:p-4">
-            <div className="text-white text-center">
-              <PlayerSearch handlePlayerSearch={handlePlayerSearch} />
-            </div>
-          </div>
-          <div className='flex justify-center lg:pb-4'>
-            <h2 className='text-white text-2xl'>Player Comparison</h2>
-          </div>
-          <div className='md:flex md:justify-center lg:pb-0'>
-            <div className="text-white text-center md:pr-10 pb-6 md:pb-0">
-              <TeamDropdown teamName={teamName1} setTeamName1={handleTeamNameSelect} />
-              {teamName1 && <PlayerDropdown1 teamName1={teamName1} playerToCompare1={playerToCompare1} setPlayerToCompare1={handlePlayerToCompare1}/>}
-            </div>
-            <div className="text-white text-center pb-10 md:pb-0">
-              <TeamDropdown2 teamName2={teamName2} setTeamName2={handleTeamName2Select} />
-              {teamName2 && <PlayerDropdown2 teamName2={teamName2} playerToCompare2={playerToCompare2} setPlayerToCompare2={handlePlayerToCompare2}/>}
-            </div>
-          </div>
-          <div className="text-white text-center lg:pb-10">
-            {playerToCompare1 && playerToCompare2 && <PlayerComparisonChart playerToCompare1={playerToCompare1} playerToCompare2={playerToCompare2} />}
-          </div>
+        
+          {player && <PlayerStatGraph playerName={player} />}
+          <PlayerSearch handlePlayerSearch={handlePlayerSearch} />
+          
+          <PlayerComparisonSection
+            teamName1={teamName1}
+            teamName2={teamName2}
+            playerToCompare1={playerToCompare1}
+            playerToCompare2={playerToCompare2}
+            handlePlayerToCompare1={handlePlayerToCompare1}
+            handlePlayerToCompare2={handlePlayerToCompare2}
+            handleTeamNameSelect={handleTeamNameSelect}
+            handleTeamName2Select={handleTeamName2Select}
+          />
+        
         </Route>
 
         <Route path="/team/:teamId">
-          <div className='hidden md:block'>
-            <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
-          </div>
+          <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
           <PageTitle />
           <div className='sm:block lg:hidden bg-black text-white text-xl pl-6 pt-4'>
             <TeamHamburger handleTeamSelect={handleTeamSelect} />

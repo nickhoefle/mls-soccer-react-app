@@ -8,14 +8,13 @@ const TeamDropdown = ({ teamName1, setTeamName1 }) => {
 
     return (
         <div>
-            <h2 className='underline'>Player 1</h2>
-            <p>Team</p>
+            <h2 className='text-2xl underline pb-6'>Player 1</h2>
             <select
-                className='bg-black outline-white border-2 w-300'
+                className='bg-black text-xl outline-white border-2 p-1 mb-6 w-1/3'
                 value={teamName1}
                 onChange={handleTeam1Change}
             >
-                <option>Select:</option>
+                <option className='text-center underline'>- Teams -</option>
                 {mlsTeamsArray.map((team, index) => (
                 <option
                     key={index}

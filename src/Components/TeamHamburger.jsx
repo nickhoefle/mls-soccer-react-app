@@ -17,7 +17,7 @@ const TeamHamburger = ({ handleTeamSelect }) => {
     };
 
     return (
-        <>
+        <div className='sm:block lg:hidden bg-black text-white text-xl pl-6 pt-4'>
             <div className="hamburger" onClick={toggleDropdown}>
                 ☰ Teams 
             </div>
@@ -781,7 +781,7 @@ const TeamHamburger = ({ handleTeamSelect }) => {
                     </div>
                 </div>
             )}
-        </>
+        </div>
     )
 }
 
