@@ -25,42 +25,46 @@ const PlayerSearch = ({ handlePlayerSearch }) => {
     };
 
     return (
-        <form 
-            onSubmit={(e) => { 
-                e.preventDefault(); 
-                handlePlayerSearch(searchBarText);
-                setsuggestedPlayers([]);
-                setSearchBarText('');
-            }}
-        >
-            <h1 className="text-2xl text-white pb-4">Search Player</h1>
-            <input
-                className="text-black rounded-full p-3"                
-                placeholder="Search for an MLS Player"
-                value={searchBarText}
-                onChange={handleChange}
-            />
-            <br />
-            {suggestedPlayers.length > 0 && (
-                <ul className="mt-2 bg-white text-black rounded">
-                    <li className='font-bold underline'>Suggested Players</li>
-                    {suggestedPlayers.map((suggestedPlayer, index) => (
-                        <li 
-                            key={index} 
-                            className="cursor-pointer"
-                            onClick={ () => handleSuggestionClick(suggestedPlayer) }                            
-                        >
-                            {suggestedPlayer}
-                        </li>
-                    ))}
-                </ul>
-            )}
-            <button
-                className="mt-2 ml-2 px-12 py-2.5 border-solid border-2 border-white rounded-full bg-blue-900"
-            >
-                Search
-            </button>            
-        </form>
+        <div className="flex justify-center lg:p-4">
+            <div className="text-white text-center">    
+                <form 
+                    onSubmit={(e) => { 
+                        e.preventDefault(); 
+                        handlePlayerSearch(searchBarText);
+                        setsuggestedPlayers([]);
+                        setSearchBarText('');
+                    }}
+                >
+                    <h1 className="text-2xl text-white pb-4">Search Player</h1>
+                    <input
+                        className="text-black rounded-full p-3"                
+                        placeholder="Search for an MLS Player"
+                        value={searchBarText}
+                        onChange={handleChange}
+                    />
+                    <br />
+                    {suggestedPlayers.length > 0 && (
+                        <ul className="mt-2 bg-white text-black rounded">
+                            <li className='font-bold underline'>Suggested Players</li>
+                            {suggestedPlayers.map((suggestedPlayer, index) => (
+                                <li 
+                                    key={index} 
+                                    className="cursor-pointer"
+                                    onClick={ () => handleSuggestionClick(suggestedPlayer) }                            
+                                >
+                                    {suggestedPlayer}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                    <button
+                        className="mt-2 ml-2 px-12 py-2.5 border-solid border-2 border-white rounded-full bg-blue-900"
+                    >
+                        Search
+                    </button>            
+                </form>
+            </div>
+        </div>
     );
 };
 

@@ -72,12 +72,8 @@ function App() {
           </div>          
         
           {player && <PlayerStatGraph playerName={player} />}
-          
-          <div className="flex justify-center lg:p-4">
-            <div className="text-white text-center">
-              <PlayerSearch handlePlayerSearch={handlePlayerSearch} />
-            </div>
-          </div>
+          <PlayerSearch handlePlayerSearch={handlePlayerSearch} />
+
           <div className='flex justify-center lg:pb-4'>
             <h2 className='text-white text-2xl'>Player Comparison</h2>
           </div>
