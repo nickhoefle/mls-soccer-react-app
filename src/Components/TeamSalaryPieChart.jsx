@@ -45,7 +45,7 @@ const TeamSalaryPieChart = ({ team }) => {
         
     if (teamPlayersSalaryArrayCleaned.length === 0) {
         return (
-            <div className='flex justify-center bg-black text-xl text-white pt-5 pb-5'>Salary data not available.</div>  // No Salary Data on FBRef for STL/MTL
+            <div className='flex justify-center text-xl text-white pt-5 pb-5'>Salary data not available.</div>  // No Salary Data on FBRef for STL/MTL
         )
     }
     return (

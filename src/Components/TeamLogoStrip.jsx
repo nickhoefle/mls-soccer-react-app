@@ -8,7 +8,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
     }
     
     return (
-        <div className='flex flex-wrap justify-center bg-black'>
+        <div className='flex flex-wrap justify-center'>
             <Link to='/team/AustinFC'>
                 <img
                     className='team-logo'

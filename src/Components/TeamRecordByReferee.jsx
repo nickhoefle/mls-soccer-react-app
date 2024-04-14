@@ -71,30 +71,30 @@ const TeamRecordByReferee = ({ team }) => {
     });
 
     return (
-        <div className="bg-black md:flex items-center justify-center pb-10">
+        <div className="md:flex items-center justify-center pb-10">
             <table className="table-auto text-white text-sm md:text-base">
                 <thead>
                     <tr>
                         <th
-                            className="px-4 py-2 sticky left-0 bg-black cursor-pointer"
+                            className="px-4 py-2 sticky left-0 cursor-pointer"
                             onClick={() => handleColumnSort('referee')}
                         >
                             Referee
                         </th>
                         <th
-                            className="px-4 py-2 sticky left-0 bg-black cursor-pointer"
+                            className="px-4 py-2 sticky left-0 cursor-pointer"
                             onClick={() => handleColumnSort('wins')}
                         >
                             Wins
                         </th>
                         <th
-                            className="px-4 py-2 sticky left-0 bg-black cursor-pointer"
+                            className="px-4 py-2 sticky left-0 cursor-pointer"
                             onClick={() => handleColumnSort('losses')}
                         >
                             Losses
                         </th>
                         <th
-                            className="px-4 py-2 sticky left-0 bg-black cursor-pointer"
+                            className="px-4 py-2 sticky left-0 cursor-pointer"
                             onClick={() => handleColumnSort('ties')}
                         >
                             Ties
