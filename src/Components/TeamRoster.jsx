@@ -37,13 +37,13 @@ const TeamRoster = ({ team }) => {
 
     return (
         <div className="overflow-x-auto">
-            <div className="bg-black md:opacity-75">
+            <div>
                 <div className="md:flex justify-center pb-10 items-center">
                     <table className="table-auto text-white text-sm md:text-base">
                         <thead>
                             <tr>
                                 <th 
-                                    className="px-4 py-2 sticky left-0 bg-black cursor-pointer"
+                                    class="px-4 py-2 sticky left-0 cursor-pointer bg-black sm:bg-transparent"
                                     onClick={() => handleColumnSort('Name')}
                                 >
                                     Player

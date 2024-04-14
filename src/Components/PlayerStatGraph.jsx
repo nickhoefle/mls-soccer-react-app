@@ -40,7 +40,7 @@ const PlayerStatGraph = ({ playerName }) => {
 
     if (!matchingPlayerStandardStats) {
         return (
-            <h1 className='text-red-500 opacity-75'>"{playerName}" was not found.</h1>
+            <h1 className='text-red-500'>"{playerName}" was not found.</h1>
         );
     }
 
@@ -75,9 +75,9 @@ const PlayerStatGraph = ({ playerName }) => {
 
     return (
         <>
-            <h1 className='text-white text-2xl lg:opacity-75'>{matchingPlayerStandardStats.Name} Stat Graphs</h1>
-            <i className='text-white text-md lg:opacity-75'>vs. League Average for Position</i>
-            <div className='flex md:pl-0 md:justify-center text-white lg:opacity-75'>
+            <h1 className='text-white text-2xl'>{matchingPlayerStandardStats.Name} Stat Graphs</h1>
+            <i className='text-white text-md'>vs. League Average for Position</i>
+            <div className='flex md:pl-0 md:justify-center text-white'>
                 {matchingPlayerStandardStats ? (
                 <div className='w-1/1 md:w-1/4'>
                     {/* Row 1 - Clickable Stats */}
