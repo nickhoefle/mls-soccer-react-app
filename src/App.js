@@ -64,13 +64,9 @@ function App() {
         <Route exact path="/">
           <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
           <PageTitle />
-          
-            <TeamHamburger handleTeamSelect={handleTeamSelect} />
-          
+          <TeamHamburger handleTeamSelect={handleTeamSelect} />
           <div className="flex justify-center lg:px-4 pb-8">
-            <div className="sm:block lg:hidden w-full">
-              <LeagueLeadersSwiper setPlayer={setPlayer} />
-            </div>
+            <LeagueLeadersSwiper setPlayer={setPlayer} />           
             <div className="hidden pt-4 lg:block text-white text-center">
               <LeagueLeaders setPlayer={setPlayer} />
             </div>
