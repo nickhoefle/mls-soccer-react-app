@@ -62,9 +62,9 @@ function App() {
       <Switch>
 
         <Route exact path="/">
-          <div className='hidden md:block'>
+          
             <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
-          </div>
+          
           <PageTitle />
           <div className='sm:block lg:hidden bg-black text-white text-xl pl-6 pt-4'>
             <TeamHamburger handleTeamSelect={handleTeamSelect} />
