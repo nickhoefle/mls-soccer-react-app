@@ -56,8 +56,8 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
-          
+        
+        <Route exact path="/">          
           <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
           <PageTitle />
           <TeamHamburger handleTeamSelect={handleTeamSelect} />
@@ -69,26 +69,13 @@ function App() {
         
           {player && <PlayerStatGraph playerName={player} />}
           <PlayerSearch handlePlayerSearch={handlePlayerSearch} />
-          
-          <PlayerComparisonSection
-            teamName1={teamName1}
-            teamName2={teamName2}
-            playerToCompare1={playerToCompare1}
-            playerToCompare2={playerToCompare2}
-            handlePlayerToCompare1={handlePlayerToCompare1}
-            handlePlayerToCompare2={handlePlayerToCompare2}
-            handleTeamNameSelect={handleTeamNameSelect}
-            handleTeamName2Select={handleTeamName2Select}
-          />
-        
         </Route>
 
         <Route path="/team/:teamId">
           <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
           <PageTitle />
-          <div className='sm:block lg:hidden bg-black text-white text-xl pl-6 pt-4'>
-            <TeamHamburger handleTeamSelect={handleTeamSelect} />
-          </div>
+          <TeamHamburger handleTeamSelect={handleTeamSelect} />
+
           <div className='flex justify-center lg:pt-2 md:pt-8'>
             <img src={getTeamLogoSrc(team)} alt={`${team} Logo`} className="flex justify-center h-32" />
           </div>
@@ -139,6 +126,22 @@ function App() {
               {activeComponent === 'referee' && <TeamRecordByReferee team={team} />}
             </>
           )}
+        </Route>
+
+        <Route exact path="/playercomp">
+          <TeamLogoStrip handleTeamSelect={handleTeamSelect} /> 
+          <PageTitle />
+          <TeamHamburger handleTeamSelect={handleTeamSelect} />
+          <PlayerComparisonSection
+            teamName1={teamName1}
+            teamName2={teamName2}
+            playerToCompare1={playerToCompare1}
+            playerToCompare2={playerToCompare2}
+            handlePlayerToCompare1={handlePlayerToCompare1}
+            handlePlayerToCompare2={handlePlayerToCompare2}
+            handleTeamNameSelect={handleTeamNameSelect}
+            handleTeamName2Select={handleTeamName2Select}
+          />
         </Route>
 
       </Switch>
