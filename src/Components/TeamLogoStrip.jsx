@@ -13,7 +13,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                 <div className='flex flex-wrap justify-center'>
                     <Link to='/team/AustinFC'>
                         <img
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/austin.png' 
                             onClick={() => handleClick('Austin')}
                         />
@@ -21,7 +21,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                     
                     <Link to='/team/ColoradoRapids'>    
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/colorado.png'
                             onClick={() => handleClick('Colorado Rapids')}
                         />
@@ -29,7 +29,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                     
                     <Link to='/team/FCDallas'>      
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/dallas.png'
                             onClick={() => handleClick('FC Dallas')}
                         />
@@ -37,7 +37,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
 
                     <Link to='/team/HoustonDynamo'> 
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/houston.png'
                             onClick={() => handleClick('Dynamo FC')} 
                         />
@@ -45,7 +45,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         
                     <Link to='/team/LAGalaxy'>     
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/lagalaxy.png'
                             onClick={() => handleClick('LA Galaxy')}
                         />
@@ -53,7 +53,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         
                     <Link to='/team/LAFC'>     
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/lafc.png'
                             onClick={() => handleClick('Los Angeles FC')}
                         />
@@ -61,7 +61,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         
                     <Link to='/team/MinnesotaUnited'>     
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/minnesota.png'
                             onClick={() => handleClick('Minnesota Utd')}
                         />
@@ -69,7 +69,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         
                     <Link to='/team/PortlandTimber'>     
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/portland.png'
                             onClick={() => handleClick('Portland Timbers')}
                         />
@@ -77,7 +77,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         
                     <Link to='/team/RealSaltLake'>     
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/rsl.png'
                             onClick={() => handleClick('Real Salt Lake')}
                         />
@@ -85,7 +85,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         
                     <Link to='/team/SanJoseEarthquakes'>     
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/sanjose.png'
                             onClick={() => handleClick('San Jose')}
                         />
@@ -93,7 +93,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         
                     <Link to='/team/SeattleSounders'>     
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/seattle.png'
                             onClick={() => handleClick('Seattle')}
                         />
@@ -101,7 +101,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         
                     <Link to='/team/SportingKC'>     
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/skc.png'
                             onClick={() => handleClick('Sporting KC')}
                         />
@@ -109,7 +109,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         
                     <Link to='/team/StLouisCitySC'>     
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/stlouis.png'
                             onClick={() => handleClick('St. Louis')}
                         />
@@ -117,7 +117,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         
                     <Link to='/team/VancouverWhitecaps'>     
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/vancouver.png'
                             onClick={() => handleClick('Vancouver')}
                         />
@@ -125,7 +125,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         
                     <Link to='/team/AtlantaUnited'>     
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/atlanta.png'
                             onClick={() => handleClick('Atlanta Utd')}
                         />
@@ -133,7 +133,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         
                     <Link to='/team/CharlotteFC'>     
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/charlotte.png'
                             onClick={() => handleClick('Charlotte')}
                         />
@@ -141,7 +141,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         
                     <Link to='/team/ChicagoFire'>     
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/chicago.png'
                             onClick={() => handleClick('Chicago Fire')}
                         />
@@ -149,7 +149,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         
                     <Link to='/team/ColumbusCrew'>     
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/columbus.png'
                             onClick={() => handleClick('Columbus Crew')}
                         />
@@ -157,7 +157,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         
                     <Link to='/team/FCCincinnati'>    
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/cincinnati.png'
                             onClick={() => handleClick('FC Cincinnati')}
                         />
@@ -165,7 +165,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                     
                     <Link to='/team/DCUnited'> 
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/dc.png'
                             onClick={() => handleClick('D.C. United')}
                         />
@@ -173,7 +173,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         
                     <Link to='/team/InterMiami'>     
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/miami.png'
                             onClick={() => handleClick('Inter Miami')}
                         />
@@ -181,7 +181,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         
                     <Link to='/team/CFMontreal'>     
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/montreal.png'
                             onClick={() => handleClick('CF Montréal')}
                         />
@@ -189,7 +189,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         
                     <Link to='/team/NashvilleSC'>     
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/nashville.png'
                             onClick={() => handleClick('Nashville')}
                         />
@@ -197,7 +197,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                     
                     <Link to='/team/NewEnglandRevolution'> 
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/newengland.png'
                             onClick={() => handleClick('New England')}
                         />
@@ -205,7 +205,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
 
                     <Link to='/team/NewYorkCityFC'> 
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/nycfc.png'
                             onClick={() => handleClick('NYCFC')}
                         />
@@ -213,7 +213,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         
                     <Link to='/team/NewYorkRedbulls'>     
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/nyredbulls.png'
                             onClick={() => handleClick('NY Red Bulls')}
                         />
@@ -221,7 +221,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
 
                     <Link to='/team/OrlandoCity'>     
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/orlando.png'
                             onClick={() => handleClick('Orlando City')}
                         />
@@ -229,7 +229,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         
                     <Link to='/team/PhiladelphiaUnion'>     
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/philadelphia.png'
                             onClick={() => handleClick('Philadelphia')}
                         />
@@ -237,7 +237,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                     
                     <Link to='/team/TorontoFC'>     
                         <img 
-                            className='team-logo'
+                            className='team-logo hover:border-b-4'
                             src='/logos/full-size/torontofc.png'
                             onClick={() => handleClick('Toronto FC')}
                         />
