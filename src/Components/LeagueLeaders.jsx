@@ -26,20 +26,20 @@ const LeagueLeaders = ({ setPlayer }) => {
     
     return (
         <div className="hidden pt-4 lg:block text-white text-center">
-            <h1 className='text-center text-2xl pb-4'>Top Performers</h1>
+            <h1 className='text-center text-3xl pb-4'>Top Performers</h1>
             <div className='flex'>            
                 <div>
-                    <h1 className='underline'>Assists</h1>
+                    <h1 className='text-xl underline pb-2'>Assists</h1>
                     <ul>
                         {topFiveAssists.map((topFivePlayer, index) => (
                         <li 
                             key={index} 
-                            className='flex items-center justify-between hover:cursor-pointer' 
+                            className='flex items-center justify-between text-lg hover:cursor-pointer' 
                             onClick={() => handlePlayerClick(topFivePlayer.Name)}
                         >
                             {topFivePlayer.Name} ({topFivePlayer.Team})
                         <span 
-                            className='pl-4 text-right'
+                            className='pl-4 text-right text-lg'
                         >
                             {topFivePlayer.Assists}
                         </span>
@@ -49,17 +49,17 @@ const LeagueLeaders = ({ setPlayer }) => {
                 </div>
 
                 <div className='pl-20'>
-                    <h1 className='underline'>Goals</h1>
+                    <h1 className='text-xl underline pb-2'>Goals</h1>
                     <ul>
                         {topFiveGoals.map((topFivePlayer, index) => (
                         <li 
                             key={index} 
-                            className='flex items-center justify-between hover:cursor-pointer' 
+                            className='flex items-center justify-between text-lg hover:cursor-pointer' 
                             onClick={() => handlePlayerClick(topFivePlayer.Name)}
                         >
                             {topFivePlayer.Name} ({topFivePlayer.Team})
                         <span 
-                            className='pl-4 text-right'
+                            className='pl-4 text-right text-lg'
                         >
                             {topFivePlayer.Goals}
                         </span>
@@ -69,12 +69,12 @@ const LeagueLeaders = ({ setPlayer }) => {
                 </div>
 
                 <div className='pl-20'>
-                    <h1 className='underline'>Save Percent</h1>
+                    <h1 className='text-xl underline pb-2'>Save Percent</h1>
                     <ul>
                         {topFiveSavePct.map((topFivePlayer, index) => (
                         <li 
                             key={index} 
-                            className='flex items-center justify-between'
+                            className='flex items-center justify-between text-lg'
                         >
                             {topFivePlayer.Name} ({topFivePlayer.Team})
                         <span 

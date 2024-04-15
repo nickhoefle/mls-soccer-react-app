@@ -2,9 +2,9 @@ import React from 'react'
 
 const PageTitle = () => {
     return (
-        <div className="p-2 flex justify-center">
+        <div className="p-4 flex justify-center">
             <a 
-                className="text-white text-center text-4xl"
+                className="text-white text-center text-5xl"
                 href='/'
             >
                 MLStats by Nick

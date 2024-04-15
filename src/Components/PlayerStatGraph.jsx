@@ -76,50 +76,50 @@ const PlayerStatGraph = ({ playerName }) => {
     return (
         <div className="text-white text-center">
             <h1 className='text-white text-2xl'>{matchingPlayerStandardStats.Name} Stat Graphs</h1>
-            <i className='text-white text-md'>vs. League Average for Position</i>
+            <i className='text-white text-lg'>vs. League Average for Position</i>
             <div className='flex md:pl-0 md:justify-center text-white'>
                 {matchingPlayerStandardStats ? (
-                <div className='w-1/1 md:w-1/4'>
+                <div className='w-1/1 md:w-1/3'>
                     {/* Row 1 - Clickable Stats */}
                     <div className='flex justify-center stat-links'>
                         <p className='p-4 cursor-pointer' onClick={() => handleStatClick('ExpectedGoalsPer90')}>
-                            <span className={activeStat === 'ExpectedGoalsPer90' ? 'underline' : ''}>xGoals per 90</span>
+                            <span className={activeStat === 'ExpectedGoalsPer90' ? 'text-md lg:text-lg underline': 'text-md lg:text-lg'}>xGoals per 90</span>
                         </p>                    
                         <p className='p-4 cursor-pointer' onClick={() => handleStatClick('ExpectedAssistsPer90')}>
-                            <span className={activeStat === 'ExpectedAssistsPer90' ? 'underline' : ''}>xAssists per 90</span>
+                            <span className={activeStat === 'ExpectedAssistsPer90' ? 'text-md lg:text-lg underline': 'text-md lg:text-lg'}>xAssists per 90</span>
                         </p>
                         <p className='p-4 cursor-pointer' onClick={() => handleStatClick('YellowCards')}>
-                            <span className={activeStat === 'YellowCards' ? 'underline' : ''}>Yellow Cards</span>
+                            <span className={activeStat === 'YellowCards' ? 'text-md lg:text-lg underline': 'text-md lg:text-lg'}>Yellow Cards</span>
                         </p>
                     </div>
                     {/* Row 2 - Clickable Stats */}
                     <div className='flex justify-center stat-links pb-4'>
                         <p className='px-4 cursor-pointer' onClick={() => handleStatClick('GoalsPer90')}>
-                            <span className={activeStat === 'GoalsPer90' ? 'underline' : ''}>Goals per 90</span>
+                            <span className={activeStat === 'GoalsPer90' ? 'text-md lg:text-lg underline': 'text-md lg:text-lg'}>Goals per 90</span>
                         </p>
                         <p className='px-4 cursor-pointer' onClick={() => handleStatClick('AssistsPer90')}>
-                            <span className={activeStat === 'AssistsPer90' ? 'underline' : ''}>Assists per 90</span>
+                            <span className={activeStat === 'AssistsPer90' ? 'text-md lg:text-lg underline': 'text-md lg:text-lg'}>Assists per 90</span>
                         </p>
                         <p className='px-4 cursor-pointer' onClick={() => handleStatClick('ShotsPer90')}>
-                            <span className={activeStat === 'ShotsPer90' ? 'underline' : ''}>Shots per 90</span>
+                            <span className={activeStat === 'ShotsPer90' ? 'text-md lg:text-lg underline': 'text-md lg:text-lg'}>Shots per 90</span>
                         </p>
                     </div>
                     {/* Row 3 - Clickable Stats */}
                     <div className='flex justify-center stat-links pb-4'>
                         <p className='px-4 cursor-pointer' onClick={() => handleStatClick('TacklesPer90')}>
-                            <span className={activeStat === 'TacklesPer90' ? 'underline' : ''}>Tackles per 90</span>
+                            <span className={activeStat === 'TacklesPer90' ? 'text-md lg:text-lg underline': 'text-md lg:text-lg'}>Tackles per 90</span>
                         </p>
                         <p className='px-4 cursor-pointer' onClick={() => handleStatClick('TacklePercent')}>
-                            <span className={activeStat === 'TacklePercent' ? 'underline' : ''}>Tackle Percent</span>
+                            <span className={activeStat === 'TacklePercent' ? 'text-md lg:text-lg underline': 'text-md lg:text-lg'}>Tackle Percent</span>
                         </p>
                         <p className='px-4 cursor-pointer' onClick={() => handleStatClick('ClearancesPer90')}>
-                            <span className={activeStat === 'ClearancesPer90' ? 'underline' : ''}>Clears per 90</span>
+                            <span className={activeStat === 'ClearancesPer90' ? 'text-md lg:text-lg underline': 'text-md lg:text-lg'}>Clears per 90</span>
                         </p>
                     </div>
                     {/* Row 4 - Clickable Stats */}
                     <div className='flex justify-center stat-links pb-4'>
                         <p className='px-4 cursor-pointer' onClick={() => handleStatClick('tacklesByThird')}>
-                            <span className={activeStat === 'tacklesByThird' ? 'underline' : ''}>Tackles by Third per 90</span>
+                            <span className={activeStat === 'tacklesByThird' ? 'text-md lg:text-lg underline': 'text-md lg:text-lg'}>Tackles by Third per 90</span>
                         </p>
                     </div>
                     
@@ -295,25 +295,27 @@ const PlayerStatGraph = ({ playerName }) => {
                         </>
                     )}
                     {activeStat === 'tacklesByThird' && (
+                    <div class='flex justify-center'>
                         <div className="relative p-4">
-                        <img src={thirdsDiagramImage} alt="Thirds Diagram" />
-                        <div className="absolute top-[18%] right-8 w-full text-center">
-                            <b className='pr-1'>{matchingPlayerDefenseStats.Name.split(' ')[matchingPlayerDefenseStats.Name.split(' ').length -1]}:</b>
-                            <b className='pr-6'>{matchingPlayerDefenseStats.TacklesInAttackingThirdPer90}</b>
-                            <b className='pr-1'>Average:</b>
-                            <b>{TacklesInAttackingThird}</b>
-                        </div>  
-                        <div className="absolute top-[48%] right-8 w-full text-center">
-                            <b className='pr-1'>{matchingPlayerDefenseStats.Name.split(' ')[matchingPlayerDefenseStats.Name.split(' ').length -1]}:</b>
-                            <b className='pr-6'>{matchingPlayerDefenseStats.TacklesInMiddleThirdPer90}</b>
-                            <b className='pr-1'>Average:</b>
-                            <b>{TacklesInMiddleThird}</b>
-                        </div>                
-                        <div className="absolute top-[78%] right-8 w-full text-center">
-                            <b className='pr-1'>{matchingPlayerDefenseStats.Name.split(' ')[matchingPlayerDefenseStats.Name.split(' ').length -1]}:</b>
-                            <b className='pr-6'>{matchingPlayerDefenseStats.TacklesInDefensiveThirdPer90}</b>
-                            <b className='pr-1'>Average:</b>
-                            <b>{TacklesInDefThird}</b>
+                            <img src={thirdsDiagramImage} alt="Thirds Diagram" />
+                            <div className="absolute top-[18%] right-8 w-full text-center">
+                                <b className='pr-1'>{matchingPlayerDefenseStats.Name.split(' ')[matchingPlayerDefenseStats.Name.split(' ').length -1]}:</b>
+                                <b className='pr-6'>{matchingPlayerDefenseStats.TacklesInAttackingThirdPer90}</b>
+                                <b className='pr-1'>Average:</b>
+                                <b>{TacklesInAttackingThird}</b>
+                            </div>  
+                            <div className="absolute top-[48%] right-8 w-full text-center">
+                                <b className='pr-1'>{matchingPlayerDefenseStats.Name.split(' ')[matchingPlayerDefenseStats.Name.split(' ').length -1]}:</b>
+                                <b className='pr-6'>{matchingPlayerDefenseStats.TacklesInMiddleThirdPer90}</b>
+                                <b className='pr-1'>Average:</b>
+                                <b>{TacklesInMiddleThird}</b>
+                            </div>                
+                            <div className="absolute top-[78%] right-8 w-full text-center">
+                                <b className='pr-1'>{matchingPlayerDefenseStats.Name.split(' ')[matchingPlayerDefenseStats.Name.split(' ').length -1]}:</b>
+                                <b className='pr-6'>{matchingPlayerDefenseStats.TacklesInDefensiveThirdPer90}</b>
+                                <b className='pr-1'>Average:</b>
+                                <b>{TacklesInDefThird}</b>
+                            </div>
                         </div>
                     </div>
                     )}                           
