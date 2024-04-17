@@ -27,15 +27,7 @@ const PlayerSearch = ({ handlePlayerSearch }) => {
     return (
         <div className="flex justify-center lg:p-4">
             <div className="text-white text-center lg:w-1/2">    
-                <form 
-                    onSubmit={(e) => { 
-                        e.preventDefault(); 
-                        handlePlayerSearch(searchBarText);
-                        setsuggestedPlayers([]);
-                        setSearchBarText('');
-                    }}
-                >
-                    <h1 className="text-2xl text-white pb-4">Search Player</h1>
+                    <h1 className="text-2xl text-white pb-4">Player Search</h1>
                     <input
                         className="text-black rounded-full p-3 lg:w-1/3 text-lg"                
                         placeholder="Search for an MLS Player"
@@ -58,13 +50,7 @@ const PlayerSearch = ({ handlePlayerSearch }) => {
                                 ))}
                             </ul>
                         </div>
-                    )}
-                    <button
-                        className="mt-2 ml-2 px-12 py-2.5 border-solid border-2 border-white rounded-full bg-blue-900 lg:text-xl hover:bg-blue-700"
-                    >
-                        Search
-                    </button>            
-                </form>
+                    )}         
             </div>
         </div>
     );
