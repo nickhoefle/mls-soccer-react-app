@@ -15,7 +15,7 @@ const PlayerSearch = ({ handlePlayerSearch }) => {
         const matchingPlayers = leaguePlayersStandardStats.filter(leaguePlayer =>
             diacriticless(leaguePlayer.Name.toLowerCase()).includes(diacriticless(searchBarText.toLowerCase()))
         );
-        setsuggestedPlayers(matchingPlayers.slice(0, 5).map(leaguePlayer => leaguePlayer.Name));
+        setsuggestedPlayers(matchingPlayers.slice(0, 6).map(leaguePlayer => leaguePlayer.Name));
     };
 
     const handleSuggestionClick = (suggestedPlayer) => {
@@ -26,7 +26,7 @@ const PlayerSearch = ({ handlePlayerSearch }) => {
 
     return (
         <div className="flex justify-center lg:p-4">
-            <div className="text-white text-center">    
+            <div className="text-white text-center lg:w-1/2">    
                 <form 
                     onSubmit={(e) => { 
                         e.preventDefault(); 
@@ -37,28 +37,30 @@ const PlayerSearch = ({ handlePlayerSearch }) => {
                 >
                     <h1 className="text-2xl text-white pb-4">Search Player</h1>
                     <input
-                        className="text-black rounded-full p-3"                
+                        className="text-black rounded-full p-3 lg:w-1/3 text-lg"                
                         placeholder="Search for an MLS Player"
                         value={searchBarText}
                         onChange={handleChange}
                     />
                     <br />
                     {suggestedPlayers.length > 0 && (
-                        <ul className="mt-2 bg-white text-black rounded">
-                            <li className='font-bold underline'>Suggested Players</li>
-                            {suggestedPlayers.map((suggestedPlayer, index) => (
-                                <li 
-                                    key={index} 
-                                    className="cursor-pointer"
-                                    onClick={ () => handleSuggestionClick(suggestedPlayer) }                            
-                                >
-                                    {suggestedPlayer}
-                                </li>
-                            ))}
-                        </ul>
+                        <div className='lg:flex justify-center'>
+                            <ul className="mt-2 bg-white text-black rounded lg:w-1/3">
+                                <li className='font-bold underline'>Suggested Players</li>
+                                {suggestedPlayers.map((suggestedPlayer, index) => (
+                                    <li 
+                                        key={index} 
+                                        className="cursor-pointer p-1 lg:hover:bg-green-700 hover:text-white text-lg"
+                                        onClick={ () => handleSuggestionClick(suggestedPlayer) }                            
+                                    >
+                                        {suggestedPlayer}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     )}
                     <button
-                        className="mt-2 ml-2 px-12 py-2.5 border-solid border-2 border-white rounded-full bg-blue-900"
+                        className="mt-2 ml-2 px-12 py-2.5 border-solid border-2 border-white rounded-full bg-blue-900 lg:text-xl hover:bg-blue-700"
                     >
                         Search
                     </button>            
