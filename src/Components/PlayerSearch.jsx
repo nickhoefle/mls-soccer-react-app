@@ -5,7 +5,7 @@ import { cleanStandardStats } from '../dataCleaner';
 
 const leaguePlayersStandardStats = cleanStandardStats(leaguePlayersStandardStatsRawData);
 
-const PlayerSearch = ({ handlePlayerSearch }) => {
+const PlayerSearch = ({ handleSuggPlayerClick }) => {
     const [searchBarText, setSearchBarText] = useState('');
     const [suggestedPlayers, setsuggestedPlayers] = useState([]);
 
@@ -18,8 +18,8 @@ const PlayerSearch = ({ handlePlayerSearch }) => {
         setsuggestedPlayers(matchingPlayers.slice(0, 6).map(leaguePlayer => leaguePlayer.Name));
     };
 
-    const handleSuggestionClick = (suggestedPlayer) => {
-        handlePlayerSearch(suggestedPlayer);
+    const setPlayer = (suggestedPlayer) => {
+        handleSuggPlayerClick(suggestedPlayer);
         setsuggestedPlayers([]);
         setSearchBarText('');
     };
@@ -43,7 +43,7 @@ const PlayerSearch = ({ handlePlayerSearch }) => {
                                 <li 
                                     key={index} 
                                     className="cursor-pointer p-1 lg:hover:bg-green-700 hover:text-white text-lg"
-                                    onClick={ () => handleSuggestionClick(suggestedPlayer) }                            
+                                    onClick={ () => setPlayer(suggestedPlayer) }                            
                                 >
                                     {suggestedPlayer}
                                 </li>
