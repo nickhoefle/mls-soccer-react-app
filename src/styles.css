@@ -13,6 +13,13 @@ body::after {
   opacity: 75%;
 }
 
+.match-tooltip {
+  background-color: black;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 4px;
+}
+
 #page-links-container {
   display: flex;
   justify-content: center;

@@ -10,6 +10,7 @@ const TeamSeasonGraph = ({ team }) => {
     const teamMatchesArray = allLeagueMatches.filter((match) => (match.HomeTeam === team || match.AwayTeam === team) && match.Score !== '');
     const datesArray = teamMatchesArray.map((teamMatch) => teamMatch.Date.slice(5));
     const goalDifferentialArray = [];
+    const homeOrAwayArray = [];
 
     teamMatchesArray.forEach((teamMatch) => {
         if (teamMatch.HomeTeam === team) {
@@ -25,6 +26,14 @@ const TeamSeasonGraph = ({ team }) => {
         }
     });
 
+    teamMatchesArray.forEach((teamMatch) => {
+        if (teamMatch.HomeTeam === team) {
+            homeOrAwayArray.push('vs.');
+        } else {
+            homeOrAwayArray.push('@');
+        }
+    });
+
     const opponentNamesArray = teamMatchesArray.map((teamMatch) => {
         return teamMatch.HomeTeam === team ? teamMatch.AwayTeam : teamMatch.HomeTeam;
     });
@@ -37,6 +46,7 @@ const TeamSeasonGraph = ({ team }) => {
                 show: false,
             },
         },
+        
         xaxis: {
             categories: datesArray,
             labels: {
@@ -67,8 +77,9 @@ const TeamSeasonGraph = ({ team }) => {
             custom: function ({ dataPointIndex }) {
                 const opponentName = opponentNamesArray[dataPointIndex];
                 const goalDifference = goalDifferentialArray[dataPointIndex];
-                const text = `${opponentName}: ${goalDifference}`;
-                return `<div class="custom-tooltip">${text}</div>`;
+                const homeOrAway = homeOrAwayArray[dataPointIndex];
+                const text = `${homeOrAway} ${opponentName}: ${goalDifference}`;
+                return `<div class="match-tooltip">${text}</div>`;
             },
         },
     };
@@ -87,6 +98,7 @@ const TeamSeasonGraph = ({ team }) => {
                     series={chartSeries}
                     type="line"
                     height={300}
+                    width={'100%'}
                 />
             </div>
         </div>
