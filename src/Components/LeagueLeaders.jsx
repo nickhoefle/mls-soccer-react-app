@@ -9,11 +9,7 @@ import { cleanGoalkeeperStats } from '../dataCleaner';
 const leaguePlayersStandardStats = cleanStandardStats(leaguePlayersStandardStatsRawData);
 const leagueGoalkeeperStats = cleanGoalkeeperStats(leagueGoalkeeperStatsRawData);
 
-const LeagueLeaders = ({ setPlayer }) => {
-
-    const handlePlayerClick = (playerName) => {
-        setPlayer(playerName);
-    };
+const LeagueLeaders = ({ handlePlayerClick }) => {
 
     const findTopFiveForStat = (jsonFile, stat) => {
         const sortedData = jsonFile.sort((a, b) => b[stat] - a[stat]);

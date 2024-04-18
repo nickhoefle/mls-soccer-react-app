@@ -25,6 +25,10 @@ function App() {
   const [playerToCompare2, setPlayerToCompare2] = useState('');
   const [activeComponent, setActiveComponent] = useState('roster');
 
+  const handlePlayerClick = (playerName) => {
+    setPlayer(playerName);
+  };
+
   function handleSuggPlayerClick(player) {
     setPlayer(player);
   }
@@ -64,7 +68,7 @@ function App() {
           
           <div className="flex justify-center lg:px-4 pb-8">
             <LeagueLeadersSwiper setPlayer={setPlayer} />           
-            <LeagueLeaders setPlayer={setPlayer} />
+            <LeagueLeaders handlePlayerClick={handlePlayerClick} />
           </div>          
         
           {player && <PlayerStatGraph playerName={player} />}
