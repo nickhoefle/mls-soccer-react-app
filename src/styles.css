@@ -13,6 +13,18 @@ body::after {
   opacity: 75%;
 }
 
+#page-links-container {
+  display: flex;
+  justify-content: center;
+}
+
+#page-links-wrapper {
+  width: 1440px;
+  display: flex;
+  justify-content: left;
+  margin-top: 8px;
+}
+
 .swiper-slide {
   text-align: center;
   font-size: 18px;
@@ -48,5 +60,13 @@ body::after {
 @media (max-width: 767px) {
   body {
     background: black;
+  }
+
+  #page-links-container {
+    display: none;
+  }
+
+  #page-links-wrapper {
+    display: none;
   }
 }

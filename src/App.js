@@ -25,7 +25,7 @@ function App() {
   const [playerToCompare2, setPlayerToCompare2] = useState('');
   const [activeComponent, setActiveComponent] = useState('roster');
 
-  function handlePlayerSearch(player) {
+  function handleSuggPlayerClick(player) {
     setPlayer(player);
   }
 
@@ -68,7 +68,7 @@ function App() {
           </div>          
         
           {player && <PlayerStatGraph playerName={player} />}
-          <PlayerSearch handlePlayerSearch={handlePlayerSearch} />
+          <PlayerSearch handleSuggPlayerClick={handleSuggPlayerClick} />
         </Route>
 
         <Route path="/team/:teamId">
