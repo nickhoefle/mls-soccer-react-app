@@ -45,7 +45,7 @@ const LeagueLeaders = ({ handlePlayerClick }) => {
                 </div>
 
                 <div className='pl-20'>
-                    <h1 className='text-xl underline pb-2'>Goals</h1>
+                    <h1 className='pl-20 text-xl underline pb-2'>Goals</h1>
                     <ul>
                         {topFiveGoals.map((topFivePlayer, index) => (
                         <li 
@@ -55,7 +55,7 @@ const LeagueLeaders = ({ handlePlayerClick }) => {
                         >
                             {topFivePlayer.Name} ({topFivePlayer.Team})
                         <span 
-                            className='text-right text-lg'
+                            className='pl-4 text-right text-lg'
                         >
                             {topFivePlayer.Goals}
                         </span>
