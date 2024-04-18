@@ -55,7 +55,7 @@ const LeagueLeaders = ({ handlePlayerClick }) => {
                         >
                             {topFivePlayer.Name} ({topFivePlayer.Team})
                         <span 
-                            className='pl-4 text-right text-lg'
+                            className='text-right text-lg'
                         >
                             {topFivePlayer.Goals}
                         </span>
