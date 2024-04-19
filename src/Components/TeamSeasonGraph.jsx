@@ -75,9 +75,11 @@ const TeamSeasonGraph = ({ team }) => {
             shared: false,
             intersect: true,
             custom: function ({ dataPointIndex }) {
+                
                 const opponentName = opponentNamesArray[dataPointIndex];
                 const goalDifference = goalDifferentialArray[dataPointIndex];
                 const homeOrAway = homeOrAwayArray[dataPointIndex];
+                
                 const text = `${homeOrAway} ${opponentName}: ${goalDifference}`;
                 return `<div class="match-tooltip">${text}</div>`;
             },
