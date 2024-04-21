@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import diacriticless from 'diacriticless';
 import '../styles.css';
-import matchingPositions from '../data/matchingPositions';
 import thirdsDiagramImage from "../images/thirds-diagram.png";
+import { findLeagueAverage } from '../findLeagueAverage'; 
 
 import leaguePlayersStandardStatsRawData from '../data/leaguePlayersStandardStatsRawData.json';
 import { cleanStandardStats } from '../dataCleaner'; 
@@ -42,22 +42,6 @@ const PlayerStatGraph = ({ playerName }) => {
         return (
             <h1 className='text-red-500'>"{playerName}" was not found.</h1>
         );
-    }
-
-    function findLeagueAverage(jsonFile, stat, matchingPlayer) {
-        let sum = 0;
-        let count = 0;
-        
-        const positionsToInclude = matchingPositions[matchingPlayer.Position.replace(',', '').toLowerCase()];        
-        
-        jsonFile.forEach((leaguePlayer) => {
-            if (positionsToInclude.includes(leaguePlayer.Position.toLowerCase()) && leaguePlayer[stat] !== '') {
-                sum += Number(leaguePlayer[stat]);
-                count++;
-            }
-        });
-        const leagueAverage = count > 0 ? sum / count : 0;
-        return leagueAverage.toFixed(2);
     }
 
     const ExpectedGoalsPer90Avg = findLeagueAverage(leaguePlayersStandardStats, 'ExpectedGoalsPer90', matchingPlayerStandardStats);

@@ -45,27 +45,32 @@ const TeamSeasonGraph = ({ team }) => {
             toolbar: {
                 show: false,
             },
-        },
-        
+        },      
         xaxis: {
             categories: datesArray,
             labels: {
                 style: {
                     colors: 'white',
-                    fontSize: '12px'
+                    fontSize: '16px',
+                    fontFamily: `ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji`,
                 },
+                offsetY: 5,
+                offsetX: 2
             },
             tickAmount: Math.ceil(datesArray.length / 2),
         },
         yaxis: {
             labels: {
                 style: {
-                    colors: 'white', 
-                    fontSize: '14px'
+                    colors: 'white',
+                    fontSize: '16px',
+                    fontFamily: `ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji`,
                 },
                 formatter: function (value) {
                     return Math.round(value); 
-                }
+                },
+                offsetX: -8,
+                offsetY: -1
             },
         },
         markers: {
