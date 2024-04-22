@@ -13,12 +13,6 @@ const PageTitle = () => {
                     >
                         Player Comparison
                     </a>
-                    <a 
-                        className='text-white text-lg m-0 hover:underline'
-                        href='/playeranalysis'
-                    >
-                        Player Analysis
-                    </a>
                 </div>
             </div>
             <div className="flex justify-center">
