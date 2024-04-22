@@ -15,6 +15,7 @@ import TeamRecordByReferee from './Components/TeamRecordByReferee';
 import { getTeamLogoSrc } from './teamLogoHelper';
 import { teamRecord } from './teamRecord';
 import PlayerComparisonSection from './Components/PlayerComparisonSection';
+import PlayerSpider from './Components/PlayerSpider';
 
 function App() {
   const [player, setPlayer] = useState(null);
@@ -146,6 +147,10 @@ function App() {
             handleTeamNameSelect={handleTeamNameSelect}
             handleTeamName2Select={handleTeamName2Select}
           />
+        </Route>
+
+        <Route exact path="/playeranalysis">
+            <PlayerSpider />
         </Route>
 
       </Switch>
