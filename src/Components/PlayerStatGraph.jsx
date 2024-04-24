@@ -38,12 +38,6 @@ const PlayerStatGraph = ({ playerName }) => {
         diacriticless(leaguePlayer.Name.toLowerCase()).includes(searchedPlayerName)
     );
 
-    if (!matchingPlayerStandardStats) {
-        return (
-            <h1 className='text-red-500'>"{playerName}" was not found.</h1>
-        );
-    }
-
     const ExpectedGoalsPer90Avg = findLeagueAverage(leaguePlayersStandardStats, 'ExpectedGoalsPer90', matchingPlayerStandardStats);
     const GoalsPer90Avg = findLeagueAverage(leaguePlayersStandardStats, 'GoalsPer90', matchingPlayerStandardStats);
     const ExpectedAssistsPer90Avg = findLeagueAverage(leaguePlayersStandardStats, 'ExpectedAssistsPer90', matchingPlayerStandardStats);
@@ -62,7 +56,6 @@ const PlayerStatGraph = ({ playerName }) => {
             <h1 className='text-white text-2xl'>{matchingPlayerStandardStats.Name} Stat Graphs</h1>
             <i className='text-white text-lg'>vs. League Average for Position</i>
             <div className='flex md:pl-0 md:justify-center text-white'>
-                {matchingPlayerStandardStats ? (
                 <div className='w-1/1 md:w-1/3'>
                     {/* Row 1 - Clickable Stats */}
                     <div className='flex justify-center stat-links'>
@@ -304,9 +297,6 @@ const PlayerStatGraph = ({ playerName }) => {
                     </div>
                     )}                           
                 </div>
-                ) : (
-                <p>No matching player found.</p>
-                )}
             </div>
         </div>
     );
