@@ -31,8 +31,8 @@ const PlayerComparisonChart = ({ playerToCompare1, playerToCompare2 }) => {
                 <thead>
                     <tr>
                         <th className="border px-4 py-2">Stat</th>
-                        <th className="border px-4 py-2">{playerToCompare1}</th>
-                        <th className="border px-4 py-2">{playerToCompare2}</th>
+                        <th className="border px-4 py-2 w-[325px]">{playerToCompare1}</th>
+                        <th className="border px-4 py-2 w-[325px]">{playerToCompare2}</th>
                     </tr>
                 </thead>
                 <tbody>
