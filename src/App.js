@@ -24,10 +24,6 @@ function App() {
     setPlayer(playerName);
   };
 
-  function handleSuggPlayerClick(player) {
-    setPlayer(player);
-  }
-
   function handleTeamSelect(team) {
     setTeam(team);
   }
@@ -67,7 +63,7 @@ function App() {
           </div>          
         
           {player && <PlayerStatGraph playerName={player} />}
-          <PlayerSearch handleSuggPlayerClick={handleSuggPlayerClick} />
+          <PlayerSearch handlePlayerClick={handlePlayerClick} />
         </Route>
 
         <Route path="/team/:teamId">

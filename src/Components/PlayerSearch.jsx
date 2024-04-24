@@ -5,7 +5,7 @@ import { cleanStandardStats } from '../dataCleaner';
 
 const leaguePlayersStandardStats = cleanStandardStats(leaguePlayersStandardStatsRawData);
 
-const PlayerSearch = ({ handleSuggPlayerClick }) => {
+const PlayerSearch = ({ handlePlayerClick }) => {
     const [searchBarText, setSearchBarText] = useState('');
     const [suggestedPlayers, setsuggestedPlayers] = useState([]);
 
@@ -19,7 +19,7 @@ const PlayerSearch = ({ handleSuggPlayerClick }) => {
     };
 
     const setPlayer = (suggestedPlayer) => {
-        handleSuggPlayerClick(suggestedPlayer);
+        handlePlayerClick(suggestedPlayer);
         setsuggestedPlayers([]);
         setSearchBarText('');
     };
