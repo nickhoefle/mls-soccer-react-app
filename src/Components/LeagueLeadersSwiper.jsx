@@ -14,11 +14,7 @@ import { cleanGoalkeeperStats } from '../dataCleaner';
 const leaguePlayersStandardStats = cleanStandardStats(leaguePlayersStandardStatsRawData);
 const leagueGoalkeeperStats = cleanGoalkeeperStats(leagueGoalkeeperStatsRawData);
 
-const LeagueLeadersSwiper = ({ setPlayer }) => {
-
-    const handlePlayerClick = (playerName) => {
-        setPlayer(playerName);
-    };
+const LeagueLeadersSwiper = ({ handlePlayerClick }) => {
 
     const findTopTenForStat = (jsonFile, stat) => {
         const sortedData = jsonFile.sort((a, b) => b[stat] - a[stat]);
@@ -45,18 +41,18 @@ const LeagueLeadersSwiper = ({ setPlayer }) => {
                         <h1 className='underline pb-2'>Assists</h1>
                         <ul className="space-y-1.5">
                             {topTenAssists.map((topTenPlayer, index) => (
-                            <li 
-                                key={index} 
-                                className='flex items-center justify-between' 
-                                onClick={() => handlePlayerClick(topTenPlayer.Name)}
-                            >
-                                {topTenPlayer.Name} ({topTenPlayer.Team})
-                            <span 
-                                className='pl-4 text-right'
-                            >
-                                {topTenPlayer.Assists}
-                            </span>
-                            </li>
+                                <li 
+                                    key={index} 
+                                    className='flex items-center justify-between' 
+                                    onClick={() => handlePlayerClick(topTenPlayer.Name)}
+                                >
+                                    <label>
+                                        {topTenPlayer.Name} ({topTenPlayer.Team})
+                                    </label>
+                                    <span className='pl-4 text-right'>
+                                        {topTenPlayer.Assists}
+                                    </span>
+                                </li>
                             ))}
                         </ul>
                     </SwiperSlide>
@@ -64,18 +60,18 @@ const LeagueLeadersSwiper = ({ setPlayer }) => {
                         <h1 className='underline pb-2'>Goals</h1>
                         <ul className="space-y-1.5">
                             {topTenGoals.map((topTenPlayer, index) => (
-                            <li 
-                                key={index} 
-                                className='flex items-center justify-between' 
-                                onClick={() => handlePlayerClick(topTenPlayer.Name)}
-                            >
-                                {topTenPlayer.Name} ({topTenPlayer.Team})
-                            <span 
-                                className='pl-4 text-right'
-                            >
-                                {topTenPlayer.Goals}
-                            </span>
-                            </li>
+                                <li 
+                                    key={index} 
+                                    className='flex items-center justify-between' 
+                                    onClick={() => handlePlayerClick(topTenPlayer.Name)}
+                                >
+                                    <label>
+                                        {topTenPlayer.Name} ({topTenPlayer.Team})
+                                    </label>
+                                    <span className='pl-4 text-right'>
+                                        {topTenPlayer.Goals}
+                                    </span>
+                                </li>
                             ))}
                         </ul>
                     </SwiperSlide>
@@ -83,17 +79,17 @@ const LeagueLeadersSwiper = ({ setPlayer }) => {
                         <h1 className='underline pb-2'>Save Percent</h1>
                         <ul className="space-y-1.5">
                             {topTenSavePct.map((topTenPlayer, index) => (
-                            <li 
-                                key={index} 
-                                className='flex items-center justify-between'
-                            >
-                                {topTenPlayer.Name} ({topTenPlayer.Team})
-                            <span 
-                                className='pl-4 text-right'
-                            >
-                                {topTenPlayer.SavePercent.toFixed(1)} %
-                            </span>
-                            </li>
+                                <li 
+                                    key={index} 
+                                    className='flex items-center justify-between'
+                                >
+                                    <label>
+                                        {topTenPlayer.Name} ({topTenPlayer.Team})
+                                    </label>
+                                    <span className='pl-4 text-right'>
+                                        {topTenPlayer.SavePercent.toFixed(1)} %
+                                    </span>
+                                </li>
                             ))}
                         </ul>           
                     </SwiperSlide>

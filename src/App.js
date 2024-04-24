@@ -62,7 +62,7 @@ function App() {
           <TeamHamburger handleTeamSelect={handleTeamSelect} />
           
           <div className="flex justify-center lg:px-4 pb-8">
-            <LeagueLeadersSwiper setPlayer={setPlayer} />           
+            <LeagueLeadersSwiper handlePlayerClick={handlePlayerClick} />           
             <LeagueLeaders handlePlayerClick={handlePlayerClick} />
           </div>          
         
