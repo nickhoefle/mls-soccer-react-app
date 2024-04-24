@@ -4,9 +4,7 @@ const PageTitle = () => {
     return (
         <div className='mb-6'>
             <div className='flex justify-center'>
-                <div 
-                    id='page-links-wrapper'    
-                >
+                <div id='page-links-wrapper'>
                     <a 
                         className='text-white text-lg m-0 hover:underline'
                         href='/playercomp'
