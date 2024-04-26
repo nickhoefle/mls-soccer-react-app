@@ -66,7 +66,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                         <img
-                                            src='https://www.thesportsdb.com/images/media/team/badge/a3dlg61595434277.png/tiny'
+                                            src='/logos/full-size/austin.png'
                                             className="mr-2"
                                             alt="Austin FC Logo"
                                             style={{width: "20px"}}
@@ -92,7 +92,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                         <img
-                                            src='https://www.thesportsdb.com/images/media/team/badge/uppupv1473536412.png/tiny'
+                                            src='/logos/full-size/colorado.png'
                                             className="mr-2"
                                             alt="Colorado Rapids Logo"
                                             style={{width: "20px"}}
@@ -118,7 +118,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                         <img
-                                            src='https://www.thesportsdb.com/images/media/team/badge/vxy8xy1602103187.png/tiny'
+                                            src='/logos/full-size/dallas.png'
                                             className="mr-2"
                                             alt="FC Dallas Logo"
                                             style={{width: "20px"}}
@@ -144,7 +144,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                         <img
-                                            src='https://www.thesportsdb.com/images/media/team/badge/em146s1606772337.png/tiny'
+                                            src='/logos/full-size/houston.png'
                                             className="mr-2"
                                             alt="Houston Dynamo Logo"
                                             style={{width: "20px"}}
@@ -170,7 +170,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                         <img
-                                            src='https://www.thesportsdb.com/images/media/team/badge/ysyysr1420227188.png/tiny'
+                                            src='/logos/full-size/lagalaxy.png'
                                             className="mr-2"
                                             alt="LA Galaxy Logo"
                                             style={{width: "20px"}}
@@ -196,7 +196,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                         <img
-                                            src='https://www.thesportsdb.com/images/media/team/badge/7nbj2a1602103638.png/tiny'
+                                            src='/logos/full-size/lafc.png'
                                             className="mr-2"
                                             alt="LAFC Logo"
                                             style={{width: "20px"}}
@@ -221,7 +221,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                         <img
-                                            src='https://www.thesportsdb.com/images/media/team/badge/vl67t41492453433.png/tiny'
+                                            src='/logos/full-size/minnesota.png'
                                             className="mr-2"
                                             alt="Minnesota United Logo"
                                             style={{width: "20px"}}
@@ -247,7 +247,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                     <img
-                                        src='https://www.thesportsdb.com/images/media/team/badge/skm30j1557953559.png/tiny'
+                                        src='/logos/full-size/portland.png'
                                         className="mr-2"
                                         alt="Portland Timbers Logo"
                                         style={{width: "20px"}}
@@ -273,7 +273,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                     <img
-                                        src='https://www.thesportsdb.com/images/media/team/badge/kkjlfa1556488022.png/tiny'
+                                        src='/logos/full-size/rsl.png'
                                         className="mr-2"
                                         alt="Real Salt Lake Logo"
                                         style={{width: "20px"}}
@@ -299,7 +299,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                     <img
-                                        src='https://www.thesportsdb.com/images/media/team/badge/xyrqqt1420781048.png/tiny'
+                                        src='/logos/full-size/sanjose.png'
                                         className="mr-2"
                                         alt="San Jose Logo"
                                         style={{width: "20px"}}
@@ -325,7 +325,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                     <img
-                                        src='https://www.thesportsdb.com/images/media/team/badge/vpyprt1473536493.png/tiny'
+                                        src='/logos/full-size/seattle.png'
                                         className="mr-2"
                                         alt="Seattle Sounders Logo"
                                         style={{width: "20px"}}
@@ -351,7 +351,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                     <img
-                                        src='https://www.thesportsdb.com/images/media/team/badge/tqupxw1473536504.png/tiny'
+                                        src='/logos/full-size/skc.png'
                                         className="mr-2"
                                         alt="Sporting KC Logo"
                                         style={{width: "20px"}}
@@ -377,7 +377,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                     <img
-                                        src='https://www.thesportsdb.com/images/media/team/badge/22wanp1674118724.png/tiny'
+                                        src='/logos/full-size/stlouis.png'
                                         className="mr-2"
                                         alt="St. Louis CITY SC Logo"
                                         style={{width: "20px"}}
@@ -403,7 +403,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                     <img
-                                        src='https://www.thesportsdb.com/images/media/team/badge/tpwxpy1473536521.png/tiny'
+                                        src='/logos/full-size/vancouver.png'
                                         className="mr-2"
                                         alt="Vancouver Whitecaps Logo"
                                         style={{width: "20px"}}
@@ -431,7 +431,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                     <img
-                                        src='https://www.thesportsdb.com/images/media/team/badge/ej091x1602103070.png/tiny'
+                                        src='/logos/full-size/atlanta.png'
                                         className="mr-2"
                                         alt="Atlanta United Logo"
                                         style={{width: "20px"}}
@@ -457,7 +457,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                     <img
-                                        src='https://www.thesportsdb.com/images/media/team/badge/b6p4uz1595434047.png/tiny'
+                                        src='/logos/full-size/charlotte.png'
                                         className="mr-2"
                                         alt="Charlotte FC Logo"
                                         style={{width: "20px"}}
@@ -483,7 +483,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                     <img
-                                        src='https://www.thesportsdb.com/images/media/team/badge/8xuc781639493166.png/tiny'
+                                        src='/logos/full-size/chicago.png'
                                         className="mr-2"
                                         alt="Chicago Fire Logo"
                                         style={{width: "20px"}}
@@ -509,7 +509,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                         className="flex items-center"
                                 >
                                     <img
-                                        src='https://www.thesportsdb.com/images/media/team/badge/dzs8cp1629059854.png/tiny'
+                                        src='/logos/full-size/columbus.png'
                                         className="mr-2"
                                         alt="Columbus Crew Logo"
                                         style={{width: "20px"}}
@@ -535,7 +535,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                     <img
-                                        src='https://www.thesportsdb.com/images/media/team/badge/47ve8t1555084948.png/tiny'
+                                        src='/logos/full-size/cincinnati.png'
                                         className="mr-2"
                                         alt="FC Cincinnati Logo"
                                         style={{width: "20px"}}
@@ -561,7 +561,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                     <img
-                                        src='https://www.thesportsdb.com/images/media/team/badge/uwvsyt1467462609.png/tiny'
+                                        src='/logos/full-size/dc.png'
                                         className="mr-2"
                                         alt="DC United Logo"
                                         style={{width: "20px"}}
@@ -587,7 +587,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                     <img
-                                        src='https://www.thesportsdb.com/images/media/team/badge/m4it3e1602103647.png/tiny'
+                                        src='/logos/full-size/miami.png'
                                         className="mr-2"
                                         alt="Inter Miami Logo"
                                         style={{width: "20px"}}
@@ -613,7 +613,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                     <img
-                                        src='https://www.thesportsdb.com/images/media/team/badge/livdl31679344925.png/tiny'
+                                        src='/logos/full-size/montreal.png'
                                         className="mr-2"
                                         alt="CF Montréal Logo"
                                         style={{width: "20px"}}
@@ -639,7 +639,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                     <img
-                                        src='https://www.thesportsdb.com/images/media/team/badge/znrwt71602103062.png/tiny'                                    
+                                        src='/logos/full-size/nashville.png'                                    
                                         className="mr-2"
                                         alt="Nashville SC Logo"
                                         style={{width: "20px"}}
@@ -665,7 +665,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                     <img
-                                        src='https://www.thesportsdb.com/images/media/team/badge/1ula2l1639493143.png/tiny'
+                                        src='/logos/full-size/newengland.png'
                                         className="mr-2"
                                         alt="New England Rev. Logo"
                                         style={{width: "20px"}}
@@ -691,7 +691,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                     <img
-                                        src='https://www.thesportsdb.com/images/media/team/badge/li4y2o1534575820.png/tiny'
+                                        src='/logos/full-size/nycfc.png'
                                         className="mr-2"
                                         alt="NYCFC Logo"
                                         style={{width: "20px"}}
@@ -717,7 +717,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                     <img
-                                        src='https://www.thesportsdb.com/images/media/team/badge/suytvy1473536462.png/tiny'
+                                        src='/logos/full-size/nyredbulls.png'
                                         className="mr-2"
                                         alt="NY Red Bulls Logo"
                                         style={{width: "20px"}}
@@ -743,7 +743,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                     <img
-                                        src='https://www.thesportsdb.com/images/media/team/badge/qyppxw1423832326.png/tiny'
+                                        src='/logos/full-size/orlando.png'
                                         className="mr-2"
                                         alt="Orlando City Logo"
                                         style={{width: "20px"}}
@@ -769,7 +769,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                     <img
-                                        src='https://www.thesportsdb.com/images/media/team/badge/gyznyo1602103682.png/tiny'
+                                        src='/logos/full-size/philadelphia.png'
                                         className="mr-2"
                                         alt="Philadelphia Union Logo"
                                         style={{width: "20px"}}
@@ -795,7 +795,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                     className="flex items-center"
                                 >
                                     <img
-                                        src='https://www.thesportsdb.com/images/media/team/badge/rsxyrr1473536512.png/tiny'
+                                        src='/logos/full-size/torontofc.png'
                                         className="mr-2"
                                         alt="Toronto FC Logo"
                                         style={{width: "20px"}}
