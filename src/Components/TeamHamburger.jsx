@@ -1,38 +1,41 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
-const TeamHamburger = ({ handleTeamSelect }) => {
-    const [isOpen, setIsOpen] = useState(false);
+const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen }) => {
     
     function handleClick(teamClicked) {
         handleTeamSelect(teamClicked);
     }
 
-    const toggleDropdown = () => {
-        setIsOpen(!isOpen);
-    };
-
-    const closeDropdown = () => {
-        setIsOpen(false);
-    };
-
     return (
         <div className='sm:block lg:hidden bg-black text-white text-xl pl-6 pt-4'>
             {!isOpen && ( 
                 <div 
-                    className="hamburger" 
+                    className='flex items-center'
                     onClick={toggleDropdown}
                 >
-                    ☰ Teams 
+                    <div className="hamburger w-[20px] h-[25px] mr-2">
+                        <img
+                            className='w-[100%] h-[100%]'
+                            src='/icons/hamburger.png' 
+                        />
+                    </div>
+                    <span>Menu</span>
                 </div>
             )}
             
             {isOpen && ( 
                 <div 
-                    className="hamburger" 
+                    className='flex items-center'
                     onClick={toggleDropdown}
                 >
-                    X Teams 
+                    <div className="hamburger w-[20px] h-[20px] mr-2">
+                        <img
+                            className='w-[100%] h-[100%]'
+                            src='/icons/x.png' 
+                        />
+                    </div>
+                    <span>Menu</span>
                 </div>
             )}
             
