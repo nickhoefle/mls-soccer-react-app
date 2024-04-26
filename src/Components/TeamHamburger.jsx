@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 
-const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen }) => {
+const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDropdown, isMenuOpen }) => {
     
     function handleClick(teamClicked) {
         handleTeamSelect(teamClicked);
@@ -9,10 +9,10 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
 
     return (
         <div className='sm:block lg:hidden bg-black text-white text-xl pl-6 pt-4'>
-            {!isOpen && ( 
+            {!isMenuOpen && ( 
                 <div 
                     className='flex items-center'
-                    onClick={toggleDropdown}
+                    onClick={handleToggleDropdown}
                 >
                     <div className="hamburger w-[20px] h-[25px] mr-2">
                         <img
@@ -24,10 +24,10 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                 </div>
             )}
             
-            {isOpen && ( 
+            {isMenuOpen && ( 
                 <div 
                     className='flex items-center'
-                    onClick={toggleDropdown}
+                    onClick={handleToggleDropdown}
                 >
                     <div className="hamburger w-[20px] h-[20px] mr-2">
                         <img
@@ -39,20 +39,20 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                 </div>
             )}
             
-            {isOpen && (
+            {isMenuOpen && (
                 <div>
                     <div className='flex flex-col my-6'>
                         <Link 
                             className='text-lg underline'
                             to='/'
-                            onClick={() => {closeDropdown()}}
+                            onClick={() => {handleCloseDropdown()}}
                         >
                             Home
                         </Link>
                         <Link 
                             className='mt-2 text-lg underline'
                             to='/playercomp'
-                            onClick={() => {closeDropdown()}}
+                            onClick={() => {handleCloseDropdown()}}
                         >
                             Player Comparison
                         </Link>
@@ -72,14 +72,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                             style={{width: "20px"}}
                                             onClick={() => { 
                                                 handleClick('Austin'); 
-                                                closeDropdown(); 
+                                                handleCloseDropdown(); 
                                             }}
                                         />
                                         <span 
                                             className='text-base'
                                             onClick={() => { 
                                             handleClick('Austin'); 
-                                            closeDropdown(); 
+                                            handleCloseDropdown(); 
                                             }}
                                         >
                                             Austin FC
@@ -98,14 +98,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                             style={{width: "20px"}}
                                             onClick={() => {
                                                 handleClick('Colorado Rapids');
-                                                closeDropdown();
+                                                handleCloseDropdown();
                                             }}
                                         />
                                         <span 
                                             className='text-base'
                                             onClick={() => {
                                                 handleClick('Colorado Rapids'); 
-                                                closeDropdown();
+                                                handleCloseDropdown();
                                             }} 
                                         >
                                             Colorado Rapids
@@ -124,14 +124,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                             style={{width: "20px"}}
                                             onClick={() => {
                                                 handleClick('FC Dallas');
-                                                closeDropdown();
+                                                handleCloseDropdown();
                                             }}
                                         />
                                         <span 
                                             className='text-base'
                                             onClick={() => { 
                                                 handleClick('FC Dallas'); 
-                                                closeDropdown(); 
+                                                handleCloseDropdown(); 
                                             }}
                                         >
                                             FC Dallas
@@ -150,14 +150,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                             style={{width: "20px"}}
                                             onClick={() => {
                                                 handleClick('Dynamo FC')
-                                                closeDropdown();
+                                                handleCloseDropdown();
                                             }}
                                         />
                                         <span
                                             className='text-base'
                                             onClick={() => { 
                                                 handleClick('Dynamo FC'); 
-                                                closeDropdown(); 
+                                                handleCloseDropdown(); 
                                             }} 
                                         >
                                             Houston Dynamo
@@ -176,14 +176,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                             style={{width: "20px"}}
                                             onClick={() => { 
                                                 handleClick('LA Galaxy')
-                                                closeDropdown();
+                                                handleCloseDropdown();
                                             }}
                                         />
                                         <span
                                             className='text-base'
                                             onClick={() => { 
                                                 handleClick('LA Galaxy'); 
-                                                closeDropdown(); 
+                                                handleCloseDropdown(); 
                                             }} 
                                         >
                                             LA Galaxy
@@ -202,14 +202,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                             style={{width: "20px"}}
                                             onClick={() => { 
                                                 handleClick('Los Angeles FC')
-                                                closeDropdown();
+                                                handleCloseDropdown();
                                             }}
                                         />
                                         <span
                                             className='text-base' 
                                             onClick={() => { 
                                                 handleClick('Los Angeles FC'); 
-                                                closeDropdown(); }} 
+                                                handleCloseDropdown(); }} 
                                         >
                                             LAFC
                                         </span>
@@ -227,14 +227,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                             style={{width: "20px"}}
                                             onClick={() => {
                                                 handleClick('Minnesota Utd')
-                                                closeDropdown();
+                                                handleCloseDropdown();
                                             }}
                                         />
                                         <span 
                                             className='text-base'
                                             onClick={() => { 
                                                 handleClick('Minnesota Utd'); 
-                                                closeDropdown(); 
+                                                handleCloseDropdown(); 
                                             }} 
                                         >
                                             Minnesota United
@@ -253,14 +253,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                         style={{width: "20px"}}
                                         onClick={() => { 
                                             handleClick('Portland Timbers')
-                                            closeDropdown();
+                                            handleCloseDropdown();
                                         }}
                                     />
                                     <span 
                                         className='text-base'
                                         onClick={() => { 
                                             handleClick('Portland Timbers'); 
-                                            closeDropdown(); 
+                                            handleCloseDropdown(); 
                                         }} 
                                     >
                                         Portland Timbers
@@ -279,14 +279,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                         style={{width: "20px"}}
                                         onClick={() => { 
                                             handleClick('Real Salt Lake')
-                                            closeDropdown();
+                                            handleCloseDropdown();
                                         }}
                                     />
                                     <span 
                                         className='text-base'
                                         onClick={() => { 
                                             handleClick('Real Salt Lake'); 
-                                            closeDropdown(); 
+                                            handleCloseDropdown(); 
                                         }} 
                                     >
                                         Real Salt Lake
@@ -305,14 +305,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                         style={{width: "20px"}}
                                         onClick={() => {
                                             handleClick('San Jose')
-                                            closeDropdown();
+                                            handleCloseDropdown();
                                         }}
                                     />
                                     <span 
                                         className='text-base'
                                         onClick={() => { 
                                             handleClick('San Jose'); 
-                                            closeDropdown(); 
+                                            handleCloseDropdown(); 
                                         }} 
                                     >
                                         San Jose
@@ -331,14 +331,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                         style={{width: "20px"}}
                                         onClick={() => {
                                             handleClick('Seattle')
-                                            closeDropdown();
+                                            handleCloseDropdown();
                                         }}
                                     />
                                     <span 
                                         className='text-base'
                                         onClick={() => { 
                                             handleClick('Seattle'); 
-                                            closeDropdown() 
+                                            handleCloseDropdown() 
                                         }} 
                                     >
                                         Seattle Sounders
@@ -357,14 +357,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                         style={{width: "20px"}}
                                         onClick={() => {
                                             handleClick('Sporting KC')
-                                            closeDropdown();
+                                            handleCloseDropdown();
                                         }}
                                     />
                                     <span
                                         className='text-base' 
                                         onClick={() => { 
                                             handleClick('Sporting KC'); 
-                                            closeDropdown(); 
+                                            handleCloseDropdown(); 
                                         }} 
                                     >
                                         Sporting KC
@@ -383,14 +383,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                         style={{width: "20px"}}
                                         onClick={() => {
                                             handleClick('St. Louis')
-                                            closeDropdown();
+                                            handleCloseDropdown();
                                         }}
                                     />
                                     <span 
                                         className='text-base'
                                         onClick={() => { 
                                             handleClick('St. Louis'); 
-                                            closeDropdown(); 
+                                            handleCloseDropdown(); 
                                         }} 
                                     >
                                         St. Louis City SC
@@ -409,14 +409,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                         style={{width: "20px"}}
                                         onClick={() => { 
                                             handleClick('Vancouver')
-                                            closeDropdown();
+                                            handleCloseDropdown();
                                         }}
                                     />
                                     <span 
                                         className='text-base'
                                         onClick={() => { 
                                             handleClick('Vancouver'); 
-                                            closeDropdown(); 
+                                            handleCloseDropdown(); 
                                         }} 
                                     >
                                         Vancouver
@@ -437,14 +437,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                         style={{width: "20px"}}
                                         onClick={() => { 
                                             handleClick('Atlanta Utd')
-                                            closeDropdown();
+                                            handleCloseDropdown();
                                         }}
                                     />
                                     <span
                                         className='text-base' 
                                         onClick={() => { 
                                             handleClick('Atlanta Utd'); 
-                                            closeDropdown(); 
+                                            handleCloseDropdown(); 
                                         }} 
                                     >
                                         Atlanta United
@@ -463,14 +463,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                         style={{width: "20px"}}
                                         onClick={() => { 
                                             handleClick('Charlotte')
-                                            closeDropdown();
+                                            handleCloseDropdown();
                                         }}
                                     />
                                     <span
                                         className='text-base' 
                                         onClick={() => { 
                                             handleClick('Charlotte'); 
-                                            closeDropdown(); 
+                                            handleCloseDropdown(); 
                                         }} 
                                     >
                                         Charlotte FC
@@ -489,14 +489,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                         style={{width: "20px"}}
                                         onClick={() => {
                                             handleClick('Chicago Fire')
-                                            closeDropdown();
+                                            handleCloseDropdown();
                                         }}
                                     />
                                     <span
                                         className='text-base' 
                                         onClick={() => { 
                                             handleClick('Chicago Fire'); 
-                                            closeDropdown(); 
+                                            handleCloseDropdown(); 
                                         }} 
                                     >
                                         Chicago Fire
@@ -515,14 +515,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                         style={{width: "20px"}}
                                         onClick={() => {
                                             handleClick('Columbus Crew');
-                                            closeDropdown();
+                                            handleCloseDropdown();
                                         }}
                                     />
                                     <span
                                         className='text-base' 
                                         onClick={() => { 
                                             handleClick('Columbus Crew'); 
-                                            closeDropdown(); 
+                                            handleCloseDropdown(); 
                                         }} 
                                     >
                                         Columbus Crew
@@ -541,14 +541,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                         style={{width: "20px"}}
                                         onClick={() =>  {
                                             handleClick('FC Cincinnati')
-                                            closeDropdown();
+                                            handleCloseDropdown();
                                         }}
                                     />
                                     <span
                                         className='text-base' 
                                         onClick={() => {  
                                             handleClick('FC Cincinnati'); 
-                                            closeDropdown(); 
+                                            handleCloseDropdown(); 
                                         }} 
                                     >
                                         FC Cincinnati
@@ -567,14 +567,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                         style={{width: "20px"}}
                                         onClick={() => {
                                             handleClick('D.C. United')
-                                            closeDropdown();
+                                            handleCloseDropdown();
                                         }}
                                     />
                                     <span
                                         className='text-base' 
                                         onClick={() => { 
                                             handleClick('D.C. United'); 
-                                            closeDropdown(); 
+                                            handleCloseDropdown(); 
                                         }} 
                                     >
                                         DC United
@@ -593,14 +593,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                         style={{width: "20px"}}
                                         onClick={() => { 
                                             handleClick('Inter Miami')
-                                            closeDropdown();
+                                            handleCloseDropdown();
                                         }}
                                     />
                                     <span
                                         className='text-base' 
                                         onClick={() => { 
                                             handleClick('Inter Miami'); 
-                                            closeDropdown(); 
+                                            handleCloseDropdown(); 
                                         }}
                                     >
                                         Inter Miami
@@ -619,14 +619,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                         style={{width: "20px"}}
                                         onClick={() => {
                                             handleClick('CF Montréal');
-                                            closeDropdown();
+                                            handleCloseDropdown();
                                         }}
                                     />
                                     <span
                                         className='text-base' 
                                         onClick={() => { 
                                             handleClick('CF Montréal'); 
-                                            closeDropdown() 
+                                            handleCloseDropdown() 
                                         }} 
                                     >
                                         CF Montréal
@@ -645,14 +645,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                         style={{width: "20px"}}
                                         onClick={() => { 
                                             handleClick('Nashville');
-                                            closeDropdown();
+                                            handleCloseDropdown();
                                         }}
                                     />
                                     <span
                                         className='text-base' 
                                         onClick={() => { 
                                             handleClick('Nashville'); 
-                                            closeDropdown(); 
+                                            handleCloseDropdown(); 
                                         }} 
                                     >
                                         Nashville SC
@@ -671,14 +671,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                         style={{width: "20px"}}
                                         onClick={() => {
                                             handleClick('New England');
-                                            closeDropdown();
+                                            handleCloseDropdown();
                                         }}
                                     />
                                     <span
                                         className='text-base' 
                                         onClick={() => { 
                                             handleClick('New England'); 
-                                            closeDropdown(); 
+                                            handleCloseDropdown(); 
                                         }} 
                                     >
                                         New England Rev.
@@ -697,14 +697,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                         style={{width: "20px"}}
                                         onClick={() => {
                                             handleClick('NYCFC')
-                                            closeDropdown();
+                                            handleCloseDropdown();
                                         }}
                                     />
                                     <span
                                         className='text-base' 
                                         onClick={() => { 
                                             handleClick('NYCFC'); 
-                                            closeDropdown(); 
+                                            handleCloseDropdown(); 
                                         }} 
                                     >
                                         NYCFC
@@ -723,14 +723,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                         style={{width: "20px"}}
                                         onClick={() => {
                                             handleClick('NY Red Bulls')
-                                            closeDropdown();
+                                            handleCloseDropdown();
                                         }}
                                     />
                                     <span
                                         className='text-base' 
                                         onClick={() => { 
                                             handleClick('NY Red Bulls'); 
-                                            closeDropdown(); 
+                                            handleCloseDropdown(); 
                                         }} 
                                     >
                                         NY Red Bulls
@@ -749,14 +749,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                         style={{width: "20px"}}
                                         onClick={() => {
                                             handleClick('Orlando City');
-                                            closeDropdown();
+                                            handleCloseDropdown();
                                         }}
                                     />
                                     <span
                                         className='text-base' 
                                         onClick={() => { 
                                             handleClick('Orlando City'); 
-                                            closeDropdown(); 
+                                            handleCloseDropdown(); 
                                         }} 
                                     >
                                         Orlando City
@@ -775,14 +775,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                         style={{width: "20px"}}
                                         onClick={() => { 
                                             handleClick('Philadelphia');
-                                            closeDropdown();
+                                            handleCloseDropdown();
                                         }}
                                     />
                                     <span
                                         className='text-base'   
                                         onClick={() => { 
                                             handleClick('Philadelphia'); 
-                                            closeDropdown(); 
+                                            handleCloseDropdown(); 
                                         }} 
                                     >
                                         Philadelphia Union
@@ -801,14 +801,14 @@ const TeamHamburger = ({ handleTeamSelect, closeDropdown, toggleDropdown, isOpen
                                         style={{width: "20px"}}
                                         onClick={() => {
                                             handleClick('Toronto')
-                                            closeDropdown();
+                                            handleCloseDropdown();
                                         }}
                                     />
                                     <span
                                         className='text-base' 
                                         onClick={() => { 
                                             handleClick('Toronto'); 
-                                            closeDropdown(); 
+                                            handleCloseDropdown(); 
                                         }} 
                                     >
                                         Toronto FC

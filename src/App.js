@@ -19,7 +19,7 @@ function App() {
   const [playerToCompare1, setPlayerToCompare1] = useState('');
   const [playerToCompare2, setPlayerToCompare2] = useState('');
   const [activeComponent, setActiveComponent] = useState('roster');
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handlePlayerClick = (playerName) => {
     setPlayer(playerName);
@@ -49,48 +49,51 @@ function App() {
     setActiveComponent(component);
   }
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+  const handleToggleDropdown = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
-  const closeDropdown = () => {
-      setIsOpen(false);
+  const handleCloseDropdown = () => {
+      setIsMenuOpen(false);
   };
 
   return (
     <Router>
       <Switch>
         
-        <Route exact path="/">          
-          
+        <Route exact path="/">                    
           <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
           <PageTitle />
           <TeamHamburger 
             handleTeamSelect={handleTeamSelect} 
-            isOpen={isOpen}
-            toggleDropdown={toggleDropdown}
-            closeDropdown={closeDropdown}
+            isMenuOpen={isMenuOpen}
+            handleToggleDropdown={handleToggleDropdown}
+            handleCloseDropdown={handleCloseDropdown}
           />
 
-          {!isOpen && ( 
+          {!isMenuOpen && ( 
             <div className="flex justify-center lg:px-4 pb-8">
               <LeagueLeadersSwiper handlePlayerClick={handlePlayerClick} />           
               <LeagueLeaders handlePlayerClick={handlePlayerClick} />
             </div>   
           )}       
 
-          {player && !isOpen && <PlayerStatGraph playerName={player} />}
+          {player && !isMenuOpen && <PlayerStatGraph playerName={player} />}
           
-          {!isOpen && ( 
+          {!isMenuOpen && ( 
             <PlayerSearch handlePlayerClick={handlePlayerClick} />
           )}
-
         </Route>
 
         <Route path="/team/:teamId">
           <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
           <PageTitle />
-          <TeamHamburger handleTeamSelect={handleTeamSelect} />
+          <TeamHamburger 
+            handleTeamSelect={handleTeamSelect} 
+            isMenuOpen={isMenuOpen}
+            handleToggleDropdown={handleToggleDropdown}
+            handleCloseDropdown={handleCloseDropdown}
+          />
           <TeamRouteContent 
             team={team}
             teamRecord={teamRecord}
@@ -102,7 +105,12 @@ function App() {
         <Route exact path="/playercomp">
           <TeamLogoStrip handleTeamSelect={handleTeamSelect} /> 
           <PageTitle />
-          <TeamHamburger handleTeamSelect={handleTeamSelect} />
+          <TeamHamburger 
+            handleTeamSelect={handleTeamSelect} 
+            isMenuOpen={isMenuOpen}
+            handleToggleDropdown={handleToggleDropdown}
+            handleCloseDropdown={handleCloseDropdown}
+          />
           <PlayerComparisonSection
             teamName1={teamName1}
             teamName2={teamName2}
