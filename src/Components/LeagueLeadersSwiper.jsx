@@ -28,7 +28,7 @@ const LeagueLeadersSwiper = ({ handlePlayerClick }) => {
     return (
         <div className="sm:block lg:hidden w-full">
             <div className="bg-black">
-                <h1 className='text-center text-2xl text-white pb-4'>Top Performers</h1>
+                <h1 className='text-center text-3xl text-white pb-4'>Top Performers</h1>
                 <Swiper
                     pagination={{
                         type: "progressbar",

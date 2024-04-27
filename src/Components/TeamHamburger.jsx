@@ -8,7 +8,7 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
     }
 
     return (
-        <div className='sm:block lg:hidden bg-black text-white text-xl pl-6 pt-4'>
+        <div className='sm:block lg:hidden bg-black text-white text-xl pl-6 pb-4'>
             {!isMenuOpen && ( 
                 <div 
                     className='flex items-center'
