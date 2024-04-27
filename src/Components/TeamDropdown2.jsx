@@ -9,9 +9,9 @@ const TeamDropdown2 = ({ teamName2, setTeamName2 }) => {
 
     return (
         <div>
-            <h2 className='text-2xl underline pb-6'>Player 2</h2>
+            <h2 className='text-2xl underline pb-6 sm: pt-8 lg:pt-0'>Player 2</h2>
             <select
-                className='bg-black text-xl outline-white border-2 p-1 mb-6 w-1/3'
+                className='bg-black text-xl outline-white border-2 p-1 mb-6 sm: w-[75%] md:w-[35%]'
                 value={teamName2}
                 onChange={handleTeam2Change}
             >

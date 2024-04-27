@@ -13,7 +13,7 @@ const PlayerComparisonSection = ({ teamName1, teamName2, playerToCompare1, playe
                 <h2 className='text-white text-3xl pb-6'>Player Comparison</h2>
             </div>
             <div className='flex justify-center'>
-                <div className='md:flex lg:pb-0 w-3/4'>
+                <div className='sm: w-[100%] md:flex lg:pb-0 w-3/4'>
                     <div className="text-white text-center lg:w-1/2 m-15">
                         <TeamDropdown teamName={teamName1} setTeamName1={handleTeamNameSelect} />
                         {teamName1 && <PlayerDropdown1 teamName1={teamName1} playerToCompare1={playerToCompare1} handlePlayerToCompare1={handlePlayerToCompare1}/>}

@@ -10,7 +10,7 @@ const TeamDropdown = ({ teamName1, setTeamName1 }) => {
         <div>
             <h2 className='text-2xl underline pb-6'>Player 1</h2>
             <select
-                className='bg-black text-xl outline-white border-2 p-1 mb-6 w-1/3'
+                className='bg-black text-xl outline-white border-2 p-1 mb-6 sm: w-[75%] md:w-[35%]'
                 value={teamName1}
                 onChange={handleTeam1Change}
             >
