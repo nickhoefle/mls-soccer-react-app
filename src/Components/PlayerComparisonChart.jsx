@@ -33,86 +33,86 @@ const PlayerComparisonChart = ({ playerToCompare1, playerToCompare2 }) => {
                         <th className="border px-4 py-2">Stat</th>
                         <th className="border px-4 py-2 w-[325px]">{playerToCompare1}</th>
                         <th className="border px-4 py-2 w-[325px]">{playerToCompare2}</th>
-                    </tr>
+                    </tr> 
                 </thead>
                 <tbody>
-                    <tr>
-                        <td className='border px-4 py-2 text-left'>Matches Played</td>
+                    <tr className='h-[115px] md:h-auto'>
+                        <td className='h-auto border px-4 py-2 sm: text-center md:text-left'>Matches Played</td>
                         <td className={`border px-4 py-2 ${isPlayer1Higher('MatchesPlayed') ? 'underline' : ''}`}>{player1.MatchesPlayed}</td>
                         <td className={`border px-4 py-2 ${isPlayer2Higher('MatchesPlayed') ? 'underline' : ''}`}>{player2.MatchesPlayed}</td>
                     </tr>
-                    <tr>
-                        <td className='border px-4 py-2 text-left'>Matches Started</td>
+                    <tr className='h-[115px] md:h-auto'>
+                        <td className='border px-4 py-2 sm: text-center md:text-left'>Matches Started</td>
                         <td className={`border px-4 py-2 ${isPlayer1Higher('Starts') ? 'underline' : ''}`}>{player1.Starts}</td>
                         <td className={`border px-4 py-2 ${isPlayer2Higher('Starts') ? 'underline' : ''}`}>{player2.Starts}</td>
                     </tr>
-                    <tr>
-                        <td className='border px-4 py-2 text-left'>Shots</td>
+                    <tr className='h-[115px] md:h-auto'>
+                        <td className='border px-4 py-2 sm: text-center md:text-left'>Shots</td>
                         <td className={`border px-4 py-2 ${isPlayer1HigherShooting('Shots') ? 'underline' : ''}`}>{player1Shooting.Shots}</td>
                         <td className={`border px-4 py-2 ${isPlayer2HigherShooting('Shots') ? 'underline' : ''}`}>{player2Shooting.Shots}</td>
                     </tr>
-                    <tr>
-                        <td className='border px-4 py-2 text-left'>Shots per 90</td>
+                    <tr className='h-[115px] md:h-auto'>
+                        <td className='border px-4 py-2 sm: text-center md:text-left'>Shots per 90</td>
                         <td className={`border px-4 py-2 ${isPlayer1HigherShooting('ShotsPer90') ? 'underline' : ''}`}>{player1Shooting.ShotsPer90}</td>
                         <td className={`border px-4 py-2 ${isPlayer2HigherShooting('ShotsPer90') ? 'underline' : ''}`}>{player2Shooting.ShotsPer90}</td>
                     </tr>
-                    <tr>
-                        <td className='border px-4 py-2 text-left'>Shots on Target</td>
+                    <tr className='h-[115px] md:h-auto'>
+                        <td className='border px-4 py-2 sm: text-center md:text-left'>Shots on Target</td>
                         <td className={`border px-4 py-2 ${isPlayer1HigherShooting('ShotsOnTarget') ? 'underline' : ''}`}>{player1Shooting.ShotsOnTarget}</td>
                         <td className={`border px-4 py-2 ${isPlayer2HigherShooting('ShotsOnTarget') ? 'underline' : ''}`}>{player2Shooting.ShotsOnTarget}</td>
                     </tr>
-                    <tr>
-                        <td className='border px-4 py-2 text-left'>Shots on Target per 90</td>
+                    <tr className='h-[115px] md:h-auto'>
+                        <td className='border px-4 py-2 sm: text-center md:text-left'>Shots on Target per 90</td>
                         <td className={`border px-4 py-2 ${isPlayer1HigherShooting('ShotsOnTargetPer90') ? 'underline' : ''}`}>{player1Shooting.ShotsOnTargetPer90}</td>
                         <td className={`border px-4 py-2 ${isPlayer2HigherShooting('ShotsOnTargetPer90') ? 'underline' : ''}`}>{player2Shooting.ShotsOnTargetPer90}</td>
                     </tr>
-                    <tr>
-                        <td className='border px-4 py-2 text-left'>Goals</td>
+                    <tr className='h-[115px] md:h-auto'>
+                        <td className='border px-4 py-2 sm: text-center md:text-left'>Goals</td>
                         <td className={`border px-4 py-2 ${isPlayer1Higher('Goals') ? 'underline' : ''}`}>{player1.Goals}</td>
                         <td className={`border px-4 py-2 ${isPlayer2Higher('Goals') ? 'underline' : ''}`}>{player2.Goals}</td>
                     </tr>
-                    <tr>
-                        <td className='border px-4 py-2 text-left'>Goals per 90</td>
+                    <tr className='h-[115px] md:h-auto'>
+                        <td className='border px-4 py-2 sm: text-center md:text-left'>Goals per 90</td>
                         <td className={`border px-4 py-2 ${isPlayer1Higher('GoalsPer90') ? 'underline' : ''}`}>{player1.GoalsPer90}</td>
                         <td className={`border px-4 py-2 ${isPlayer2Higher('GoalsPer90') ? 'underline' : ''}`}>{player2.GoalsPer90}</td>
                     </tr>
-                    <tr>
-                        <td className='border px-4 py-2 text-left'>Expected Goals</td>
+                    <tr className='h-[115px] md:h-auto'>
+                        <td className='border px-4 py-2 sm: text-center md:text-left'>Expected Goals</td>
                         <td className={`border px-4 py-2 ${isPlayer1Higher('ExpectedGoals') ? 'underline' : ''}`}>{player1.ExpectedGoals}</td>
                         <td className={`border px-4 py-2 ${isPlayer2Higher('ExpectedGoals') ? 'underline' : ''}`}>{player2.ExpectedGoals}</td>
                     </tr>
-                    <tr>
-                        <td className='border px-4 py-2 text-left'>Expected Goals per 90</td>
+                    <tr className='h-[115px] md:h-auto'>
+                        <td className='border px-4 py-2 sm: text-center md:text-left'>Expected Goals per 90</td>
                         <td className={`border px-4 py-2 ${isPlayer1Higher('ExpectedGoalsPer90') ? 'underline' : ''}`}>{player1.ExpectedGoalsPer90}</td>
                         <td className={`border px-4 py-2 ${isPlayer2Higher('ExpectedGoalsPer90') ? 'underline' : ''}`}>{player2.ExpectedGoalsPer90}</td>
                     </tr>
-                    <tr>
-                        <td className='border px-4 py-2 text-left'>Assists</td>
+                    <tr className='h-[115px] md:h-auto'>
+                        <td className='border px-4 py-2 sm: text-center md:text-left'>Assists</td>
                         <td className={`border px-4 py-2 ${isPlayer1Higher('Assists') ? 'underline' : ''}`}>{player1.Assists}</td>
                         <td className={`border px-4 py-2 ${isPlayer2Higher('Assists') ? 'underline' : ''}`}>{player2.Assists}</td>
                     </tr>
-                    <tr>
-                        <td className='border px-4 py-2 text-left'>Expected Assists</td>
+                    <tr className='h-[115px] md:h-auto'>
+                        <td className='border px-4 py-2 sm: text-center md:text-left'>Expected Assists</td>
                         <td className={`border px-4 py-2 ${isPlayer1Higher('ExpectedAssists') ? 'underline' : ''}`}>{player1.ExpectedAssists}</td>
                         <td className={`border px-4 py-2 ${isPlayer2Higher('ExpectedAssists') ? 'underline' : ''}`}>{player2.ExpectedAssists}</td>
                     </tr>
-                    <tr>
-                        <td className='border px-4 py-2 text-left'>Expected Assists per 90</td>
+                    <tr className='h-[115px] md:h-auto'>
+                        <td className='border px-4 py-2 sm: text-center md:text-left'>Expected Assists per 90</td>
                         <td className={`border px-4 py-2 ${isPlayer1Higher('ExpectedAssistsPer90') ? 'underline' : ''}`}>{player1.ExpectedAssistsPer90}</td>
                         <td className={`border px-4 py-2 ${isPlayer2Higher('ExpectedAssistsPer90') ? 'underline' : ''}`}>{player2.ExpectedAssistsPer90}</td>
                     </tr>
-                    <tr>
-                        <td className='border px-4 py-2 text-left'>Yellow Cards</td>
+                    <tr className='h-[115px] md:h-auto'>
+                        <td className='border px-4 py-2 sm: text-center md:text-left'>Yellow Cards</td>
                         <td className={`border px-4 py-2 ${isPlayer1Higher('YellowCards') ? 'underline' : ''}`}>{player1.YellowCards}</td>
                         <td className={`border px-4 py-2 ${isPlayer2Higher('YellowCards') ? 'underline' : ''}`}>{player2.YellowCards}</td>
                     </tr>
-                    <tr>
-                        <td className='border px-4 py-2 text-left'>PK Attempts</td>
+                    <tr className='h-[115px] md:h-auto'>
+                        <td className='border px-4 py-2 sm: text-center md:text-left'>PK Attempts</td>
                         <td className={`border px-4 py-2 ${isPlayer1Higher('PenaltyKickAttempts') ? 'underline' : ''}`}>{player1.PenaltyKickAttempts}</td>
                         <td className={`border px-4 py-2 ${isPlayer2Higher('PenaltyKickAttempts') ? 'underline' : ''}`}>{player2.PenaltyKickAttempts}</td>
                     </tr>
-                    <tr>
-                        <td className='border px-4 py-2 text-left'>PK Made</td>
+                    <tr className='h-[115px] md:h-auto'>
+                        <td className='border px-4 py-2 sm: text-center md:text-left'>PK Made</td>
                         <td className={`border px-4 py-2 ${isPlayer1Higher('PenaltyKickGoals') ? 'underline' : ''}`}>{player1.PenaltyKickGoals}</td>
                         <td className={`border px-4 py-2 ${isPlayer2Higher('PenaltyKickGoals') ? 'underline' : ''}`}>{player2.PenaltyKickGoals}</td>
                     </tr>
