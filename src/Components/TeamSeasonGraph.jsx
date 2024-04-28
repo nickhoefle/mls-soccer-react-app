@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 import allLeagueMatchesRawData from '../data/allLeagueMatchesRawData.json';
-import { cleanAllLeagueMatchesRawData } from '../dataCleaner'; 
+import { cleanAllLeagueMatchesRawData } from '../dataCleaner';
+import { convertNumMonthToWord } from '../convertNumMonthToWord'; 
 
 const allLeagueMatches = cleanAllLeagueMatchesRawData(allLeagueMatchesRawData);
 
@@ -55,7 +56,9 @@ const TeamSeasonGraph = ({ team }) => {
                     fontFamily: `ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji`,
                 },
                 offsetY: 5,
-                offsetX: 2
+            },
+            tooltip: {
+                enabled: false,
             },
             tickAmount: Math.ceil(datesArray.length / 2),
         },
@@ -74,7 +77,7 @@ const TeamSeasonGraph = ({ team }) => {
             },
         },
         markers: {
-            size: 6,
+            size: 8,
         },
         tooltip: {
             shared: false,
@@ -85,8 +88,18 @@ const TeamSeasonGraph = ({ team }) => {
                 const goalDifference = goalDifferentialArray[dataPointIndex];
                 const homeOrAway = homeOrAwayArray[dataPointIndex];
                 
-                const text = `${homeOrAway} ${opponentName}: ${goalDifference}`;
-                return `<div class="match-tooltip">${text}</div>`;
+                const date = datesArray[dataPointIndex];
+                const dateWithWordMonth = convertNumMonthToWord(date);
+
+                const text = `${homeOrAway} ${opponentName}`;
+                
+                return `
+                        <span class="match-tooltip-date">
+                            ${dateWithWordMonth}
+                        </span>
+                        <div class="match-tooltip-score">
+                            ${text}
+                        </div>`;
             },
         },
     };

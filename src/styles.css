@@ -13,11 +13,20 @@ body::after {
   opacity: 75%;
 }
 
-.match-tooltip {
+.match-tooltip-date {
   background-color: black;
   font-size: 18px;
   font-weight: bold;
   padding: 4px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.match-tooltip-score {
+  background-color: black;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 8px;
 }
 
 #page-links-container {
@@ -76,4 +85,5 @@ body::after {
   #page-links-wrapper {
     display: none;
   }
+
 }
