@@ -1,6 +1,7 @@
 import React from 'react'
 import allLeagueMatchesRawData from '../data/allLeagueMatchesRawData.json';
-import { cleanAllLeagueMatchesRawData } from '../dataCleaner'; 
+import { cleanAllLeagueMatchesRawData } from '../dataCleaner';
+import { convertNumMonthToWord } from '../convertNumMonthToWord';  
 
 const allLeagueMatches = cleanAllLeagueMatchesRawData(allLeagueMatchesRawData);
 
@@ -25,7 +26,9 @@ const TeamPastMatches = ({ team }) => {
                     <tbody>
                     {teamMatchesArray.map((teamMatch) => (
                         <tr key={teamMatch.index} className='hover:bg-green-700'>
-                            <td className="border-t border-b px-1 md:px-4 py-2 text-center">{teamMatch.Date.slice(5,10)}</td>
+                            <td className="border-t border-b px-1 md:px-4 py-2 text-center">
+                                {convertNumMonthToWord(teamMatch.Date.slice(5,10))}
+                            </td>
                             <td className="border-t border-b px-1 md:px-4 py-2 text-center">{teamMatch.HomeTeam}</td>
                             <td className="border-t border-b px-1 md:px-4 py-2 text-center">{teamMatch.HomeTeamExpectedGoals}</td>
                             <td className="border-t border-b px-1 md:px-4 py-2 text-center">{teamMatch.Score}</td>
