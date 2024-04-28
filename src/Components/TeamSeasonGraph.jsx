@@ -3,6 +3,7 @@ import ReactApexChart from 'react-apexcharts';
 import allLeagueMatchesRawData from '../data/allLeagueMatchesRawData.json';
 import { cleanAllLeagueMatchesRawData } from '../dataCleaner';
 import { convertNumMonthToWord } from '../convertNumMonthToWord'; 
+import { getTeamLogoSrc } from '../teamLogoHelper';
 
 const allLeagueMatches = cleanAllLeagueMatchesRawData(allLeagueMatchesRawData);
 
@@ -12,19 +13,24 @@ const TeamSeasonGraph = ({ team }) => {
     const datesArray = teamMatchesArray.map((teamMatch) => teamMatch.Date.slice(5));
     const goalDifferentialArray = [];
     const homeOrAwayArray = [];
+    const homeScoreArray = [];
+    const awayScoreArray = [];
 
     teamMatchesArray.forEach((teamMatch) => {
+
+        const homeScore = teamMatch.Score.split('–')[0];
+        homeScoreArray.push(homeScore);
+        const awayScore = teamMatch.Score.split('–')[1];
+        awayScoreArray.push(awayScore);
+
         if (teamMatch.HomeTeam === team) {
-            const homeScore = teamMatch.Score.split('–')[0];
-            const awayScore = teamMatch.Score.split('–')[1];
             const goalDifference = parseInt(homeScore) - parseInt(awayScore);
             goalDifferentialArray.push(goalDifference);
         } else if (teamMatch.AwayTeam === team) {
-            const homeScore = teamMatch.Score.split('–')[0];
-            const awayScore = teamMatch.Score.split('–')[1];
             const goalDifference = parseInt(awayScore) - parseInt(homeScore);
             goalDifferentialArray.push(goalDifference);
         }
+
     });
 
     teamMatchesArray.forEach((teamMatch) => {
@@ -85,21 +91,74 @@ const TeamSeasonGraph = ({ team }) => {
             custom: function ({ dataPointIndex }) {
                 
                 const opponentName = opponentNamesArray[dataPointIndex];
-                const goalDifference = goalDifferentialArray[dataPointIndex];
                 const homeOrAway = homeOrAwayArray[dataPointIndex];
                 
-                const date = datesArray[dataPointIndex];
-                const dateWithWordMonth = convertNumMonthToWord(date);
+                const numDate = datesArray[dataPointIndex];
+                const dateWithWordMonth = convertNumMonthToWord(numDate);
 
-                const text = `${homeOrAway} ${opponentName}`;
+                const teamIconSrc = getTeamLogoSrc(team);
+                const opponentIconSrc = getTeamLogoSrc(opponentName);
+
+                const homeScore = homeScoreArray[dataPointIndex];
+                const awayScore = awayScoreArray[dataPointIndex];
+
+                const isHome = homeOrAway === 'vs.'
                 
-                return `
-                        <span class="match-tooltip-date">
-                            ${dateWithWordMonth}
-                        </span>
-                        <div class="match-tooltip-score">
-                            ${text}
-                        </div>`;
+                if (isHome) {
+                    return `<span class="match-tooltip-date">
+                                ${dateWithWordMonth}
+                            </span>
+                            <div class="match-tooltip-score">
+                                ${homeOrAway} ${opponentName}
+                            </div>
+                            <div class='match-tooltip-scores-container'>
+                                <div class='match-tooltip-icon-and-score-wrapper'>
+                                    <img
+                                        class='match-tooltip-logo'
+                                        src=${teamIconSrc} 
+                                    />
+                                    <p class='match-tooltip-score'>
+                                        ${homeScore}
+                                    </p>
+                                </div>
+                                <div class='match-tooltip-icon-and-score-wrapper'>
+                                    <img
+                                        class='match-tooltip-logo'
+                                        src=${opponentIconSrc} 
+                                    />
+                                    <p class='match-tooltip-score'>
+                                        ${awayScore}
+                                    </p>
+                                </div>
+                            </div>`;
+                } else {
+                    return `<span class="match-tooltip-date">
+                                ${dateWithWordMonth}
+                            </span>
+                            <div class="match-tooltip-score">
+                                ${homeOrAway} ${opponentName}
+                            </div>
+                            <div class='match-tooltip-scores-container'>
+                                <div class='match-tooltip-icon-and-score-wrapper'>
+                                    <img
+                                        class='match-tooltip-logo'
+                                        src=${opponentIconSrc} 
+                                    />
+                                    <p class='match-tooltip-score'>
+                                        ${homeScore}
+                                    </p>
+                                </div>
+                                <div class='match-tooltip-icon-and-score-wrapper'>
+                                    <img
+                                        class='match-tooltip-logo'
+                                        src=${teamIconSrc} 
+                                    />
+                                    <p class='match-tooltip-score'>
+                                        ${awayScore}
+                                    </p>
+                                </div>
+                            </div>`;
+                }
             },
         },
     };

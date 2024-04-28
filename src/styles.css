@@ -22,11 +22,31 @@ body::after {
   text-decoration: underline;
 }
 
+.match-tooltip-icon-and-score-wrapper {
+  display: flex; 
+  flex-direction: column;
+  padding: 8px;
+}
+
+.match-tooltip-logo {
+  width: 50px;
+  height: 50px;
+  background-color: black;
+}
+
 .match-tooltip-score {
   background-color: black;
   font-size: 18px;
   font-weight: bold;
   padding: 8px;
+  text-align: center;
+}
+
+.match-tooltip-scores-container {
+  display: flex; 
+  flex-direction: row; 
+  background-color: black; 
+  justify-content: center
 }
 
 #page-links-container {
@@ -39,6 +59,10 @@ body::after {
   display: flex;
   justify-content: left;
   margin-top: 8px;
+}
+
+.score {
+
 }
 
 .swiper-slide {
