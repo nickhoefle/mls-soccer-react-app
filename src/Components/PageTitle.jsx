@@ -6,7 +6,14 @@ const PageTitle = () => {
             <div className='flex justify-center'>
                 <div id='page-links-wrapper'>
                     <a 
-                        className='text-white text-lg m-0 hover:underline'
+                        className='text-white text-xl mr-0 hover:underline'
+                        href='/'
+                    >
+                        Home
+                    </a>
+                    <p className='text-white text-xl px-2'>•</p>
+                    <a 
+                        className='text-white text-xl m-0 hover:underline'
                         href='/playercomp'
                     >
                         Player Comparison
