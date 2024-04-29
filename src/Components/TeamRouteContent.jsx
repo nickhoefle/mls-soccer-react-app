@@ -1,7 +1,7 @@
 import { getTeamLogoSrc } from '../teamLogoHelper';
 import TeamRoster from './TeamRoster';
 import TeamPastMatches from './TeamPastMatches';
-import TeamSeasonGraph from './TeamSeasonGraph';
+import TeamSeasonGraph from './GoalDifferentialGraph';
 import TeamSalaryPieChart from './TeamSalaryPieChart';
 import TeamRecordByReferee from './TeamRecordByReferee';
 

@@ -15,6 +15,9 @@ const TeamSeasonGraph = ({ team }) => {
     const homeOrAwayArray = [];
     const homeScoreArray = [];
     const awayScoreArray = [];
+    const opponentNamesArray = teamMatchesArray.map((teamMatch) => {
+        return teamMatch.HomeTeam === team ? teamMatch.AwayTeam : teamMatch.HomeTeam;
+    });
 
     teamMatchesArray.forEach((teamMatch) => {
 
@@ -41,14 +44,9 @@ const TeamSeasonGraph = ({ team }) => {
         }
     });
 
-    const opponentNamesArray = teamMatchesArray.map((teamMatch) => {
-        return teamMatch.HomeTeam === team ? teamMatch.AwayTeam : teamMatch.HomeTeam;
-    });
-
     const chartOptions = {
-        colors: ['#ffffff'],
+        colors: ['white'],
         chart: {
-            id: 'team-season-chart',
             toolbar: {
                 show: false,
             },
@@ -57,11 +55,11 @@ const TeamSeasonGraph = ({ team }) => {
             categories: datesArray,
             labels: {
                 style: {
-                    colors: 'white',
                     fontSize: '16px',
                     fontFamily: `ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji`,
+                    colors: 'white',
                 },
-                offsetY: 5,
+
             },
             tooltip: {
                 enabled: false,
@@ -71,9 +69,9 @@ const TeamSeasonGraph = ({ team }) => {
         yaxis: {
             labels: {
                 style: {
-                    colors: 'white',
                     fontSize: '16px',
                     fontFamily: `ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji`,
+                    colors: 'white',
                 },
                 formatter: function (value) {
                     return Math.round(value); 
@@ -88,14 +86,15 @@ const TeamSeasonGraph = ({ team }) => {
         tooltip: {
             shared: false,
             intersect: true,
+            followCursor: true,
             custom: function ({ dataPointIndex }) {
-                
-                const opponentName = opponentNamesArray[dataPointIndex];
-                const homeOrAway = homeOrAwayArray[dataPointIndex];
                 
                 const numDate = datesArray[dataPointIndex];
                 const dateWithWordMonth = convertNumMonthToWord(numDate);
 
+                const homeOrAway = homeOrAwayArray[dataPointIndex];
+                const opponentName = opponentNamesArray[dataPointIndex];
+                
                 const teamIconSrc = getTeamLogoSrc(team);
                 const opponentIconSrc = getTeamLogoSrc(opponentName);
 
