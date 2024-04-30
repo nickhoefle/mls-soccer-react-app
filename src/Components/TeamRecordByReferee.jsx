@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import allLeagueMatchesRawData from '../data/allLeagueMatchesRawData.json';
-import { cleanAllLeagueMatchesRawData } from '../dataCleaner'; 
+import { cleanAllLeagueMatchesRawData } from '../js-files/dataCleaner'; 
 
 const allLeagueMatches = cleanAllLeagueMatchesRawData(allLeagueMatchesRawData);
 
@@ -17,10 +17,10 @@ const TeamRecordByReferee = ({ team }) => {
         }
     };
 
-    const teamMatchesArray = allLeagueMatches.filter((match) => (match.HomeTeam === team || match.AwayTeam === team) && match.Score !== "");
+    const teamMatchObjsArray = allLeagueMatches.filter((match) => (match.HomeTeam === team || match.AwayTeam === team) && match.Score !== "");
     const refereeStatistics = {};
 
-    teamMatchesArray.forEach((match) => {
+    teamMatchObjsArray.forEach((match) => {
         const referee = match.Referee;
         const isHomeTeam = match.HomeTeam === team;
         const isAwayTeam = match.AwayTeam === team;

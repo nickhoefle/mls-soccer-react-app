@@ -1,13 +1,13 @@
 import React from 'react'
 import allLeagueMatchesRawData from '../data/allLeagueMatchesRawData.json';
-import { cleanAllLeagueMatchesRawData } from '../dataCleaner';
-import { convertNumMonthToWord } from '../convertNumMonthToWord';  
+import { cleanAllLeagueMatchesRawData } from '../js-files/dataCleaner';
+import { convertNumMonthToWord } from '../js-files/convertNumMonthToWord';  
 
 const allLeagueMatches = cleanAllLeagueMatchesRawData(allLeagueMatchesRawData);
 
 const TeamPastMatches = ({ team }) => {
 
-    const teamMatchesArray = allLeagueMatches.filter((match) => (match.HomeTeam === team || match.AwayTeam === team) && match.Score !== "")
+    const teamMatchObjsArray = allLeagueMatches.filter((match) => (match.HomeTeam === team || match.AwayTeam === team) && match.Score !== "")
 
     return (
         <>
@@ -24,7 +24,7 @@ const TeamPastMatches = ({ team }) => {
                         </tr>
                     </thead>
                     <tbody>
-                    {teamMatchesArray.map((teamMatch) => (
+                    {teamMatchObjsArray.map((teamMatch) => (
                         <tr key={teamMatch.index} className='hover:bg-green-700'>
                             <td className="border-t border-b px-1 md:px-4 py-2 text-center">
                                 {convertNumMonthToWord(teamMatch.Date.slice(5,10))}

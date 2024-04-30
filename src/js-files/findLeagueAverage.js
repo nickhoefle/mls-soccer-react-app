@@ -1,4 +1,4 @@
-import matchingPositions from './data/matchingPositions';
+import matchingPositions from '../data/matchingPositions';
 
 export function findLeagueAverage(jsonFile, stat, matchingPlayer) {
     let sum = 0;

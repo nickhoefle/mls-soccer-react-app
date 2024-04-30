@@ -1,26 +1,34 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 import allLeagueMatchesRawData from '../data/allLeagueMatchesRawData.json';
-import { cleanAllLeagueMatchesRawData } from '../dataCleaner';
-import { convertNumMonthToWord } from '../convertNumMonthToWord'; 
-import { getTeamLogoSrc } from '../teamLogoHelper';
+import { cleanAllLeagueMatchesRawData } from '../js-files/dataCleaner';
+import { convertNumMonthToWord } from '../js-files/convertNumMonthToWord'; 
+import { getTeamLogoSrc } from '../js-files/teamLogoHelper';
 
 const allLeagueMatches = cleanAllLeagueMatchesRawData(allLeagueMatchesRawData);
 
 const TeamSeasonGraph = ({ team }) => {
     
-    const teamMatchesArray = allLeagueMatches.filter((match) => (match.HomeTeam === team || match.AwayTeam === team) && match.Score !== '');
-    const datesArray = teamMatchesArray.map((teamMatch) => teamMatch.Date.slice(5));
-    const goalDifferentialArray = [];
+    const teamMatchObjsArray = allLeagueMatches.filter(
+        (match) => (match.HomeTeam === team || match.AwayTeam === team) && match.Score !== ''
+    );
+    
+    const matchDatesArray = teamMatchObjsArray.map(
+        (teamMatch) => teamMatch.Date.slice(5)
+    );
+
+    const opponentNamesArray = teamMatchObjsArray.map(
+        (teamMatch) => {
+            return teamMatch.HomeTeam === team ? teamMatch.AwayTeam : teamMatch.HomeTeam;
+        }
+    );
+
     const homeOrAwayArray = [];
     const homeScoreArray = [];
     const awayScoreArray = [];
-    const opponentNamesArray = teamMatchesArray.map((teamMatch) => {
-        return teamMatch.HomeTeam === team ? teamMatch.AwayTeam : teamMatch.HomeTeam;
-    });
+    const goalDifferentialArray = [];
 
-    teamMatchesArray.forEach((teamMatch) => {
-
+    teamMatchObjsArray.forEach((teamMatch) => {
         const homeScore = teamMatch.Score.split('–')[0];
         homeScoreArray.push(homeScore);
         const awayScore = teamMatch.Score.split('–')[1];
@@ -29,17 +37,10 @@ const TeamSeasonGraph = ({ team }) => {
         if (teamMatch.HomeTeam === team) {
             const goalDifference = parseInt(homeScore) - parseInt(awayScore);
             goalDifferentialArray.push(goalDifference);
+            homeOrAwayArray.push('vs.');
         } else if (teamMatch.AwayTeam === team) {
             const goalDifference = parseInt(awayScore) - parseInt(homeScore);
             goalDifferentialArray.push(goalDifference);
-        }
-
-    });
-
-    teamMatchesArray.forEach((teamMatch) => {
-        if (teamMatch.HomeTeam === team) {
-            homeOrAwayArray.push('vs.');
-        } else {
             homeOrAwayArray.push('@');
         }
     });
@@ -52,7 +53,7 @@ const TeamSeasonGraph = ({ team }) => {
             },
         },      
         xaxis: {
-            categories: datesArray,
+            categories: matchDatesArray,
             labels: {
                 style: {
                     fontSize: '16px',
@@ -64,7 +65,7 @@ const TeamSeasonGraph = ({ team }) => {
             tooltip: {
                 enabled: false,
             },
-            tickAmount: Math.ceil(datesArray.length / 2),
+            tickAmount: Math.ceil(matchDatesArray.length / 2),
         },
         yaxis: {
             labels: {
@@ -89,7 +90,7 @@ const TeamSeasonGraph = ({ team }) => {
             followCursor: true,
             custom: function ({ dataPointIndex }) {
                 
-                const numDate = datesArray[dataPointIndex];
+                const numDate = matchDatesArray[dataPointIndex];
                 const dateWithWordMonth = convertNumMonthToWord(numDate);
 
                 const homeOrAway = homeOrAwayArray[dataPointIndex];
