@@ -6,7 +6,7 @@ import PlayerStatGraph from './Components/PlayerStatGraph';
 import LeagueLeaders from './Components/LeagueLeaders';
 import LeagueLeadersSwiper from './Components/LeagueLeadersSwiper';
 import PageTitle from './Components/PageTitle';
-import TeamHamburger from './Components/TeamHamburger';
+import HamburgerMenu from './Components/HamburgerMenu';
 import { teamRecord } from './teamRecord';
 import PlayerComparisonSection from './Components/PlayerComparisonSection';
 import TeamRouteContent from './Components/TeamRouteContent';
@@ -64,7 +64,7 @@ function App() {
         <Route exact path="/">                    
           <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
           <PageTitle />
-          <TeamHamburger 
+          <HamburgerMenu 
             handleTeamSelect={handleTeamSelect} 
             isMenuOpen={isMenuOpen}
             handleToggleDropdown={handleToggleDropdown}
@@ -88,7 +88,7 @@ function App() {
         <Route path="/team/:teamId">
           <TeamLogoStrip handleTeamSelect={handleTeamSelect} />
           <PageTitle />
-          <TeamHamburger 
+          <HamburgerMenu 
             handleTeamSelect={handleTeamSelect} 
             isMenuOpen={isMenuOpen}
             handleToggleDropdown={handleToggleDropdown}
@@ -105,7 +105,7 @@ function App() {
         <Route exact path="/playercomp">
           <TeamLogoStrip handleTeamSelect={handleTeamSelect} /> 
           <PageTitle />
-          <TeamHamburger 
+          <HamburgerMenu 
             handleTeamSelect={handleTeamSelect} 
             isMenuOpen={isMenuOpen}
             handleToggleDropdown={handleToggleDropdown}

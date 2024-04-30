@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDropdown, isMenuOpen }) => {
+const HamburgerMenu = ({ handleTeamSelect, handleCloseDropdown, handleToggleDropdown, isMenuOpen }) => {
     
     function handleClick(teamClicked) {
         handleTeamSelect(teamClicked);
@@ -823,4 +823,4 @@ const TeamHamburger = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
     )
 }
 
-export default TeamHamburger
+export default HamburgerMenu
