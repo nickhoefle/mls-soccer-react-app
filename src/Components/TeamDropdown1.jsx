@@ -1,6 +1,6 @@
 import mlsTeamsArray from '../data/mlsTeamsArray.js';
 
-const TeamDropdown = ({ teamName1, setTeamName1 }) => { 
+const TeamDropdown1 = ({ teamName1, setTeamName1 }) => { 
 
     const handleTeam1Change = (e) => {
         setTeamName1(e.target.value); 
@@ -29,4 +29,4 @@ const TeamDropdown = ({ teamName1, setTeamName1 }) => {
     );
 };
 
-export default TeamDropdown;
+export default TeamDropdown1;

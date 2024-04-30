@@ -1,5 +1,5 @@
 import React from 'react'
-import TeamDropdown from './TeamDropdown'
+import TeamDropdown1 from './TeamDropdown1'
 import TeamDropdown2 from './TeamDropdown2';
 import PlayerDropdown1 from './PlayerDropdown1';
 import PlayerDropdown2 from './PlayerDropdown2';
@@ -15,7 +15,7 @@ const PlayerComparisonSection = ({ teamName1, teamName2, playerToCompare1, playe
             <div className='flex justify-center'>
                 <div className='sm: w-[100%] md:flex lg:pb-0 w-3/4'>
                     <div className="text-white text-center lg:w-1/2 m-15">
-                        <TeamDropdown teamName={teamName1} setTeamName1={handleTeamNameSelect} />
+                        <TeamDropdown1 teamName={teamName1} setTeamName1={handleTeamNameSelect} />
                         {teamName1 && <PlayerDropdown1 teamName1={teamName1} playerToCompare1={playerToCompare1} handlePlayerToCompare1={handlePlayerToCompare1}/>}
                     </div>
                     <div className="text-white text-center lg:w-1/2 m-15">
