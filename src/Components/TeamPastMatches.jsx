@@ -1,7 +1,7 @@
 import React from 'react'
 import allLeagueMatchesRawData from '../data/allLeagueMatchesRawData.json';
-import { cleanAllLeagueMatchesRawData } from '../dataCleaner';
-import { convertNumMonthToWord } from '../convertNumMonthToWord';  
+import { cleanAllLeagueMatchesRawData } from '../js-files/dataCleaner';
+import { convertNumMonthToWord } from '../js-files/convertNumMonthToWord';  
 
 const allLeagueMatches = cleanAllLeagueMatchesRawData(allLeagueMatchesRawData);
 

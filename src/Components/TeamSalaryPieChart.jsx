@@ -1,6 +1,6 @@
 import React from 'react';
 import leaguePlayerSalariesRawData from '../data/leaguePlayerSalariesRawData.json';
-import { cleanPlayerSalariesRawData } from '../dataCleaner'; 
+import { cleanPlayerSalariesRawData } from '../js-files/dataCleaner'; 
 import ReactApexChart from 'react-apexcharts';
 
 const allPlayersSalaries = cleanPlayerSalariesRawData(leaguePlayerSalariesRawData);

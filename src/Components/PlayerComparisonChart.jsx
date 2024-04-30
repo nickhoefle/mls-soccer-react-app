@@ -1,10 +1,10 @@
 import React from 'react'
 
 import leaguePlayersStandardStatsRawData from '../data/leaguePlayersStandardStatsRawData.json';
-import { cleanStandardStats } from '../dataCleaner'; 
+import { cleanStandardStats } from '../js-files/dataCleaner'; 
 
 import leaguePlayersShootingStatsRawData from '../data/leaguePlayersShootingStatsRawData.json';
-import { cleanShootingStats } from '../dataCleaner'; 
+import { cleanShootingStats } from '../js-files/dataCleaner'; 
 
 const leaguePlayersStandardStats = cleanStandardStats(leaguePlayersStandardStatsRawData);
 const leaguePlayersShootingStats = cleanShootingStats(leaguePlayersShootingStatsRawData);

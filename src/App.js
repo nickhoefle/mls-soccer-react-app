@@ -7,7 +7,7 @@ import LeagueLeaders from './Components/LeagueLeaders';
 import LeagueLeadersSwiper from './Components/LeagueLeadersSwiper';
 import PageTitle from './Components/PageTitle';
 import TeamHamburger from './Components/TeamHamburger';
-import { teamRecord } from './teamRecord';
+import { teamRecord } from './js-files/teamRecord';
 import PlayerComparisonSection from './Components/PlayerComparisonSection';
 import TeamRouteContent from './Components/TeamRouteContent';
 

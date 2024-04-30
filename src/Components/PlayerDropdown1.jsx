@@ -1,6 +1,6 @@
 import React from 'react'
 import leaguePlayersShootingStatsRawData from '../data/leaguePlayersShootingStatsRawData.json';
-import { cleanShootingStats } from '../dataCleaner'; 
+import { cleanShootingStats } from '../js-files/dataCleaner'; 
 
 const leaguePlayersShootingStats = cleanShootingStats(leaguePlayersShootingStatsRawData);
 

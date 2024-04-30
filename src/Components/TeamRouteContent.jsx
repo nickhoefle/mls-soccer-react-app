@@ -1,4 +1,4 @@
-import { getTeamLogoSrc } from '../teamLogoHelper';
+import { getTeamLogoSrc } from '../js-files/teamLogoHelper';
 import TeamRoster from './TeamRoster';
 import TeamPastMatches from './TeamPastMatches';
 import TeamSeasonGraph from './GoalDifferentialGraph';

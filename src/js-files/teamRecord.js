@@ -1,4 +1,4 @@
-import allLeagueMatchesRawData from './data/allLeagueMatchesRawData.json';
+import allLeagueMatchesRawData from '../data/allLeagueMatchesRawData.json';
 import { cleanAllLeagueMatchesRawData } from './dataCleaner'; 
 
 const allLeagueMatches = cleanAllLeagueMatchesRawData(allLeagueMatchesRawData);

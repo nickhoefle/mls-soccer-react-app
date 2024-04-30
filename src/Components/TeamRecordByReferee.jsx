@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import allLeagueMatchesRawData from '../data/allLeagueMatchesRawData.json';
-import { cleanAllLeagueMatchesRawData } from '../dataCleaner'; 
+import { cleanAllLeagueMatchesRawData } from '../js-files/dataCleaner'; 
 
 const allLeagueMatches = cleanAllLeagueMatchesRawData(allLeagueMatchesRawData);
 

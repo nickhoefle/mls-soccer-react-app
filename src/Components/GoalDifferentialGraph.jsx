@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 import allLeagueMatchesRawData from '../data/allLeagueMatchesRawData.json';
-import { cleanAllLeagueMatchesRawData } from '../dataCleaner';
-import { convertNumMonthToWord } from '../convertNumMonthToWord'; 
-import { getTeamLogoSrc } from '../teamLogoHelper';
+import { cleanAllLeagueMatchesRawData } from '../js-files/dataCleaner';
+import { convertNumMonthToWord } from '../js-files/convertNumMonthToWord'; 
+import { getTeamLogoSrc } from '../js-files/teamLogoHelper';
 
 const allLeagueMatches = cleanAllLeagueMatchesRawData(allLeagueMatchesRawData);
 
@@ -13,7 +13,7 @@ const TeamSeasonGraph = ({ team }) => {
         (match) => (match.HomeTeam === team || match.AwayTeam === team) && match.Score !== ''
     );
     
-    const datesArray = teamMatchObjsArray.map(
+    const matchDatesArray = teamMatchObjsArray.map(
         (teamMatch) => teamMatch.Date.slice(5)
     );
 
@@ -53,7 +53,7 @@ const TeamSeasonGraph = ({ team }) => {
             },
         },      
         xaxis: {
-            categories: datesArray,
+            categories: matchDatesArray,
             labels: {
                 style: {
                     fontSize: '16px',
@@ -65,7 +65,7 @@ const TeamSeasonGraph = ({ team }) => {
             tooltip: {
                 enabled: false,
             },
-            tickAmount: Math.ceil(datesArray.length / 2),
+            tickAmount: Math.ceil(matchDatesArray.length / 2),
         },
         yaxis: {
             labels: {
@@ -90,7 +90,7 @@ const TeamSeasonGraph = ({ team }) => {
             followCursor: true,
             custom: function ({ dataPointIndex }) {
                 
-                const numDate = datesArray[dataPointIndex];
+                const numDate = matchDatesArray[dataPointIndex];
                 const dateWithWordMonth = convertNumMonthToWord(numDate);
 
                 const homeOrAway = homeOrAwayArray[dataPointIndex];

@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import diacriticless from 'diacriticless';
 import '../styles.css';
 import thirdsDiagramImage from "../images/thirds-diagram.png";
-import { findLeagueAverage } from '../findLeagueAverage'; 
+import { findLeagueAverage } from '../js-files/findLeagueAverage'; 
 
 import leaguePlayersStandardStatsRawData from '../data/leaguePlayersStandardStatsRawData.json';
-import { cleanStandardStats } from '../dataCleaner'; 
+import { cleanStandardStats } from '../js-files/dataCleaner'; 
 
 import leaguePlayersShootingStatsRawData from '../data/leaguePlayersShootingStatsRawData.json';
-import { cleanShootingStats } from '../dataCleaner'; 
+import { cleanShootingStats } from '../js-files/dataCleaner'; 
 
 import leaguePlayersDefensePer90StatsRawData from '../data/leaguePlayersDefensePer90StatsRawData.json';
-import { cleanDefenseStats } from '../dataCleaner';
+import { cleanDefenseStats } from '../js-files/dataCleaner';
 
 const leaguePlayersStandardStats = cleanStandardStats(leaguePlayersStandardStatsRawData);
 const leaguePlayersShootingStats = cleanShootingStats(leaguePlayersShootingStatsRawData);
