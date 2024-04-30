@@ -9,18 +9,26 @@ const allLeagueMatches = cleanAllLeagueMatchesRawData(allLeagueMatchesRawData);
 
 const TeamSeasonGraph = ({ team }) => {
     
-    const teamMatchesArray = allLeagueMatches.filter((match) => (match.HomeTeam === team || match.AwayTeam === team) && match.Score !== '');
-    const datesArray = teamMatchesArray.map((teamMatch) => teamMatch.Date.slice(5));
-    const goalDifferentialArray = [];
+    const teamMatchObjsArray = allLeagueMatches.filter(
+        (match) => (match.HomeTeam === team || match.AwayTeam === team) && match.Score !== ''
+    );
+    
+    const datesArray = teamMatchObjsArray.map(
+        (teamMatch) => teamMatch.Date.slice(5)
+    );
+
+    const opponentNamesArray = teamMatchObjsArray.map(
+        (teamMatch) => {
+            return teamMatch.HomeTeam === team ? teamMatch.AwayTeam : teamMatch.HomeTeam;
+        }
+    );
+
     const homeOrAwayArray = [];
     const homeScoreArray = [];
     const awayScoreArray = [];
-    const opponentNamesArray = teamMatchesArray.map((teamMatch) => {
-        return teamMatch.HomeTeam === team ? teamMatch.AwayTeam : teamMatch.HomeTeam;
-    });
+    const goalDifferentialArray = [];
 
-    teamMatchesArray.forEach((teamMatch) => {
-
+    teamMatchObjsArray.forEach((teamMatch) => {
         const homeScore = teamMatch.Score.split('–')[0];
         homeScoreArray.push(homeScore);
         const awayScore = teamMatch.Score.split('–')[1];
@@ -29,17 +37,10 @@ const TeamSeasonGraph = ({ team }) => {
         if (teamMatch.HomeTeam === team) {
             const goalDifference = parseInt(homeScore) - parseInt(awayScore);
             goalDifferentialArray.push(goalDifference);
+            homeOrAwayArray.push('vs.');
         } else if (teamMatch.AwayTeam === team) {
             const goalDifference = parseInt(awayScore) - parseInt(homeScore);
             goalDifferentialArray.push(goalDifference);
-        }
-
-    });
-
-    teamMatchesArray.forEach((teamMatch) => {
-        if (teamMatch.HomeTeam === team) {
-            homeOrAwayArray.push('vs.');
-        } else {
             homeOrAwayArray.push('@');
         }
     });

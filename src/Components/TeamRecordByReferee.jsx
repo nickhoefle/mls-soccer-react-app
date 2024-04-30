@@ -17,10 +17,10 @@ const TeamRecordByReferee = ({ team }) => {
         }
     };
 
-    const teamMatchesArray = allLeagueMatches.filter((match) => (match.HomeTeam === team || match.AwayTeam === team) && match.Score !== "");
+    const teamMatchObjsArray = allLeagueMatches.filter((match) => (match.HomeTeam === team || match.AwayTeam === team) && match.Score !== "");
     const refereeStatistics = {};
 
-    teamMatchesArray.forEach((match) => {
+    teamMatchObjsArray.forEach((match) => {
         const referee = match.Referee;
         const isHomeTeam = match.HomeTeam === team;
         const isAwayTeam = match.AwayTeam === team;
