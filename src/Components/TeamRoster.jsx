@@ -5,14 +5,14 @@ import { cleanStandardStats } from '../js-files/dataCleaner';
 const leaguePlayersStandardStats = cleanStandardStats(leaguePlayersStandardStatsRawData);
 
 const TeamRoster = ({ team }) => {
-    const [sortColumn, setSortColumn] = useState('Goals');
+    const [statColumn, setStatColumn] = useState('Goals');
     const [sortDirection, setSortDirection] = useState('desc');
 
     const handleColumnSort = (column) => {
-        if (sortColumn === column) {
+        if (statColumn === column) {
             setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
         } else {
-            setSortColumn(column);
+            setStatColumn(column);
             setSortDirection('desc');
         }
     };
@@ -21,17 +21,17 @@ const TeamRoster = ({ team }) => {
     const teamPlayers = leaguePlayersStandardStats
         .filter((leaguePlayer) => leaguePlayer.Team === team)
         .sort((a, b) => {
-            const valueA = String(a[sortColumn]);
-            const valueB = String(b[sortColumn]);
+            const StringA = String(a[statColumn]);
+            const StringB = String(b[statColumn]);
 
-            if (sortColumn === 'Name' || sortColumn === 'Position') {
-            return sortDirection === 'asc' ? valueA.localeCompare(valueB) : valueB.localeCompare(valueA);
+            if (statColumn === 'Name' || statColumn === 'Position') {
+                return sortDirection === 'asc' ? StringA.localeCompare(StringB) : StringB.localeCompare(StringA);
             }
 
-            const numericValueA = parseInt(valueA.replace(',', ''));
-            const numericValueB = parseInt(valueB.replace(',', ''));
+            const numberA = parseInt(StringA.replace(',', ''));
+            const numberB = parseInt(StringB.replace(',', ''));
 
-            return sortDirection === 'asc' ? numericValueA - numericValueB : numericValueB - numericValueA;
+            return sortDirection === 'asc' ? numberA - numberB : numberB - numberA;
         });
 
 
@@ -43,7 +43,7 @@ const TeamRoster = ({ team }) => {
                         <thead>
                             <tr>
                                 <th 
-                                    class="px-4 py-2 sticky left-0 cursor-pointer bg-black sm:bg-transparent"
+                                    class="px-4 py-2 sticky text-left left-0 cursor-pointer bg-black sm:bg-transparent"
                                     onClick={() => handleColumnSort('Name')}
                                 >
                                     Player
