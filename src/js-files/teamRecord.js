@@ -28,6 +28,6 @@ export function teamRecord(team) {
             losses++; }
     });
 
-    return `${wins} - ${losses} - ${ties}`;
+    return `${wins}W - ${losses}L - ${ties}T`;
 
 }
