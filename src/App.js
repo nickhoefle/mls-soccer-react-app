@@ -29,7 +29,7 @@ function App() {
     setTeam(team);
   }
 
-  function handleTeamNameSelect(teamName1) {
+  function handleTeamName1Select(teamName1) {
     setTeamName1(teamName1);
   }
 
@@ -114,12 +114,12 @@ function App() {
           <PlayerComparisonSection
             teamName1={teamName1}
             teamName2={teamName2}
+            handleTeamName1Select={handleTeamName1Select}
+            handleTeamName2Select={handleTeamName2Select}
             playerToCompare1={playerToCompare1}
             playerToCompare2={playerToCompare2}
             handlePlayerToCompare1={handlePlayerToCompare1}
             handlePlayerToCompare2={handlePlayerToCompare2}
-            handleTeamNameSelect={handleTeamNameSelect}
-            handleTeamName2Select={handleTeamName2Select}
           />
         </Route>
 

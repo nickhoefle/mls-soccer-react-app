@@ -4,7 +4,7 @@ import { cleanShootingStats } from '../js-files/dataCleaner';
 
 const leaguePlayersShootingStats = cleanShootingStats(leaguePlayersShootingStatsRawData);
 
-const PlayerDropdown1 = ({ teamName1, playerToCompare1, handlePlayerToCompare1 }) => {
+const PlayerDropdown1 = ({ teamName1, handlePlayerToCompare1 }) => {
 
     let teamPlayers = leaguePlayersShootingStats
         .filter((leaguePlayer) => (leaguePlayer.Team === teamName1))
@@ -18,7 +18,6 @@ const PlayerDropdown1 = ({ teamName1, playerToCompare1, handlePlayerToCompare1 }
         <div>
             <select
                 className='bg-black outline-white border-2 p-1 text-center text-xl sm: w-[85%] lg:w-[55%]'
-                value={playerToCompare1}
                 onChange={handlePlayerToCompareChange}
             >
                 <option className='text-center'>- Players -</option>
