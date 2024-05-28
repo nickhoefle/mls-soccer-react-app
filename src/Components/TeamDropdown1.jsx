@@ -1,9 +1,9 @@
 import mlsTeamsArray from '../data/mlsTeamsArray.js';
 
-const TeamDropdown1 = ({ handleTeamName1Select }) => { 
+const TeamDropdown1 = ({ setTeamName1 }) => { 
 
     const handleTeam1Change = (e) => {
-        handleTeamName1Select(e.target.value); 
+        setTeamName1(e.target.value); 
     };
 
     return (

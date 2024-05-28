@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts';
-import allLeagueMatchesRawData from '../data/allLeagueMatchesRawData.json';
-import { cleanAllLeagueMatchesRawData } from '../js-files/dataCleaner';
 import { convertNumMonthToWord } from '../js-files/convertNumMonthToWord'; 
 import { getTeamLogoSrc } from '../js-files/teamLogoHelper';
+
+import allLeagueMatchesRawData from '../data/allLeagueMatchesRawData.json';
+import { cleanAllLeagueMatchesRawData } from '../js-files/dataCleaner';
 
 const allLeagueMatches = cleanAllLeagueMatchesRawData(allLeagueMatchesRawData);
 
@@ -12,6 +13,7 @@ const TeamSeasonGraph = ({ team }) => {
     const teamMatchObjsArray = allLeagueMatches.filter(
         (match) => (match.HomeTeam === team || match.AwayTeam === team) && match.Score !== ''
     );
+    console.log(teamMatchObjsArray)
     
     const matchDatesArray = teamMatchObjsArray.map(
         (teamMatch) => teamMatch.Date.slice(5)

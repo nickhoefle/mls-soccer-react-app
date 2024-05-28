@@ -4,14 +4,14 @@ import { cleanShootingStats } from '../js-files/dataCleaner';
 
 const leaguePlayersShootingStats = cleanShootingStats(leaguePlayersShootingStatsRawData);
 
-const PlayerDropdown2 = ({ teamName2, handlePlayerToCompare2 }) => {
+const PlayerDropdown2 = ({ teamName2, setPlayerToCompare2 }) => {
 
     let teamPlayers = leaguePlayersShootingStats
         .filter((leaguePlayer) => (leaguePlayer.Team === teamName2))
         .sort((a, b) => a.Position.localeCompare(b.Position));
 
     const handlePlayerToCompareChange2 = (e) => {
-        handlePlayerToCompare2(e.target.value); 
+        setPlayerToCompare2(e.target.value); 
     };
     
     return (

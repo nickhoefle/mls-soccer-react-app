@@ -29,22 +29,6 @@ function App() {
     setTeam(team);
   }
 
-  function handleTeamName1Select(teamName1) {
-    setTeamName1(teamName1);
-  }
-
-  function handleTeamName2Select(teamName2) {
-    setTeamName2(teamName2);
-  }
-
-  function handlePlayerToCompare1(player1) {
-    setPlayerToCompare1(player1);
-  }
-
-  function handlePlayerToCompare2(player2) {
-    setPlayerToCompare2(player2);
-  }
-
   function handleComponentClick(component) {
     setActiveComponent(component);
   }
@@ -114,12 +98,12 @@ function App() {
           <PlayerComparisonSection
             teamName1={teamName1}
             teamName2={teamName2}
-            handleTeamName1Select={handleTeamName1Select}
-            handleTeamName2Select={handleTeamName2Select}
+            setTeamName1={setTeamName1}
+            setTeamName2={setTeamName2}
             playerToCompare1={playerToCompare1}
             playerToCompare2={playerToCompare2}
-            handlePlayerToCompare1={handlePlayerToCompare1}
-            handlePlayerToCompare2={handlePlayerToCompare2}
+            setPlayerToCompare1={setPlayerToCompare1}
+            setPlayerToCompare2={setPlayerToCompare2}
           />
         </Route>
 

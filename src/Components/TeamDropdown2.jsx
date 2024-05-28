@@ -1,10 +1,10 @@
 import React from 'react';
 import mlsTeamsArray from '../data/mlsTeamsArray.js';
 
-const TeamDropdown2 = ({ handleTeamName2Select }) => { 
+const TeamDropdown2 = ({ setTeamName2 }) => { 
 
     const handleTeam2Change = (e) => {
-        handleTeamName2Select(e.target.value); 
+        setTeamName2(e.target.value); 
     };
 
     return (
