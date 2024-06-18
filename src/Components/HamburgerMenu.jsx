@@ -97,14 +97,14 @@ const HamburgerMenu = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                             alt="Colorado Rapids Logo"
                                             style={{width: "20px"}}
                                             onClick={() => {
-                                                handleClick('Colorado Rapids');
+                                                handleClick('Rapids');
                                                 handleCloseDropdown();
                                             }}
                                         />
                                         <span 
                                             className='text-base'
                                             onClick={() => {
-                                                handleClick('Colorado Rapids'); 
+                                                handleClick('Rapids'); 
                                                 handleCloseDropdown();
                                             }} 
                                         >
@@ -201,14 +201,14 @@ const HamburgerMenu = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                             alt="LAFC Logo"
                                             style={{width: "20px"}}
                                             onClick={() => { 
-                                                handleClick('Los Angeles FC')
+                                                handleClick('LAFC')
                                                 handleCloseDropdown();
                                             }}
                                         />
                                         <span
                                             className='text-base' 
                                             onClick={() => { 
-                                                handleClick('Los Angeles FC'); 
+                                                handleClick('LAFC'); 
                                                 handleCloseDropdown(); }} 
                                         >
                                             LAFC
@@ -278,14 +278,14 @@ const HamburgerMenu = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                         alt="Real Salt Lake Logo"
                                         style={{width: "20px"}}
                                         onClick={() => { 
-                                            handleClick('Real Salt Lake')
+                                            handleClick('RSL')
                                             handleCloseDropdown();
                                         }}
                                     />
                                     <span 
                                         className='text-base'
                                         onClick={() => { 
-                                            handleClick('Real Salt Lake'); 
+                                            handleClick('RSL'); 
                                             handleCloseDropdown(); 
                                         }} 
                                     >
@@ -304,14 +304,14 @@ const HamburgerMenu = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                         alt="San Jose Logo"
                                         style={{width: "20px"}}
                                         onClick={() => {
-                                            handleClick('San Jose')
+                                            handleClick('SJ Earthquakes')
                                             handleCloseDropdown();
                                         }}
                                     />
                                     <span 
                                         className='text-base'
                                         onClick={() => { 
-                                            handleClick('San Jose'); 
+                                            handleClick('SJ Earthquakes'); 
                                             handleCloseDropdown(); 
                                         }} 
                                     >
@@ -408,14 +408,14 @@ const HamburgerMenu = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                         alt="Vancouver Whitecaps Logo"
                                         style={{width: "20px"}}
                                         onClick={() => { 
-                                            handleClick('Vancouver')
+                                            handleClick("Vancouver W'caps")
                                             handleCloseDropdown();
                                         }}
                                     />
                                     <span 
                                         className='text-base'
                                         onClick={() => { 
-                                            handleClick('Vancouver'); 
+                                            handleClick("Vancouver W'caps"); 
                                             handleCloseDropdown(); 
                                         }} 
                                     >
@@ -488,14 +488,14 @@ const HamburgerMenu = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                         alt="Chicago Fire Logo"
                                         style={{width: "20px"}}
                                         onClick={() => {
-                                            handleClick('Chicago Fire')
+                                            handleClick('Fire')
                                             handleCloseDropdown();
                                         }}
                                     />
                                     <span
                                         className='text-base' 
                                         onClick={() => { 
-                                            handleClick('Chicago Fire'); 
+                                            handleClick('Fire'); 
                                             handleCloseDropdown(); 
                                         }} 
                                     >
@@ -514,14 +514,14 @@ const HamburgerMenu = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                         alt="Columbus Crew Logo"
                                         style={{width: "20px"}}
                                         onClick={() => {
-                                            handleClick('Columbus Crew');
+                                            handleClick('Crew');
                                             handleCloseDropdown();
                                         }}
                                     />
                                     <span
                                         className='text-base' 
                                         onClick={() => { 
-                                            handleClick('Columbus Crew'); 
+                                            handleClick('Crew'); 
                                             handleCloseDropdown(); 
                                         }} 
                                     >
@@ -670,14 +670,14 @@ const HamburgerMenu = ({ handleTeamSelect, handleCloseDropdown, handleToggleDrop
                                         alt="New England Rev. Logo"
                                         style={{width: "20px"}}
                                         onClick={() => {
-                                            handleClick('New England');
+                                            handleClick('NE Revolution');
                                             handleCloseDropdown();
                                         }}
                                     />
                                     <span
                                         className='text-base' 
                                         onClick={() => { 
-                                            handleClick('New England'); 
+                                            handleClick('NE Revolution'); 
                                             handleCloseDropdown(); 
                                         }} 
                                     >

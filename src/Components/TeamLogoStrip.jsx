@@ -23,7 +23,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         <img 
                             className='team-logo hover:border-b-2'
                             src='/logos/full-size/colorado.png'
-                            onClick={() => handleClick('Colorado Rapids')}
+                            onClick={() => handleClick('Rapids')}
                         />
                     </Link>   
                     
@@ -55,7 +55,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         <img 
                             className='team-logo hover:border-b-2'
                             src='/logos/full-size/lafc.png'
-                            onClick={() => handleClick('Los Angeles FC')}
+                            onClick={() => handleClick('LAFC')}
                         />
                     </Link>    
                         
@@ -79,7 +79,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         <img 
                             className='team-logo hover:border-b-2'
                             src='/logos/full-size/rsl.png'
-                            onClick={() => handleClick('Real Salt Lake')}
+                            onClick={() => handleClick('RSL')}
                         />
                     </Link>    
                         
@@ -87,7 +87,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         <img 
                             className='team-logo hover:border-b-2'
                             src='/logos/full-size/sanjose.png'
-                            onClick={() => handleClick('San Jose')}
+                            onClick={() => handleClick('SJ Earthquakes')}
                         />
                     </Link>    
                         
@@ -119,7 +119,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         <img 
                             className='team-logo hover:border-b-2'
                             src='/logos/full-size/vancouver.png'
-                            onClick={() => handleClick('Vancouver')}
+                            onClick={() => handleClick("Vancouver W'caps")}
                         />
                     </Link>    
                         
@@ -143,7 +143,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         <img 
                             className='team-logo hover:border-b-2'
                             src='/logos/full-size/chicago.png'
-                            onClick={() => handleClick('Chicago Fire')}
+                            onClick={() => handleClick('Fire')}
                         />
                     </Link>    
                         
@@ -151,7 +151,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         <img 
                             className='team-logo hover:border-b-2'
                             src='/logos/full-size/columbus.png'
-                            onClick={() => handleClick('Columbus Crew')}
+                            onClick={() => handleClick('Crew')}
                         />
                     </Link>    
                         
@@ -199,7 +199,7 @@ const TeamLogoStrip = ({ handleTeamSelect }) => {
                         <img 
                             className='team-logo hover:border-b-2'
                             src='/logos/full-size/newengland.png'
-                            onClick={() => handleClick('New England')}
+                            onClick={() => handleClick('NE Revolution')}
                         />
                     </Link>    
 

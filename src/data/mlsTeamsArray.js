@@ -1,7 +1,7 @@
-const teamArray = ['Atlanta Utd', 'Austin', 'CF Montréal', 'Charlotte', 'Chicago Fire', 'Colorado Rapids',
-                'Columbus Crew', 'D.C. United', 'Dynamo FC', 'FC Cincinnati', 'FC Dallas', 'Inter Miami', 'LA Galaxy',
-                'Los Angeles FC', 'Minnesota Utd', 'Nashville', 'New England', 'NY Red Bulls', 'NYCFC', 'Orlando City', 
-                'Philadelphia', 'Portland Timbers', 'Real Salt Lake', 'San Jose', 'Seattle', 'Sporting KC', 'St. Louis',
-                'Toronto FC', 'Vancouver'];
+const teamArray = ['Atlanta Utd', 'Austin', 'CF Montréal', 'Charlotte', 'Fire', 'Crew',
+                'D.C. United', 'Dynamo FC', 'FC Cincinnati', 'FC Dallas', 'Inter Miami', 'LA Galaxy',
+                'LAFC', 'Minnesota Utd', 'Nashville', 'NE Revolution', 'NY Red Bulls', 'NYCFC', 'Orlando City', 
+                'Philadelphia', 'Portland Timbers', 'Rapids', 'RSL', 'SJ Earthquakes', 'Seattle', 'Sporting KC', 'St. Louis',
+                'Toronto FC', "Vancouver W'caps"];
 
 export default teamArray;

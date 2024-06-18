@@ -2,7 +2,7 @@ export function getTeamLogoSrc(team) {
     switch (team) {
         case 'Austin':
             return '/logos/full-size/austin.png';
-        case 'Colorado Rapids':
+        case 'Rapids':
             return '/logos/full-size/colorado.png';
         case 'FC Dallas':
             return '/logos/full-size/dallas.png';
@@ -10,15 +10,15 @@ export function getTeamLogoSrc(team) {
             return '/logos/full-size/houston.png';
         case 'LA Galaxy':
             return '/logos/full-size/lagalaxy.png';
-        case 'Los Angeles FC':
+        case 'LAFC':
             return '/logos/full-size/lafc.png';
         case 'Minnesota Utd':
             return '/logos/full-size/minnesota.png';
         case 'Portland Timbers':
             return '/logos/full-size/portland.png';
-        case 'Real Salt Lake':
+        case 'RSL':
             return '/logos/full-size/rsl.png';
-        case 'San Jose':
+        case 'SJ Earthquakes':
             return '/logos/full-size/sanjose.png';
         case 'Seattle':
             return '/logos/full-size/seattle.png';
@@ -26,15 +26,15 @@ export function getTeamLogoSrc(team) {
             return '/logos/full-size/skc.png';
         case 'St. Louis':
             return '/logos/full-size/stlouis.png';
-        case 'Vancouver':
+        case "Vancouver W'caps":
             return '/logos/full-size/vancouver.png';
         case 'Atlanta Utd':
             return '/logos/full-size/atlanta.png';
         case 'Charlotte':
             return '/logos/full-size/charlotte.png';
-        case 'Chicago Fire':
+        case 'Fire':
             return '/logos/full-size/chicago.png';
-        case 'Columbus Crew':
+        case 'Crew':
             return '/logos/full-size/columbus.png';
         case 'FC Cincinnati':
             return '/logos/full-size/cincinnati.png';
@@ -46,7 +46,7 @@ export function getTeamLogoSrc(team) {
             return '/logos/full-size/montreal.png';
         case 'Nashville':
             return '/logos/full-size/nashville.png';
-        case 'New England':
+        case 'NE Revolution':
             return '/logos/full-size/newengland.png';
         case 'NYCFC':
             return '/logos/full-size/nycfc.png';
